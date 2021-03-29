@@ -1,0 +1,23 @@
+.footer {
+    width: 100%;
+    background-color: #d5dcdf79;
+    padding: 2rem 0;
+}
+.footerContainer {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer address, .footer a {
+    font-style: normal;
+    font-size: .9rem;
+}
+.footer .form {
+    text-align: center;
+    font-size: .9rem;
+}
+.footer h3 {
+    font-weight: 700;
+}
