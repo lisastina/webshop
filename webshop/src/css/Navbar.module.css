@@ -43,6 +43,12 @@
 }
 .cartIcon {
     text-align: end;
-    margin-right: 1rem;
+    margin-right: 2rem;
     width: 33%;
+}
+.cartIcon img {
+    width: 30px;
+}
+.cartIcon {
+    color: white;
 }
