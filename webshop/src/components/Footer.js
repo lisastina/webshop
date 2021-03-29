@@ -17,7 +17,7 @@ const Footer = () => {
                 <p>Sign up to recieve news and updates.</p>
                 <form> 
                     <input type="text" placeholder="Email Address"/>
-                    <button type="submit" >Sign up</button>
+                    <button type="submit" className="btn-sm">Sign up</button>                    
                 </form>
             </div>
             </div>
