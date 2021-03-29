@@ -1,11 +1,10 @@
-import headerImg from '../assets/imgs/header.jpg';
 import ProductList from '../components/ProductList';
 import style from '../css/Home.module.css';
 
 const Home = () => {
     return ( 
         <div className={style.home}>
-            <img src={headerImg} alt="header"/>
+            <img src="/assets/imgs/header.jpg" alt="header"/>
             <div className="site-container">
                 <div className={style.desc}>
                     <h2>An exploration in color and texture.</h2>

@@ -1,6 +1,5 @@
 import style from '../css/Navbar.module.css';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
-import cartIcon from '../assets/icons/cart-icon.png';
 
 const Navbar = () => {
     const history = useHistory();
@@ -20,7 +19,7 @@ const Navbar = () => {
             </div>
             <div className={style.cartIcon}>
                 <span className={style.cartNumber}>0</span>
-                <img src={cartIcon} alt="shopping cart icon"/>
+                <img src="/assets/icons/cart-icon.png" alt="shopping cart icon"/>
             </div>
         </div>
      );
