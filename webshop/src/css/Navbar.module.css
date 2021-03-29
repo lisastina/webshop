@@ -1,6 +1,48 @@
 .navbar {
-    background-color: pink;
+    /* background-color: pink; */
     top: 0;
     width: 100%;
     position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.linkContainer {
+    margin-left: 1rem;
+    display: flex;
+    width: 33%;
+}
+.link {
+    position: relative;
+    margin: 1rem;
+}
+.linkContainer a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFF;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+}
+.linkContainer a:hover::before {
+    visibility: visible;
+    width: 100%;
+}
+.linkContainer .active::before {
+    visibility: visible;
+    width: 100%;
+}
+
+.pageTitle h1 {
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.cartIcon {
+    text-align: end;
+    margin-right: 1rem;
+    width: 33%;
 }

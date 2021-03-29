@@ -1,7 +1,11 @@
+import headerImg from '../assets/imgs/header.jpg';
+
 const Home = () => {
     return ( 
         <div className="home">
-            <h1>Home</h1>
+            <img src={headerImg} alt="header"/>
+            <div className="site-container">
+            </div>
         </div>
      );
 }
