@@ -1,12 +1,13 @@
 import style from '../css/Navbar.module.css';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import cartIcon from '../assets/icons/cart-icon.png';
 
 const Navbar = () => {
     const history = useHistory();
-
+    const location = useLocation();
+ 
     return ( 
-        <div className={style.navbar}>
+        <div className={`${style.navbar} ${location.pathname === "/" && style.white}`}>
             <div className={style.linkContainer}>
                 <div className={style.link}>
                     <NavLink exact to="/" activeClassName={style.active}>Home</NavLink></div>

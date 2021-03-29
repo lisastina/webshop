@@ -1,5 +1,4 @@
 .navbar {
-    background: linear-gradient(to bottom, #30385e3b 0%, #c5c5c500 100%);
     top: 0;
     width: 100%;
     position: fixed;
@@ -23,21 +22,17 @@
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: #FFF;
+    background-color: #463a3b;
     visibility: hidden;
     transition: all .3s ease-in-out;
 }
-.linkContainer a:hover::before {
-    visibility: visible;
-    width: 100%;
-}
-.linkContainer .active::before {
+.linkContainer a:hover::before, .linkContainer .active::before {
     visibility: visible;
     width: 100%;
 }
 
 .pageTitle h1 {
-    color: white;
+    color: #463a3b;
     text-align: center;
     cursor: pointer;
 }
@@ -50,5 +45,17 @@
     width: 30px;
 }
 .cartIcon {
-    color: white;
+    color:#463a3b;
+}
+
+
+/* When on homepage make elements in navbar white */
+.white a, .white h1, .white .cartIcon {
+    color: #fff;
+}
+.white a::before {
+    background-color: #FFF;
+}
+.navbar.white {
+    background: linear-gradient(to bottom, #30385e3b 0%, #c5c5c500 100%);
 }
