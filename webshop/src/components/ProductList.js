@@ -11,7 +11,6 @@ const ProductList = () => {
         <div className={style.ProductList}>
             {products && products.map((product) => 
                 <ProductCard product={product} key={product.name}/>
-                
             )}
         </div>
      );

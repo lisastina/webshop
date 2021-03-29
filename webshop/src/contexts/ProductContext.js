@@ -11,7 +11,7 @@ const ProductContextProvider = (props) => {
             const productLists = productList.map(product => { 
                 return {
                     ...product,
-                    img:`../assets/product-pictures/${product.name}-${product.productType}.jpg`
+                    img:`../assets/imgs/products/${product.name}-${product.productType}.jpg`
                 }
             })
             setProducts(productLists)
