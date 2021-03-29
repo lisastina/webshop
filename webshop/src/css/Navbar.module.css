@@ -1,5 +1,5 @@
 .navbar {
-    /* background-color: pink; */
+    background: linear-gradient(to bottom, #30385e3b 0%, #c5c5c500 100%);
     top: 0;
     width: 100%;
     position: fixed;
