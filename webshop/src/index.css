@@ -23,3 +23,6 @@ a {
 .home img {
   width: 100vw;
 }
+.container {
+  margin: 0 5rem;
+}
