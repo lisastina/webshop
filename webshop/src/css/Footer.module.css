@@ -4,10 +4,12 @@
     padding: 2rem 0;
 }
 .footerContainer {
-    margin: 0 5rem;
+    max-width: 1000px;
+    margin: auto;
     display: flex;
     justify-content: space-between;
 }
+
 .footer address, .footer a {
     font-style: normal;
     font-size: .9rem;
