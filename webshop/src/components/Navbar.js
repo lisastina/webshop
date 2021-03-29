@@ -20,15 +20,8 @@ const Navbar = () => {
                 </div>
                 <div className={style.cartIcon}>
                     <span className={style.cartNumber}>0</span>
-                    <img src={cartIcon} alt="shopping cart icon"/>
+                    <img src="/assets/icons/cart-icon.png" alt="shopping cart icon"/>
                 </div>
-            </div>
-            <div className={style.pageTitle}>
-                <h1 onClick={() => history.push('/')}>LisaStina</h1>
-            </div>
-            <div className={style.cartIcon}>
-                <span className={style.cartNumber}>0</span>
-                <img src="/assets/icons/cart-icon.png" alt="shopping cart icon"/>
             </div>
         </div>
      );
