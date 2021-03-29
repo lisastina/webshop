@@ -7,21 +7,19 @@ const ProductContextProvider = (props) => {
     const [products, setProducts] = useState()
 
     const createProductList = () => {
-            const productList = require("../json/products.json")
-            
-            const productLists = productList.map(product => { 
-                return {
-                    ...product,
-                    img:`../assets/imgs/products/${product.name}-${product.productType}.jpg`
-                }
-            })
-            setProducts(productLists)
-        }
+        const productList = require("../json/products.json")
+        const productLists = productList.map(product => { 
+            return {
+                ...product,
+                img:`../assets/imgs/products/${product.name}-${product.productType}.jpg`
+            }
+        })
+        setProducts(productLists)
+    }
         
     useEffect(()=>{
-            createProductList();
-            
-        }, [])
+        createProductList();  
+    }, [])
 
     const values = {
         products
