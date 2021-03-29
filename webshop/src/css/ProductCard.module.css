@@ -1,4 +1,9 @@
 .productCard {
     display: flex;
-
+}
+.productCard .imgWrapper {
+    width: 50%;
+}
+.productCard .imgWrapper img {
+    width: 100%;
 }

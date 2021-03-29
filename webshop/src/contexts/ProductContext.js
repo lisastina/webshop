@@ -8,6 +8,7 @@ const ProductContextProvider = (props) => {
 
     const createProductList = () => {
             const productList = require("../json/products.json")
+            
             const productLists = productList.map(product => { 
                 return {
                     ...product,
@@ -16,8 +17,10 @@ const ProductContextProvider = (props) => {
             })
             setProducts(productLists)
         }
+        
     useEffect(()=>{
             createProductList();
+            
         }, [])
 
     const values = {
