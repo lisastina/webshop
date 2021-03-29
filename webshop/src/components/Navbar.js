@@ -7,19 +7,21 @@ const Navbar = () => {
  
     return ( 
         <div className={`${style.navbar} ${location.pathname === "/" && style.white}`}>
-            <div className={style.linkContainer}>
-                <div className={style.link}>
-                    <NavLink exact to="/" activeClassName={style.active}>Home</NavLink></div>
-                <div className={style.link}>
-                    <NavLink exact to="/about" activeClassName={style.active}>About</NavLink>
+            <div className={style.navbarContainer}>
+                <div className={style.linkContainer}>
+                    <div className={style.link}>
+                        <NavLink exact to="/" activeClassName={style.active}>Home</NavLink></div>
+                    <div className={style.link}>
+                        <NavLink exact to="/about" activeClassName={style.active}>About</NavLink>
+                    </div>
                 </div>
-            </div>
-            <div className={style.pageTitle}>
-                <h1 onClick={() => history.push('/')}>LisaStina</h1>
-            </div>
-            <div className={style.cartIcon}>
-                <span className={style.cartNumber}>0</span>
-                <img src="/assets/icons/cart-icon.png" alt="shopping cart icon"/>
+                <div className={style.pageTitle}>
+                    <h1 onClick={() => history.push('/')}>LisaStina</h1>
+                </div>
+                <div className={style.cartIcon}>
+                    <span className={style.cartNumber}>0</span>
+                    <img src="/assets/icons/cart-icon.png" alt="shopping cart icon"/>
+                </div>
             </div>
         </div>
      );

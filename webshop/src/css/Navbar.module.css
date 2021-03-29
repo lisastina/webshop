@@ -2,9 +2,14 @@
     top: 0;
     width: 100%;
     position: absolute;
+}
+.navbarContainer {
+    max-width: 1500px;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem;
 }
 .linkContainer {
     margin-left: 1rem;
