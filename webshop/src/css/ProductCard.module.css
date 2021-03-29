@@ -1,0 +1,31 @@
+.productCard {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    margin: 4rem auto;
+}
+.productCard.reverse {
+    flex-direction: row-reverse;
+}
+.productCard .imgWrapper {
+    width: 55%;
+}
+.productCard .imgWrapper img {
+    width: 100%;
+}
+.productCard .desc {
+    text-align: center;
+    width: 40%;
+}
+.productCard .desc h2::first-letter, 
+.productCard .desc p::first-letter {
+    text-transform: capitalize;
+}
+.productCard  h2 {
+    font-size: 2rem;
+}
+.productCard p {
+    font-size: .9rem;
+    letter-spacing: 1px;
+}
