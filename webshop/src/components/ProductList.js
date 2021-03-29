@@ -9,8 +9,8 @@ const ProductList = () => {
 
     return ( 
         <div className={style.ProductList}>
-            {products && products.map((product) => 
-                <ProductCard product={product} key={product.name}/>
+            {products && products.map((product, index) => 
+                <ProductCard product={product} key={index} index={index}/>
             )}
         </div>
      );
