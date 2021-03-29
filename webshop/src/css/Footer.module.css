@@ -1,10 +1,10 @@
 .footer {
     width: 100%;
-/*     background-color: pink; */
+    background-color: #d5dcdf79;
     padding: 2rem 0;
-    color: #463a3b;
 }
 .footerContainer {
+    margin: 0 5rem;
     display: flex;
     justify-content: space-between;
 }
@@ -15,4 +15,7 @@
 .footer .form {
     text-align: center;
     font-size: .9rem;
+}
+.footer h3 {
+    font-weight: 700;
 }
