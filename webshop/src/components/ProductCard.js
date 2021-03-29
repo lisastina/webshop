@@ -1,9 +1,10 @@
 import style from '../css/ProductCard.module.css';
 
-const ProductCard = () => {
-    return ( 
-        <div className={style.ProductCard}>
+const ProductCard = (props) => {
 
+    return ( 
+        <div className={style.productCard}>
+            <h1>{props.product.name}</h1>
         </div>
      );
 }
