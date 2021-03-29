@@ -1,6 +1,5 @@
 import style from '../css/Navbar.module.css';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
-import cartIcon from '../assets/icons/cart-icon.png';
 
 const Navbar = () => {
     const history = useHistory();
@@ -23,6 +22,13 @@ const Navbar = () => {
                     <span className={style.cartNumber}>0</span>
                     <img src={cartIcon} alt="shopping cart icon"/>
                 </div>
+            </div>
+            <div className={style.pageTitle}>
+                <h1 onClick={() => history.push('/')}>LisaStina</h1>
+            </div>
+            <div className={style.cartIcon}>
+                <span className={style.cartNumber}>0</span>
+                <img src="/assets/icons/cart-icon.png" alt="shopping cart icon"/>
             </div>
         </div>
      );
