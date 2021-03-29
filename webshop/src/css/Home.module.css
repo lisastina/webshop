@@ -1,0 +1,11 @@
+
+
+.home img {
+    width: 100vw;
+  }
+
+.home .desc {
+    text-align: center;
+    margin: 5rem auto;
+    width: 70%;
+}
