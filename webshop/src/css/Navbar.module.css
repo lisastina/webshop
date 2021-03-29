@@ -33,6 +33,7 @@
 
 .pageTitle h1 {
     color: #463a3b;
+    font-weight: 700;
     text-align: center;
     cursor: pointer;
 }

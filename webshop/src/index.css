@@ -8,6 +8,10 @@ body {
   box-sizing: border-box;
   font-family: 'Libre Caslon Text', serif;
 }
+h1, h2, h3, h4, h5, h6, p {
+  color: #463a3b;
+  font-weight: 400;
+}
 .site-container {
   max-width: 900px;
   padding: 0 50px;
@@ -20,9 +24,3 @@ a {
   font-size: 1.2rem;
 }
 
-.home img {
-  width: 100vw;
-}
-.container {
-  margin: 0 5rem;
-}
