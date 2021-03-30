@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Navbar from './components/Navbar';
 import ProductContext from './contexts/ProductContext';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route exact path="/about" component={About} />
           </div>
         </ProductContext>
+        <Footer/>
       </BrowserRouter>
     </div>
   );

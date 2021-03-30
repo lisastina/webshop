@@ -10,6 +10,7 @@ body {
 }
 h1, h2, h3, h4, h5, h6, p {
   color: #463a3b;
+  font-weight: 400;
 }
 .site-container {
   max-width: 900px;
@@ -23,3 +24,20 @@ a {
   font-size: 1.2rem;
 }
 
+button {
+  background: #b3c5ce;
+  font-family: 'Libre Caslon Display', serif;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  border: none;
+  padding: .6rem 1.1rem;
+}
+.btn-sm {
+  padding: .4rem .9rem;
+  font-size: 1rem;
+}
+button:hover {
+  background-color: rgb(141, 157, 165);
+}
