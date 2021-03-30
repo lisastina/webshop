@@ -41,3 +41,7 @@ button {
 button:hover {
   background-color: rgb(141, 157, 165);
 }
+p {
+  letter-spacing: 1px;
+  line-height: 1.8rem;
+}

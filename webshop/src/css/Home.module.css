@@ -1,11 +1,15 @@
 
 
 .home img {
-    width: 100vw;
-  }
+  width: 100vw;
+}
 
 .home .desc {
-    text-align: center;
-    margin: 5rem auto;
-    width: 70%;
+  text-align: center;
+  margin: 5rem auto;
+  width: 70%;
+}
+.home .desc h2 {
+  letter-spacing: 1px;
+  font-size: 1.6rem;
 }
