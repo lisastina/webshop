@@ -24,3 +24,24 @@ a {
   font-size: 1.2rem;
 }
 
+button {
+  background: #b3c5ce;
+  font-family: 'Libre Caslon Display', serif;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  border: none;
+  padding: .6rem 1.1rem;
+}
+.btn-sm {
+  padding: .4rem .9rem;
+  font-size: 1rem;
+}
+button:hover {
+  background-color: rgb(141, 157, 165);
+}
+p {
+  letter-spacing: 1px;
+  line-height: 1.8rem;
+}
