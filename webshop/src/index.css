@@ -22,6 +22,7 @@ a {
   color: #463a3b;
   text-decoration: none;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 button {
@@ -33,6 +34,7 @@ button {
   letter-spacing: 1px;
   border: none;
   padding: .6rem 1.1rem;
+  cursor: pointer;
 }
 .btn-sm {
   padding: .4rem .9rem;

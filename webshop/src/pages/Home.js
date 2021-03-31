@@ -1,5 +1,6 @@
 import ProductList from '../components/ProductList';
 import style from '../css/Home.module.css';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
     return ( 
@@ -12,6 +13,9 @@ const Home = () => {
                     <button className="btn-sm">Learn more</button>
                 </div>
                 <ProductList />
+                <div className={style.seeAll}>
+                    <NavLink exact to="/about">View all items</NavLink>
+                </div>
             </div>
         </div>
      );
