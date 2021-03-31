@@ -25,6 +25,7 @@
  .footer form {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .footer input {
     padding: .5rem;

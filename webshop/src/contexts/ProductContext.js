@@ -6,20 +6,31 @@ const ProductContextProvider = (props) => {
 
     const [products, setProducts] = useState()
 
+    const changeLetters = (value) => {
+        value = value.toLowerCase();
+        value = value.replace(/ä/g, 'a');
+        value = value.replace(/ö/g, 'o');
+        value = value.replace(/å/g, 'a');
+        return value;
+    }
+
     const createProductList = () => {
         const productList = require("../json/products.json")
-        const productLists = productList.map(product => { 
+        const productsWithImg = productList.map(product => { 
+            const productName = changeLetters(product.name.split(' ').join('-'));
+            
             return {
                 ...product,
-                img:`../assets/imgs/products/${product.name}-${product.productType}.jpg`
+                img:`../assets/imgs/products/${(productName)}.jpg`
             }
         })
-        setProducts(productLists)
-    }
+        setProducts(productsWithImg)
+    };
         
-    useEffect(()=>{
-        createProductList();  
-    }, [])
+    useEffect(() => {
+        createProductList() 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const values = {
         products
