@@ -9,7 +9,7 @@ const ProductList = () => {
 
     return ( 
         <div className={style.ProductList}>
-            {products && products.map((product, index) => 
+            {products && products.slice(0, 2).map((product, index) => 
                 <ProductCard product={product} key={index} index={index}/>
             )}
         </div>

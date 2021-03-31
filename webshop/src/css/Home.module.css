@@ -13,3 +13,15 @@
   letter-spacing: 1px;
   font-size: 1.6rem;
 }
+.home .seeAll {
+  text-align: center;
+  margin: 100px;
+}
+.home .seeAll a {
+  font-size: 2rem;
+  color: #463a3b;
+}
+
+.home .seeAll a:hover {
+  color: rgb(141, 157, 165);
+}
