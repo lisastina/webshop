@@ -6,6 +6,8 @@ const ProductDetails = (props) => {
 
     const { products } = useContext(ProductContext);
     const [product, setProduct] = useState(null);
+    const [size, setSize] = useState("30x40 cm");
+    const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         findProduct()
@@ -38,12 +40,12 @@ const ProductDetails = (props) => {
                         {product.productType === "poster" && 
                         
                         <div className={style.sizes}>
-                            <label htmlFor="">Size:</label>
+                            <label htmlFor="size">Size:</label>
                             <div className="customSelect">
-                                <select name="" id="">
-                                    <option value="">30x40 cm</option>
-                                    <option value="">50x70 cm</option>
-                                    <option value="">70x100 cm</option>
+                                <select name="size" id="size" onChange={e => setSize(e.target.value)} value={size}>
+                                    <option value="30x40">30x40 cm</option>
+                                    <option value="50x70">50x70 cm</option>
+                                    <option value="70x100">70x100 cm</option>
                                 </select>
                                 <span className="focus"></span>
                             </div> 
@@ -51,7 +53,7 @@ const ProductDetails = (props) => {
                         <div className={style.quantity}>
                         <label htmlFor="">Quantity:</label>
                         
-                            <input type="number" min="1" step="1"/>
+                            <input onChange={e => setQuantity(Number(e.target.value))} value={quantity} type="number" min="1" step="1"/>
                         </div>
                             
                     </div>
