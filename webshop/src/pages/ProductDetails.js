@@ -4,7 +4,7 @@ import { ProductContext } from '../contexts/ProductContext';
 
 const ProductDetails = (props) => {
 
-    const { products } = useContext(ProductContext);
+    const { products, changeLetters } = useContext(ProductContext);
     const [product, setProduct] = useState(null);
     const [size, setSize] = useState("30x40");
     const [quantity, setQuantity] = useState(1);
@@ -37,7 +37,7 @@ const ProductDetails = (props) => {
     const findProduct = () => {
         if (products) {
             setProduct(
-                products.find(product => props.match.params.id === product.name)
+                products.find(product => props.match.params.id === changeLetters(product.name.split(' ').join('-')))
             )
         }
     }
