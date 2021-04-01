@@ -1,6 +1,12 @@
 import style from '../css/ProductCard.module.css';
+import { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { ProductContext } from '../contexts/ProductContext';
 
 const ProductCard = (props) => {
+
+    const history = useHistory();
+    const { viewProduct } = useContext(ProductContext);
 
     const isOdd = (num) => { return num % 2;}
 
@@ -12,7 +18,7 @@ const ProductCard = (props) => {
             <div className={style.desc}>
                 <h2>{props.product.name} {props.product.productType}</h2>
                 <p>{props.product.desc}</p>
-                <button>Purchase item</button>
+                <button onClick={() => viewProduct(props.product, history)}>Purchase item</button>
             </div>
         </div>
      );

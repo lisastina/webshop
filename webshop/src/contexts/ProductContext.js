@@ -6,6 +6,10 @@ const ProductContextProvider = (props) => {
 
     const [products, setProducts] = useState()
 
+    const viewProduct = (clickedProduct, history) => {
+        history.push(`/details/${clickedProduct.name}`)
+    }
+
     const changeLetters = (value) => {
         value = value.toLowerCase();
         value = value.replace(/ä/g, 'a');
@@ -33,7 +37,8 @@ const ProductContextProvider = (props) => {
     }, []);
 
     const values = {
-        products
+        products,
+        viewProduct,
     }
 
     return (
