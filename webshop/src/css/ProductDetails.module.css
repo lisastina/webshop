@@ -21,6 +21,10 @@
     text-align: center;
     width: 40%;
 }
+.productDetails .selects {
+    margin: 2rem auto;
+}
+
 .productDetails .sizes,
 .productDetails .quantity {
     width: 80%;
@@ -33,4 +37,21 @@
     color: #463a3b;
     font-size: 1.2rem;
     margin-right: 1.5rem;
+}
+
+.productDetails .quantity input{
+    width: 100%;
+    height: 32px;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    border: solid #b3c5ce 1px; 
+    color: #463a3b;
+    font-size: inherit;
+    font-family: 'Libre Caslon Text', serif;
+    padding: 0 0 0 1rem;
+    outline: none;
+}
+.productDetails .quantity input:focus {
+    outline: 1.5px solid rgb(141, 157, 165);
+    -moz-outline-radius: .3em;
 }

@@ -80,14 +80,13 @@ select {
   grid-template-areas: "select";
   align-items: center;
   position: relative;
-  color: #463a3b;
 }
 
 /*  Custom select-arrow  */
 .customSelect::after {
   content: "";
-  width: 0.8em;
-  height: 0.5em;
+  width: 0.7em;
+  height: 0.4em;
   background-color: #463a3b;
   clip-path: polygon(100% 0%, 0 0%, 50% 100%);
   justify-self: end;

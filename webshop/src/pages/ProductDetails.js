@@ -33,7 +33,7 @@ const ProductDetails = (props) => {
                     <img src={product.img} alt={`${product.name} ${product.productType}`}/>
                 </div>
                 <div className={style.desc}>
-                    <h1>{product.name}</h1>
+                    <h1>{product.name} {product.productType}</h1>
                     <h2>{product.price} kr</h2>
                     <p>{product.desc}</p>
                     <div className={style.selects}>
@@ -51,8 +51,7 @@ const ProductDetails = (props) => {
                             </div> 
                         </div>}
                         <div className={style.quantity}>
-                        <label htmlFor="">Quantity:</label>
-                        
+                            <label htmlFor="">Quantity:</label>
                             <input onChange={e => setQuantity(Number(e.target.value))} value={quantity} type="number" min="1" step="1"/>
                         </div>
                             
