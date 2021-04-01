@@ -1,0 +1,36 @@
+.productDetails {
+    margin: 150px auto;
+}
+.productDetails .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.productDetails .desc h1::first-letter, 
+.productDetails .desc p::first-letter {
+    text-transform: capitalize;
+}
+.productDetails .imgWrapper {
+    width: 50%;
+}
+.productDetails .imgWrapper img {
+    width: 100%;
+}
+.productDetails .desc {
+    text-align: center;
+    width: 40%;
+}
+.productDetails .sizes,
+.productDetails .quantity {
+    width: 80%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.productDetails .selects label {
+    color: #463a3b;
+    font-size: 1.2rem;
+    margin-right: 1.5rem;
+}
