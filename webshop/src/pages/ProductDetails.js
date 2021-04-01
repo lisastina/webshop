@@ -6,15 +6,32 @@ const ProductDetails = (props) => {
 
     const { products } = useContext(ProductContext);
     const [product, setProduct] = useState(null);
-    const [size, setSize] = useState("30x40 cm");
+    const [size, setSize] = useState("30x40");
     const [quantity, setQuantity] = useState(1);
+    const [price, setPrice] = useState("")
+
+    const changePrice = () => {
+        let productPrice = product.price;
+        if(size === "50x70"){
+            productPrice = product.price + 70
+        }if(size === "70x100"){
+            productPrice = product.price + 160
+        }
+        setPrice(productPrice)
+    }
+    useEffect(() => {
+        if(product){
+            changePrice()
+        }
+    },[product, size])
+
 
     useEffect(() => {
-        findProduct()
-    }, [product]);
+        findProduct();
+    }, [products]);
 
     useEffect(() => {
-        findProduct()
+        findProduct();
     }, [props.match.params.id]);
 
     const findProduct = () => {
@@ -34,7 +51,7 @@ const ProductDetails = (props) => {
                 </div>
                 <div className={style.desc}>
                     <h1>{product.name} {product.productType}</h1>
-                    <h2>{product.price} kr</h2>
+                    <h2>{price} kr</h2>
                     <p>{product.desc}</p>
                     <div className={style.selects}>
                         {product.productType === "poster" && 
@@ -42,7 +59,11 @@ const ProductDetails = (props) => {
                         <div className={style.sizes}>
                             <label htmlFor="size">Size:</label>
                             <div className="customSelect">
-                                <select name="size" id="size" onChange={e => setSize(e.target.value)} value={size}>
+                                <select name="size" id="size" onChange={e => { 
+                                    setSize(e.target.value)
+                                    changePrice()
+
+                                }} value={size}>
                                     <option value="30x40">30x40 cm</option>
                                     <option value="50x70">50x70 cm</option>
                                     <option value="70x100">70x100 cm</option>
