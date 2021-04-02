@@ -14,7 +14,7 @@ const Home = () => {
                 </div>
                 <ProductList />
                 <div className={style.seeAll}>
-                    <NavLink exact to="/about">View all items</NavLink>
+                    <NavLink exact to="/products">View all products</NavLink>
                 </div>
             </div>
         </div>
