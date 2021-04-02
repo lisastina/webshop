@@ -23,7 +23,7 @@ const Navbar = () => {
                 </div>
                 <div className={style.cartIconWrapper}>
                     <div className={style.cartIcon}onClick={() => {
-                    history.push('/shopping-cart')
+                    history.push('/checkout')
                 }}>
                         <div className={style.cartNumWrapper}>
                             <span className={style.cartNumber}>4</span>
