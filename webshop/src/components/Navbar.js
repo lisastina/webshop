@@ -14,6 +14,9 @@ const Navbar = () => {
                     <div className={style.link}>
                         <NavLink exact to="/about" activeClassName={style.active}>About</NavLink>
                     </div>
+                    <div className={style.link}>
+                        <NavLink exact to="/AllProducts" activeClassName={style.active}>Shop</NavLink>
+                    </div>
                 </div>
                 <div className={style.pageTitle}>
                     <h1 onClick={() => history.push('/')}>LisaStina</h1>
