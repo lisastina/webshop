@@ -42,17 +42,31 @@
     text-align: center;
     cursor: pointer;
 }
-.cartIcon {
-    text-align: end;
+.cartIconWrapper {
     margin-right: 2rem;
     width: 33%;
+}
+.cartIcon {
+    text-align: end;
     color:#463a3b;
     display: flex;
     justify-content: flex-end;
 }
 .cartIcon img {
     width: 40px;
+    cursor: pointer;
 }
+
+.cartIcon .cartNumWrapper {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .cartIcon .cartNumber {
+      height: 100%;
+      font-size: 1.1rem;
+      line-height: 1rem;
+  }
 
 /* When on homepage make elements in navbar white */
 .white a, .white h1, .white .cartIcon {
@@ -63,16 +77,4 @@
 }
 .navbar.white {
     background: linear-gradient(to bottom, #292f5050 0%, #c5c5c500 100%);
-}
-
-.cartIcon .cartNumWrapper {
-
-  width: 30px;
-  height: 30px;
-}
-.cartIcon .cartNumber {
-
-    height: 100%;
-    font-size: 1.1rem;
-    line-height: 1rem;
 }

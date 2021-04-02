@@ -21,16 +21,20 @@ const Navbar = () => {
                 <div className={style.pageTitle}>
                     <h1 onClick={() => history.push('/')}>LisaStina</h1>
                 </div>
-                <div className={style.cartIcon}>
-                    <div className={style.cartNumWrapper}>
-                        <span className={style.cartNumber}>4</span>
+                <div className={style.cartIconWrapper}>
+                    <div className={style.cartIcon}onClick={() => {
+                    history.push('/shopping-cart')
+                }}>
+                        <div className={style.cartNumWrapper}>
+                            <span className={style.cartNumber}>4</span>
+                        </div>
+                        
+                        {location.pathname === "/" ?
+                        <img src="/assets/icons/cart-icon-white.png" alt="shopping cart icon"/> 
+                        : 
+                        <img src="/assets/icons/cart-icon.png" alt="shopping cart icon"/>
+                        }
                     </div>
-                    
-                    {location.pathname === "/" ?
-                    <img src="/assets/icons/cart-icon-white.png" alt="shopping cart icon"/> 
-                    : 
-                    <img src="/assets/icons/cart-icon.png" alt="shopping cart icon"/>
-                    }
                 </div>
             </div>
         </div>

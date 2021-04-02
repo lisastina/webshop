@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ProductDetails from './pages/ProductDetails';
 import AllProducts from './pages/AllProducts';
+import ShoppingCart from './pages/ShoppingCart';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/about" component={About} />
             <Route exact path="/products" component={AllProducts} />
             <Route exact path="/details/:id" component={ProductDetails} />
+            <Route exact path="/shopping-cart" component={ShoppingCart} />
           </div>
         </ProductContext>
         <Footer/>
