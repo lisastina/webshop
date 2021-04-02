@@ -82,5 +82,53 @@
     "price": 29,
     "desc": "decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
     "link": "https://www.storefactory.se/en/produkt/ljungby-2/"
+  },
+  {
+    "name": "blad",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/blad/"
+  },
+  {
+    "name": "källa duo",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/kalla-duo/"
+  },
+  {
+    "name": "källa single",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/kalla-singel/"
+  },
+  {
+    "name": "källa group",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/kalla-grupp/"
+  },
+  {
+    "name": "lidatorp",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/lidatorp-22/"
+  },
+  {
+    "name": "strå",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/stra/"
   }
 ]

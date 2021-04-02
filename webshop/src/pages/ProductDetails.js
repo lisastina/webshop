@@ -37,7 +37,8 @@ const ProductDetails = (props) => {
     const findProduct = () => {
         if (products) {
             setProduct(
-                products.find(product => props.match.params.id === changeLetters(product.name.split(' ').join('-')))
+                products.find(product => props.match.params.id === `${changeLetters(product.name.split(' ').join('-'))}-${changeLetters(product.productType.split(' ').join('-'))}`
+                )
             )
         }
     }
