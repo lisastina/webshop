@@ -6,6 +6,7 @@ const ProductContextProvider = (props) => {
 
     const [products, setProducts] = useState()
 
+
     const changeLetters = (value) => {
         value = value.toLowerCase();
         value = value.replace(/ä/g, 'a');
@@ -13,6 +14,10 @@ const ProductContextProvider = (props) => {
         value = value.replace(/å/g, 'a');
         return value;
     }
+    
+    const viewProduct = (clickedProduct, history) => {
+            history.push(`/details/${changeLetters(clickedProduct.name.split(' ').join('-'))}`)
+        }
 
     const createProductList = () => {
         const productList = require("../json/products.json")
@@ -33,7 +38,9 @@ const ProductContextProvider = (props) => {
     }, []);
 
     const values = {
-        products
+        products,
+        viewProduct,
+        changeLetters,
     }
 
     return (
