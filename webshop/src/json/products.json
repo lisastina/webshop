@@ -28,5 +28,41 @@
     "productType": "shortstory",
     "price": 123,
     "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+  },
+  {
+    "name": "lidatorp",
+    "productType": "poster",
+    "price": 149,
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+  },
+  {
+    "name": "källa vase",
+    "productType": "shortstory",
+    "price": 149,
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+  },
+  {
+    "name": "källa vases",
+    "productType": "shortstory",
+    "price": 149,
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+  },
+  {
+    "name": "tree",
+    "productType": "sculpture",
+    "price": 149,
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+  },
+  {
+    "name": "ljungby",
+    "productType": "easter decoration",
+    "price": 29,
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+  },
+  {
+    "name": "ljungbys",
+    "productType": "easter decoration",
+    "price": 29,
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
   }
 ]
