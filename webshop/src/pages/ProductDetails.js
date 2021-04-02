@@ -51,10 +51,11 @@ const ProductDetails = (props) => {
                 </div>
                 <div className={style.desc}>
                     <h1>{product.name} {product.productType}</h1>
+                    {product.by && <h2>{product.by}</h2>}
                     <h2>{price} kr</h2>
                     <p>{product.desc}</p>
                     <div className={style.selects}>
-                        {product.productType === "poster" && 
+                        {product.productType === "poster" && !product.by &&
                         
                         <div className={style.sizes}>
                             <label htmlFor="size">Size:</label>
@@ -62,7 +63,6 @@ const ProductDetails = (props) => {
                                 <select name="size" id="size" onChange={e => { 
                                     setSize(e.target.value)
                                     changePrice()
-
                                 }} value={size}>
                                     <option value="30x40">30x40 cm</option>
                                     <option value="50x70">50x70 cm</option>
@@ -71,13 +71,18 @@ const ProductDetails = (props) => {
                                 <span className="focus"></span>
                             </div> 
                         </div>}
+                        {!product.by && 
                         <div className={style.quantity}>
                             <label htmlFor="">Quantity:</label>
                             <input onChange={e => setQuantity(Number(e.target.value))} value={quantity} type="number" min="1" step="1"/>
                         </div>
-                            
+                        }
                     </div>
-                <button>Add to cart</button>
+                    {product.by ? 
+                    <a href={product.link}><button>Buy from STOREFACTORY</button></a>
+                    : 
+                    <button>Add to cart</button>
+                }
                 </div>
             </div>
             }
