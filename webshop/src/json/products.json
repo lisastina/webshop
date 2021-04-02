@@ -12,6 +12,12 @@
     "desc": "west coast wildflowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
   },
   {
+    "name": "birds",
+    "productType": "poster",
+    "price": 279,
+    "desc": "west coast birds from the Öckerö islands of Sweden. This poster shows the most common birds and their names."
+  },
+  {
     "name": "a sea of garbage",
     "productType": "photozine",
     "price": 399,

@@ -46,14 +46,13 @@
     text-align: end;
     margin-right: 2rem;
     width: 33%;
+    color:#463a3b;
+    display: flex;
+    justify-content: flex-end;
 }
 .cartIcon img {
-    width: 30px;
+    width: 40px;
 }
-.cartIcon {
-    color:#463a3b;
-}
-
 
 /* When on homepage make elements in navbar white */
 .white a, .white h1, .white .cartIcon {
@@ -63,5 +62,17 @@
     background-color: #FFF;
 }
 .navbar.white {
-    background: linear-gradient(to bottom, #30385e3b 0%, #c5c5c500 100%);
+    background: linear-gradient(to bottom, #292f5050 0%, #c5c5c500 100%);
+}
+
+.cartIcon .cartNumWrapper {
+
+  width: 30px;
+  height: 30px;
+}
+.cartIcon .cartNumber {
+
+    height: 100%;
+    font-size: 1.1rem;
+    line-height: 1rem;
 }

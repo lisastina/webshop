@@ -7,6 +7,7 @@ import ProductContext from './contexts/ProductContext';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ProductDetails from './pages/ProductDetails';
+import AllProducts from './pages/AllProducts';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <div className="site-container">
             <Route exact path="/about" component={About} />
+            <Route exact path="/products" component={AllProducts} />
             <Route exact path="/details/:id" component={ProductDetails} />
           </div>
         </ProductContext>
