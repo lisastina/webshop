@@ -39,36 +39,42 @@
     "name": "lidatorp",
     "productType": "poster",
     "price": 149,
-    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names.",
+    "link": "https://www.storefactory.se/sv/produkt/poster-lidatorp-23/"
   },
   {
     "name": "källa vase",
     "productType": "poster",
     "price": 149,
-    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names.",
+    "link": "https://www.storefactory.se/sv/produkt/poster-kalla-singel-2/"
   },
   {
     "name": "källa vases",
     "productType": "poster",
     "price": 149,
-    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names.",
+    "link": "https://www.storefactory.se/sv/produkt/poster-kalla-grupp-2/"
   },
   {
     "name": "tree",
     "productType": "sculpture",
     "price": 149,
-    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names.",
+    "link": "https://www.storefactory.se/sv/produkt/trad-2/"
   },
   {
     "name": "ljungby",
     "productType": "easter decoration",
     "price": 29,
-    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names.",
+    "link": "https://www.storefactory.se/sv/produkt/ljungby-2/"
   },
   {
     "name": "ljungbys",
     "productType": "easter decoration",
     "price": 29,
-    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names."
+    "desc": "west coast flowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names.",
+    "link": "https://www.storefactory.se/sv/produkt/ljungby/"
   }
 ]
