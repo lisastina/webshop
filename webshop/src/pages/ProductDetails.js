@@ -1,10 +1,12 @@
 import style from '../css/ProductDetails.module.css';
 import { useState, useEffect, useContext } from 'react';
 import { ProductContext } from '../contexts/ProductContext';
+import { CartContext } from '../contexts/CartContext';
 
 const ProductDetails = (props) => {
 
     const { products, changeLetters } = useContext(ProductContext);
+    const { addToCart } = useContext(CartContext);
     const [product, setProduct] = useState(null);
     const [size, setSize] = useState("30x40");
     const [quantity, setQuantity] = useState(1);
@@ -12,11 +14,15 @@ const ProductDetails = (props) => {
 
     const changePrice = () => {
         let productPrice = product.price;
-        if(size === "50x70"){
-            productPrice = product.price + 70
-        }if(size === "70x100"){
-            productPrice = product.price + 160
-        }
+        if(product.productType === "poster"){
+            if(size === "30x40"){
+                productPrice = 279
+            }if(size === "50x70"){
+                productPrice = 349
+            }if(size === "70x100"){
+                productPrice = 439
+            }
+        }   
         setPrice(productPrice)
     }
     useEffect(() => {
@@ -24,7 +30,10 @@ const ProductDetails = (props) => {
             changePrice()
         }
     },[product, size])
-
+    
+    useEffect(() => {
+    setProduct({...product, price: price});
+    }, [price])
 
     useEffect(() => {
         findProduct();
@@ -41,6 +50,14 @@ const ProductDetails = (props) => {
                 )
             )
         }
+    }
+    const handleAddToCart = () => {
+        
+        if(!product.by && product.productType === "poster") {
+            product.size = size;
+        }
+        console.log(product)
+        addToCart(product, quantity)
     }
 
     return ( 
@@ -82,7 +99,9 @@ const ProductDetails = (props) => {
                     {product.by ? 
                     <a href={product.link}><button>Buy from STOREFACTORY</button></a>
                     : 
-                    <button>Add to cart</button>
+                    <button
+                    onClick={handleAddToCart}
+                    >Add to cart</button>
                 }
                 </div>
             </div>

@@ -6,7 +6,6 @@ const ProductContextProvider = (props) => {
 
     const [products, setProducts] = useState()
 
-
     const changeLetters = (value) => {
         value = value.toLowerCase();
         value = value.replace(/ä/g, 'a');
