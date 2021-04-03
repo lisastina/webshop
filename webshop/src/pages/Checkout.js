@@ -11,8 +11,15 @@ const Checkout = () => {
         <div className={style.checkout}>
             <h1>Shopping cart</h1>
             {cartItems && cartItems.map((item, index) => 
-                <CartItem item={item} key={index} index={index}/>)}
-            
+            <div>
+                <hr/>
+                <CartItem item={item} key={index} index={index}/>
+            </div>)}
+            <hr/>
+            <div className={style.buy}>
+                <h2>Subtotal 345 kr</h2>
+                <button>Checkout</button>
+            </div>
         </div>
      );
 }
