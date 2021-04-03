@@ -8,7 +8,7 @@ const CartItem = (props) => {
     return ( 
         <div className={style.cartItem}>
             <div className={style.imgContainer}>
-                <div className={style.x}></div>
+                <div className={style.x} onClick={() => removeFromCart(props.item)}></div>
                 <div className={style.imgWrapper}>
                     <img src={props.item.img} alt=""/>
                 </div>
