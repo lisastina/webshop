@@ -1,9 +1,12 @@
 import style from '../css/Navbar.module.css';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../contexts/CartContext';
 
 const Navbar = () => {
     const history = useHistory();
     const location = useLocation();
+    const { cartItems: cart } = useContext(CartContext);
  
     return ( 
         <div className={`${style.navbar} ${location.pathname === "/" && style.white}`}>
@@ -26,7 +29,7 @@ const Navbar = () => {
                     history.push('/checkout')
                 }}>
                         <div className={style.cartNumWrapper}>
-                            <span className={style.cartNumber}>4</span>
+                            {cart.length > 0 &&<span className={style.cartNumber}>{cart.length}</span>}
                         </div>
                         
                         {location.pathname === "/" ?
