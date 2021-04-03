@@ -16,17 +16,19 @@ const ProductContextProvider = (props) => {
     }
     
     const viewProduct = (clickedProduct, history) => {
-            history.push(`/details/${changeLetters(clickedProduct.name.split(' ').join('-'))}`)
+            history.push(`/details/${changeLetters(clickedProduct.name.split(' ').join('-'))}-${changeLetters(clickedProduct.productType.split(' ').join('-'))}`)
         }
 
     const createProductList = () => {
         const productList = require("../json/products.json")
         const productsWithImg = productList.map(product => { 
             const productName = changeLetters(product.name.split(' ').join('-'));
+            const productType = changeLetters(product.productType.split(' ').join('-'));
+
             
             return {
                 ...product,
-                img:`../assets/imgs/products/${(productName)}.jpg`
+                img:`../assets/imgs/products/${productName}-${productType}.jpg`
             }
         })
         setProducts(productsWithImg)
