@@ -1,4 +1,7 @@
 .noItems {
-    margin: 30vh auto;
+    margin: 25vh auto;
     text-align: center;
+}
+.noItems img {
+    width: 100px;
 }
