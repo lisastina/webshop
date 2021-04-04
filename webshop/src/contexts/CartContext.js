@@ -18,13 +18,8 @@ const CartContextProvider = (props) => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems))
     }, [cartItems]);
 
-    const addToCart = (newItem) => {
-        /* if(cartItems.includes(newItem)) {
-            console.log(newItem)
-        } */
-        
+    const addToCart = (newItem) => {        
         setCartItems([ ...cartItems, newItem]);
-        
 
     }
 

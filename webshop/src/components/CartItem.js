@@ -9,6 +9,7 @@ const CartItem = (props) => {
 
     const handleQuantity = (e) => {
         setProductQuantity(Number(e.target.value))
+        console.log(productQuantity)
     }
 
     return ( 
@@ -18,6 +19,11 @@ const CartItem = (props) => {
                 <div className={style.imgWrapper}>
                     <img src={props.item.img} alt=""/>
                 </div>
+                <div className={style.title}>
+                    <h2>{props.item.name} {props.item.productType}</h2>
+                {props.item.size && <p>{props.item.size} cm</p>}
+                </div>
+                
             </div>
             <div className={style.info}>
             <div className={style.quantity}>
