@@ -5,7 +5,7 @@ import CartItem from '../components/CartItem';
 
 const Checkout = () => {
 
-    const { cartItems } = useContext(CartContext);
+    const { cartItems, cartTotal } = useContext(CartContext);
 
     return ( 
         <div className={style.checkout}>
@@ -17,7 +17,7 @@ const Checkout = () => {
             </div>)}
             <hr/>
             <div className={style.buy}>
-                <h2>Subtotal 345 kr</h2>
+                <h2>Subtotal {cartTotal} kr</h2>
                 <button>Checkout</button>
             </div>
         </div>

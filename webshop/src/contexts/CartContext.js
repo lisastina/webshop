@@ -8,8 +8,8 @@ const CartContextProvider = (props) => {
         const localData = localStorage.getItem('cartItems');
         return localData ? JSON.parse(localData) : []
     });
+    
     const [cartTotal, setCartTotal] = useState(0);
-
     useEffect(() => {
         setCartTotal(cartItems.reduce((sum, curr) => sum + curr.price, 0));
     }, [cartItems]);
