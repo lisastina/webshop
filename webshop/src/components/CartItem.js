@@ -5,6 +5,7 @@ import { CartContext } from '../contexts/CartContext';
 const CartItem = (props) => {
     const { removeFromCart } = useContext(CartContext);
     const [productQuantity, setProductQuantity] = useState(props.item.quantity)
+    
 
     const handleQuantity = (e) => {
         setProductQuantity(Number(e.target.value))

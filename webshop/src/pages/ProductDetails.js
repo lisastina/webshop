@@ -5,9 +5,12 @@ import { CartContext } from '../contexts/CartContext';
 
 const ProductDetails = (props) => {
 
-    const { products, changeLetters, size, quantity, price, setSize, setQuantity, setPrice } = useContext(ProductContext);
-    const { addToCart } = useContext(CartContext);
+    const { products, changeLetters } = useContext(ProductContext);
+    const { addToCart, cartItems } = useContext(CartContext);
     const [product, setProduct] = useState(null);
+    const [size, setSize] = useState("30x40");
+    const [quantity, setQuantity] = useState(1);
+    const [price, setPrice] = useState("");
 
     const changePrice = () => {
         let productPrice = product.price;
@@ -25,20 +28,24 @@ const ProductDetails = (props) => {
     
     useEffect(() => {
         setProduct({...product, price: price, quantity: quantity});
+        // eslint-disable-next-line
     }, [price, quantity])
     
     useEffect(() => {
         if(product){
             changePrice()
         }
+        // eslint-disable-next-line
     },[product, size])
         
     useEffect(() => {
         findProduct();
+        // eslint-disable-next-line
     }, [products]);
 
     useEffect(() => {
         findProduct();
+        // eslint-disable-next-line
     }, [props.match.params.id]);
 
     const findProduct = () => {
@@ -55,7 +62,12 @@ const ProductDetails = (props) => {
         if(!product.by && product.productType === "poster") {
             product.size = size;
         }
-        addToCart(product);
+        const match = cartItems.find(item => 
+            item.name === product.name && item.size === product.size )
+        if(!match){
+            addToCart(product);
+        }
+        
         setQuantity(1);
     }
 

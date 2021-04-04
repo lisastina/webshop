@@ -19,13 +19,17 @@ const CartContextProvider = (props) => {
     }, [cartItems]);
 
     const addToCart = (newItem) => {
+        /* if(cartItems.includes(newItem)) {
+            console.log(newItem)
+        } */
+        
         setCartItems([ ...cartItems, newItem]);
-        console.log(newItem)
+        
 
     }
 
     const removeFromCart = (itemToRemove) => {
-        setCartItems(cartItems.filter(item => item.name !== itemToRemove.name));
+        setCartItems(cartItems.filter(item => item.size !== itemToRemove.size || item.name !== itemToRemove.name));
     }
 
     const values = {   

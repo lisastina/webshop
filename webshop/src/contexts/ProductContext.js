@@ -5,9 +5,7 @@ export const ProductContext = createContext();
 const ProductContextProvider = (props) => {
 
     const [products, setProducts] = useState();
-    const [size, setSize] = useState("30x40");
-    const [quantity, setQuantity] = useState(1);
-    const [price, setPrice] = useState("");
+
 
     const changeLetters = (value) => {
         value = value.toLowerCase();
@@ -48,12 +46,6 @@ const ProductContextProvider = (props) => {
         products,
         viewProduct,
         changeLetters,
-        price,
-        size,
-        setSize,
-        quantity,
-        setQuantity,
-        setPrice,
     }
 
     return (
