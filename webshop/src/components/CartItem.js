@@ -1,9 +1,14 @@
 import style from '../css/CartItem.module.css';
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext } from '../contexts/CartContext';
 
 const CartItem = (props) => {
     const { removeFromCart } = useContext(CartContext);
+    const [productQuantity, setProductQuantity] = useState(props.item.quantity)
+
+    const handleQuantity = (e) => {
+        setProductQuantity(Number(e.target.value))
+    }
 
     return ( 
         <div className={style.cartItem}>
@@ -16,9 +21,9 @@ const CartItem = (props) => {
             <div className={style.info}>
             <div className={style.quantity}>
                             <label htmlFor="">QTY</label>
-                            <input /* onChange={e => setQuantity(Number(e.target.value))} value={quantity}  */type="number" min="1" step="1"/>
+                            <input onChange={handleQuantity} value={productQuantity} type="number" min="1" step="1"/>
                         </div>
-                <div><h2>{props.item.price} kr</h2></div>
+                <div><h2>{props.item.price * props.item.quantity} kr</h2></div>
             </div>
         </div>
      );

@@ -18,10 +18,10 @@ const CartContextProvider = (props) => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems))
     }, [cartItems]);
 
-    const addToCart = (newItem, quantity) => {
+    const addToCart = (newItem) => {
         setCartItems([ ...cartItems, newItem]);
-  /*       console.log(newItem)
-        console.log(quantity) */
+        console.log(newItem)
+
     }
 
     const removeFromCart = (itemToRemove) => {

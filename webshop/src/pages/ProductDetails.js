@@ -5,12 +5,9 @@ import { CartContext } from '../contexts/CartContext';
 
 const ProductDetails = (props) => {
 
-    const { products, changeLetters } = useContext(ProductContext);
+    const { products, changeLetters, size, quantity, price, setSize, setQuantity, setPrice } = useContext(ProductContext);
     const { addToCart } = useContext(CartContext);
     const [product, setProduct] = useState(null);
-    const [size, setSize] = useState("30x40");
-    const [quantity, setQuantity] = useState(1);
-    const [price, setPrice] = useState("")
 
     const changePrice = () => {
         let productPrice = product.price;
@@ -25,16 +22,17 @@ const ProductDetails = (props) => {
         }   
         setPrice(productPrice)
     }
+    
+    useEffect(() => {
+        setProduct({...product, price: price, quantity: quantity});
+    }, [price, quantity])
+    
     useEffect(() => {
         if(product){
             changePrice()
         }
     },[product, size])
-    
-    useEffect(() => {
-    setProduct({...product, price: price});
-    }, [price])
-
+        
     useEffect(() => {
         findProduct();
     }, [products]);
@@ -49,15 +47,16 @@ const ProductDetails = (props) => {
                 products.find(product => props.match.params.id === `${changeLetters(product.name.split(' ').join('-'))}-${changeLetters(product.productType.split(' ').join('-'))}`
                 )
             )
+            setQuantity(1);
+            setSize("30x40");
         }
     }
     const handleAddToCart = () => {
-        
         if(!product.by && product.productType === "poster") {
             product.size = size;
         }
-        console.log(product)
-        addToCart(product, quantity)
+        addToCart(product);
+        setQuantity(1);
     }
 
     return ( 
