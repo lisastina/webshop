@@ -27,26 +27,26 @@ const ProductDetails = (props) => {
     }
     
     useEffect(() => {
-        setProduct({...product, price: price, quantity: quantity});
+        setProduct({...product, quantity: quantity});
         // eslint-disable-next-line
-    }, [price, quantity])
+    }, [quantity])
     
     useEffect(() => {
-        if(product){
-            changePrice()
+        setProduct({...product, price: price});
+        // eslint-disable-next-line
+    }, [price])
+
+    useEffect(() => {
+        if(product){ 
+            changePrice();
         }
         // eslint-disable-next-line
-    },[product, size])
-        
-    useEffect(() => {
-        findProduct();
-        // eslint-disable-next-line
-    }, [products]);
+    },[size])
 
     useEffect(() => {
         findProduct();
         // eslint-disable-next-line
-    }, [props.match.params.id]);
+    }, [props.match.params.id, products]);
 
     const findProduct = () => {
         if (products) {
@@ -81,7 +81,7 @@ const ProductDetails = (props) => {
                 <div className={style.desc}>
                     <h1>{product.name} {product.productType}</h1>
                     {product.by && <h2>{product.by}</h2>}
-                    <h2>{price} kr</h2>
+                    <h2>{product.price} kr</h2>
                     <p>{product.desc}</p>
                     <div className={style.selects}>
                         {product.productType === "poster" && !product.by &&
@@ -91,7 +91,6 @@ const ProductDetails = (props) => {
                             <div className="customSelect">
                                 <select name="size" id="size" onChange={e => { 
                                     setSize(e.target.value)
-                                    changePrice()
                                 }} value={size}>
                                     <option value="30x40">30x40 cm</option>
                                     <option value="50x70">50x70 cm</option>
@@ -103,7 +102,7 @@ const ProductDetails = (props) => {
                         {!product.by && 
                         <div className={style.quantity}>
                             <label htmlFor="">Quantity:</label>
-                            <input onChange={e => setQuantity(Number(e.target.value))} value={quantity} type="number" min="1" step="1"/>
+                            <input onChange={e => setQuantity(Number(e.target.value))} value={product.quantity} type="number" min="1" step="1"/>
                         </div>
                         }
                     </div>
