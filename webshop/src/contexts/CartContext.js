@@ -22,7 +22,6 @@ const CartContextProvider = (props) => {
             let totalPrice = item.price * item.quantity
             return totalPrice
         })
-        console.log(prices)
         setCartTotal(prices.reduce((sum, curr) => sum + curr, 0));
     }, [cartItems]);
 
@@ -50,7 +49,6 @@ const CartContextProvider = (props) => {
     }, [cartLength]);
 
     const addToCart = (newItem) => {        
-        
         const match = cartItems.find(item => 
             item.name === newItem.name && item.size === newItem.size )
         if(!match){
