@@ -108,7 +108,7 @@ const ProductDetails = (props) => {
                         {!product.by && 
                         <div className={style.quantity}>
                             <label htmlFor="">Quantity:</label>
-                            <input onChange={e => setQuantity(Number(e.target.value))} value={quantity} type="number" min="1" step="1"/>
+                            <input onChange={e => setQuantity(Number(e.target.value))} value={product.quantity} type="number" min="1" step="1"/>
                         </div>
                         }
                     </div>
