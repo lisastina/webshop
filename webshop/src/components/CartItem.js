@@ -1,21 +1,32 @@
+/* eslint-disable */
 import style from '../css/CartItem.module.css';
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { CartContext } from '../contexts/CartContext';
 
 const CartItem = (props) => {
-    const { removeFromCart } = useContext(CartContext);
-    const [productQuantity, setProductQuantity] = useState(props.item.quantity)
-    
+    const { removeFromCart, changeQuantity } = useContext(CartContext);
+    const [product, setProduct] = useState(props.item)
 
     const handleQuantity = (e) => {
-        setProductQuantity(Number(e.target.value))
-        console.log(productQuantity)
+        setProduct({...product, quantity: Number(e.target.value)})
+        changeQuantity(props.index, Number(e.target.value))
     }
+
+    const price = (value) => {
+        value = value * props.item.quantity
+        return value
+    }
+
+    useEffect(() => {
+        setProduct({...product, quantity: props.item.quantity})
+    }, [props]);
 
     return ( 
         <div className={style.cartItem}>
             <div className={style.imgContainer}>
-                <div className={style.x} onClick={() => removeFromCart(props.item)}></div>
+                <div className={style.x} onClick={() =>{ 
+                    removeFromCart(props.item)
+                    }}></div>
                 <div className={style.imgWrapper}>
                     <img src={props.item.img} alt=""/>
                 </div>
@@ -28,9 +39,9 @@ const CartItem = (props) => {
             <div className={style.info}>
             <div className={style.quantity}>
                             <label htmlFor="">QTY</label>
-                            <input onChange={handleQuantity} value={productQuantity} type="number" min="1" step="1"/>
+                            <input onChange={handleQuantity} value={product.quantity} type="number" min="1" step="1" id={props.item.name}/>
                         </div>
-                <div><h2>{props.item.price * props.item.quantity} kr</h2></div>
+                <div><h2>{price(props.item.price)} kr</h2></div>
             </div>
         </div>
      );

@@ -6,7 +6,7 @@ import { CartContext } from '../contexts/CartContext';
 const Navbar = () => {
     const history = useHistory();
     const location = useLocation();
-    const { cartItems: cart } = useContext(CartContext);
+    const { cartItems: cart, cartLength } = useContext(CartContext);
  
     return ( 
         <div className={`${style.navbar} ${location.pathname === "/" && style.white}`}>
@@ -29,7 +29,7 @@ const Navbar = () => {
                     history.push('/checkout')
                 }}>
                         <div className={style.cartNumWrapper}>
-                            {cart.length > 0 &&<span className={style.cartNumber}>{cart.length}</span>}
+                            {cart.length > 0 &&<span className={style.cartNumber}>{cartLength}</span>}
                         </div>
                         
                         {location.pathname === "/" ?

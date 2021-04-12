@@ -14,10 +14,11 @@ const Checkout = () => {
             <div className={style.checkout}>
                 <h1>Shopping cart</h1>
                 {cartItems && cartItems.map((item, index) => 
-                <div>
+                <div key={index}>
                     <hr/>
-                    <CartItem item={item} key={index} index={index}/>
-                </div>)}
+                    <CartItem item={item} index={index}/>
+                </div>
+                )}
                 <hr/>
                 <div className={style.buy}>
                     <h2>Subtotal {cartTotal} kr</h2>

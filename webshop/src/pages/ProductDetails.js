@@ -5,11 +5,10 @@ import { CartContext } from '../contexts/CartContext';
 
 const ProductDetails = (props) => {
 
-    const { products, changeLetters } = useContext(ProductContext);
+    const { products, changeLetters, quantity, setQuantity } = useContext(ProductContext);
     const { addToCart, cartItems } = useContext(CartContext);
     const [product, setProduct] = useState(null);
     const [size, setSize] = useState("30x40");
-    const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState("");
 
     const changePrice = () => {
@@ -67,8 +66,12 @@ const ProductDetails = (props) => {
         if(!match){
             addToCart(product);
         }
+       /*  if(match) {
+            const newQuantity = product.quantity + quantity;
+            setProduct({...product, quantity: newQuantity})
+        } */
         
-        setQuantity(1);
+        /* setQuantity(1); */
     }
 
     return ( 
