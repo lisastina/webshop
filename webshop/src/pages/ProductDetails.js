@@ -6,7 +6,7 @@ import { CartContext } from '../contexts/CartContext';
 const ProductDetails = (props) => {
 
     const { products, changeLetters, quantity, setQuantity } = useContext(ProductContext);
-    const { addToCart, cartItems, setCartItems } = useContext(CartContext);
+    const { addToCart, cartItems, setCartItems, cartLength, setCartLength } = useContext(CartContext);
     const [product, setProduct] = useState(null);
     const [size, setSize] = useState("30x40");
     const [price, setPrice] = useState("");
@@ -70,10 +70,10 @@ const ProductDetails = (props) => {
             const isItemInCart = (item) => item.name === product.name && item.size === product.size
             const indexOfCartItem = cartItems.findIndex(isItemInCart)
             const newQuantity = Number(cartItems[indexOfCartItem].quantity) + Number(quantity)
-            
             let copyCartItems = [...cartItems]
             copyCartItems[indexOfCartItem].quantity = newQuantity
             setCartItems(copyCartItems);
+            setCartLength(Number(cartLength) + Number(quantity))
         }
     }
 
