@@ -6,7 +6,7 @@ import { CartContext } from '../contexts/CartContext';
 const ProductDetails = (props) => {
 
     const { products, changeLetters, quantity, setQuantity } = useContext(ProductContext);
-    const { addToCart, cartItems } = useContext(CartContext);
+    const { addToCart, cartItems, setCartItems } = useContext(CartContext);
     const [product, setProduct] = useState(null);
     const [size, setSize] = useState("30x40");
     const [price, setPrice] = useState("");
@@ -66,12 +66,15 @@ const ProductDetails = (props) => {
         if(!match){
             addToCart(product);
         }
-       /*  if(match) {
-            const newQuantity = product.quantity + quantity;
-            setProduct({...product, quantity: newQuantity})
-        } */
-        
-        /* setQuantity(1); */
+        if(match){
+            const isItemInCart = (item) => item.name === product.name && item.size === product.size
+            const indexOfCartItem = cartItems.findIndex(isItemInCart)
+            const newQuantity = Number(cartItems[indexOfCartItem].quantity) + Number(quantity)
+            
+            let copyCartItems = [...cartItems]
+            copyCartItems[indexOfCartItem].quantity = newQuantity
+            setCartItems(copyCartItems);
+        }
     }
 
     return ( 
@@ -105,7 +108,7 @@ const ProductDetails = (props) => {
                         {!product.by && 
                         <div className={style.quantity}>
                             <label htmlFor="">Quantity:</label>
-                            <input onChange={e => setQuantity(Number(e.target.value))} value={product.quantity} type="number" min="1" step="1"/>
+                            <input onChange={e => setQuantity(Number(e.target.value))} value={quantity} type="number" min="1" step="1"/>
                         </div>
                         }
                     </div>

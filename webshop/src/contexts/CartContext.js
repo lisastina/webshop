@@ -49,18 +49,22 @@ const CartContextProvider = (props) => {
     }, [cartLength]);
 
     const addToCart = (newItem) => {        
-        const match = cartItems.find(item => 
-            item.name === newItem.name && item.size === newItem.size )
+     /*    const match = cartItems.find((item) => {
+            item.name === newItem.name && item.size === newItem.size
+            console.log(item)
+        })
         if(!match){
             setCartItems([ ...cartItems, newItem]);
             setCartLength(Number(cartLength) + Number(newItem.quantity))
-
-            /* addToCart(newItem); */
-        }
-    /*     if(match) {
-            const newQuantity = newItem.quantity + quantity;
-            setCartItems({...cartItems, newItem.quantity: newQuantity})
-        } */        
+        }    
+        if(match){
+            setCartLength(cartLength + newItem.quantity)
+            let copyCartItems = [...cartItems]
+            copyCartItems[index].quantity = quantity
+            setCartItems(copyCartItems);
+        }    */
+        setCartItems([ ...cartItems, newItem]);
+        setCartLength(Number(cartLength) + Number(newItem.quantity))
     }
 
   const changeQuantity = (index, quantity) => {
@@ -77,7 +81,6 @@ const CartContextProvider = (props) => {
       let copyCartItems = [...cartItems]
       copyCartItems[index].quantity = quantity
       setCartItems(copyCartItems);
-      
   }
 
     const removeFromCart = (itemToRemove) => {
@@ -87,6 +90,7 @@ const CartContextProvider = (props) => {
 
     const values = {   
         cartItems,
+        setCartItems,
         cartTotal,
         addToCart,
         removeFromCart,
