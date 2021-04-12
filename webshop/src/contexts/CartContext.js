@@ -64,9 +64,20 @@ const CartContextProvider = (props) => {
     }
 
   const changeQuantity = (index, quantity) => {
+      if(cartItems[index].quantity > quantity){
+        let difference = cartItems[index].quantity - quantity;
+        setCartLength(cartLength - difference)
+      }
+      if(cartItems[index].quantity < quantity){
+
+        let difference = quantity - cartItems[index].quantity;
+        setCartLength(cartLength + difference)
+      }
+
       let copyCartItems = [...cartItems]
       copyCartItems[index].quantity = quantity
       setCartItems(copyCartItems);
+      
   }
 
     const removeFromCart = (itemToRemove) => {
