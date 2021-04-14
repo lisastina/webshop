@@ -1,9 +1,8 @@
 .cartItem {
-    width: 100%;
-    /* border: 1px lightgray solid; */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1rem;
 }
 .cartItem .imgContainer {
     display: flex;
@@ -12,7 +11,7 @@
     width: 50%;
 }
 .cartItem .imgContainer .title {
-    width: 55%;
+    width: 50%;
 }
 .cartItem h2 {
   font-size: 1.2rem;
@@ -70,4 +69,25 @@
 .cartItem .quantity input:focus {
     outline: 1.5px solid rgb(141, 157, 165);
     -moz-outline-radius: .3em;
+}
+
+
+.checkingOut .imgWrapper,
+.checkingOut .x {
+  display: none;
+}
+.checkingOut .title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.checkingOut .imgContainer {
+  width: 100%;
+}
+.checkingOut .quantity {
+  display: flex;
+}
+.checkingOut .quantity span {
+  margin-left: 1rem;
 }

@@ -5,8 +5,16 @@
     border: .5px solid #b3c5ce;
 }
 .checkout h1 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 .checkout .buy {
     text-align: right;
+}
+.checkout .buy.checkingOut {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.buy.checkingOut button {
+    margin: .7rem 0;
 }

@@ -6,13 +6,23 @@ import NoItems from '../components/NoItems';
 
 const Checkout = () => {
 
-    const { cartItems, cartTotal } = useContext(CartContext);
+    const { cartItems, cartTotal, checkout, setCheckout } = useContext(CartContext);
+    
+
+    const handleCheckout = () => {
+        if(checkout){
+            setCheckout(false);
+        }
+        if(!checkout){
+            setCheckout(true);
+        }
+    }
 
     return ( 
         <div>
             {cartItems.length ? 
             <div className={style.checkout}>
-                <h1>Shopping cart</h1>
+                {checkout ? <h1>Checkout</h1> : <h1>Shopping cart</h1>}
                 {cartItems && cartItems.map((item, index) => 
                 <div key={index}>
                     <hr/>
@@ -20,13 +30,18 @@ const Checkout = () => {
                 </div>
                 )}
                 <hr/>
-                <div className={style.buy}>
+                <div className={`${style.buy} ${checkout && style.checkingOut}`}>
                     <h2>Subtotal {cartTotal} kr</h2>
-                    <button>Checkout</button>
+                    {checkout ? <button onClick={handleCheckout}>Go back</button>
+                    :
+                        <button onClick={handleCheckout}>Checkout</button>
+                    }
                 </div>
+                {checkout && <div></div>}
             </div>
             : <NoItems />
             }
+            
         </div>
      );
 }

@@ -5,6 +5,8 @@ export const CartContext = createContext();
 
 const CartContextProvider = (props) => {
 
+    const [checkout, setCheckout] = useState(false);
+
     const [cartLength, setCartLength] = useState(() => {
         const localData = localStorage.getItem('cartLength');
         return localData ? JSON.parse(localData) : 0
@@ -96,7 +98,9 @@ const CartContextProvider = (props) => {
         removeFromCart,
         cartLength,
         setCartLength,
-        changeQuantity
+        changeQuantity,
+        checkout,
+        setCheckout
     }
     return (
         <CartContext.Provider value={values}>

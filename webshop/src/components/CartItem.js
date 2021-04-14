@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from 'react'
 import { CartContext } from '../contexts/CartContext';
 
 const CartItem = (props) => {
-    const { removeFromCart, changeQuantity } = useContext(CartContext);
+    const { removeFromCart, changeQuantity, checkout } = useContext(CartContext);
     const [product, setProduct] = useState(props.item)
 
     const handleQuantity = (e) => {
@@ -22,7 +22,7 @@ const CartItem = (props) => {
     }, [props]);
 
     return ( 
-        <div className={style.cartItem}>
+        <div className={`${style.cartItem} ${checkout && style.checkingOut}`}>
             <div className={style.imgContainer}>
                 <div className={style.x} onClick={() =>{ 
                     removeFromCart(props.item)
@@ -38,9 +38,15 @@ const CartItem = (props) => {
             </div>
             <div className={style.info}>
             <div className={style.quantity}>
-                            <label htmlFor="">QTY</label>
-                            <input onChange={handleQuantity} value={product.quantity} type="number" min="1" step="1" id={props.item.name}/>
-                        </div>
+                <label htmlFor="">QTY:</label>
+                {checkout ? 
+                    <div>
+                        <span>{props.item.quantity}</span>
+                    </div> 
+                :
+                    <input onChange={handleQuantity} value={product.quantity} type="number" min="1" step="1" id={props.item.name}/>
+                            }
+            </div>
                 <div><h2>{price(props.item.price)} kr</h2></div>
             </div>
         </div>
