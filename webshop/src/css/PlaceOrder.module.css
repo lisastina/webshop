@@ -1,3 +1,44 @@
 .placeOrder {
-  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+/*   display: grid;
+  grid-template-columns: repeat(auto-fill, 450px); */
+}
+.placeOrder .shippingInfo,
+.placeOrder .paymentInfo {
+  width: 45%;
+  padding: .5rem;
+}
+.placeOrder .name {
+  display: flex;
+}
+
+.placeOrder .shippingInfo form div:not(.select) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+.placeOrder .shippingInfo input {
+  padding: .5rem;
+  margin: .5rem 0 0;
+  border-radius: .25rem;
+  border: solid #b3c5ce 1px; 
+  font: inherit;
+  width: 44%;
+}
+
+.placeOrder .shippingInfo input:focus {
+  outline: 1.5px solid rgb(141, 157, 165);
+  -moz-outline-radius: .3em;
+}
+.placeOrder .shippingInfo input[type=email] {
+  width: 96%;
+  min-width: 200px;
+  margin: .5rem auto;
+}
+.placeOrder .shippingInfo .select {
+  margin: .5rem .5rem 0 0;
+  min-width: 218px;
+  height: 32px;
 }

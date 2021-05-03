@@ -71,8 +71,8 @@ select {
 /*   New styling to Select  */
 .customSelect {
   min-width: 15ch;
+  border-radius: .25em;
   width: 100%;
-  border-radius: 0.25em;
   cursor: pointer;
   background-color: #fff;
   border: solid #b3c5ce 1px; 

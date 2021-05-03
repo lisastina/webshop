@@ -94,7 +94,7 @@ const ProductDetails = (props) => {
                         
                         <div className={style.sizes}>
                             <label htmlFor="size">Size:</label>
-                            <div className="customSelect">
+                            <div className={`customSelect ${style.select}`}>
                                 <select name="size" id="size" onChange={e => { 
                                     setSize(e.target.value)
                                 }} value={size}>

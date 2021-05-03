@@ -55,3 +55,6 @@
     outline: 1.5px solid rgb(141, 157, 165);
     -moz-outline-radius: .3em;
 }
+.select {
+    width: 100%;
+}

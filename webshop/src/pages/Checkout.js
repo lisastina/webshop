@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { CartContext } from '../contexts/CartContext';
 import CartItem from '../components/CartItem';
 import NoItems from '../components/NoItems';
+import PlaceOrder from '../components/PlaceOrder';
 
 const Checkout = () => {
 
@@ -37,7 +38,7 @@ const Checkout = () => {
                         <button onClick={handleCheckout}>Checkout</button>
                     }
                 </div>
-                {checkout && <div></div>}
+                {checkout && <PlaceOrder/>}
             </div>
             : <NoItems />
             }
