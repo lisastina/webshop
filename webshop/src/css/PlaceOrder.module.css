@@ -1,6 +1,7 @@
 .placeOrder {
   display: flex;
   justify-content: space-between;
+  margin: 2rem 0;
 /*   display: grid;
   grid-template-columns: repeat(auto-fill, 450px); */
 }
@@ -57,8 +58,4 @@
 .placeOrder .paymentInfo .selectedPayment .cardInfo #cardnumber {
   width: 100%;
   min-width: 200px;
-}
-
-.cardInfo form div {
-  display: block;
 }

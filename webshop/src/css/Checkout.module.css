@@ -10,11 +10,17 @@
 .checkout .buy {
     text-align: right;
 }
+
 .checkout .buy.checkingOut {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
 }
+.buy.buy.checkingOut h2 {
+    font-size: 1.1rem;
+}
 .buy.checkingOut button {
     margin: .7rem 0;
+    background-color: #d5dcdf79;
+    color: #463a3b;
 }

@@ -31,6 +31,10 @@ const Checkout = () => {
                 </div>
                 )}
                 <hr/>
+                {checkout && <div>
+                    <PlaceOrder/>
+                    <hr />
+                    </div>}
                 <div className={`${style.buy} ${checkout && style.checkingOut}`}>
                     <h2>Subtotal {cartTotal} kr</h2>
                     {checkout ? <button onClick={handleCheckout}>Go back</button>
@@ -38,7 +42,7 @@ const Checkout = () => {
                         <button onClick={handleCheckout}>Checkout</button>
                     }
                 </div>
-                {checkout && <PlaceOrder/>}
+                
             </div>
             : <NoItems />
             }
