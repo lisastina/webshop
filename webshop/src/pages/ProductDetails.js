@@ -23,15 +23,16 @@ const ProductDetails = (props) => {
             }
         }   
         setPrice(productPrice)
+        setQuantity(1)
     }
-    
+
     useEffect(() => {
         setProduct({...product, quantity: quantity});
         // eslint-disable-next-line
     }, [quantity])
     
     useEffect(() => {
-        setProduct({...product, price: price});
+        setProduct({...product, price: price, quantity: 1});
         // eslint-disable-next-line
     }, [price])
 
@@ -43,22 +44,20 @@ const ProductDetails = (props) => {
     },[size])
 
     useEffect(() => {
+        setQuantity(1)
         findProduct();
         // eslint-disable-next-line
     }, [props.match.params.id, products]);
 
     const findProduct = () => {
         if (products) {
-            setProduct(
-                products.find(product => props.match.params.id === `${changeLetters(product.name.split(' ').join('-'))}-${changeLetters(product.productType.split(' ').join('-'))}`
-                )
-            )
-            setQuantity(1);
+            let newProduct = products.find(product => props.match.params.id === `${changeLetters(product.name.split(' ').join('-'))}-${changeLetters(product.productType.split(' ').join('-'))}`)
+            setProduct({...newProduct, quantity: 1})
             setSize("30x40");
         }
     }
     const handleAddToCart = () => {
-        if(!product.by && product.productType === "poster") {
+        if(product.productType === "poster") {
             product.size = size;
         }
         const match = cartItems.find(item => 
@@ -75,6 +74,7 @@ const ProductDetails = (props) => {
             setCartItems(copyCartItems);
             setCartLength(Number(cartLength) + Number(quantity))
         }
+    
     }
 
     return ( 
@@ -108,7 +108,7 @@ const ProductDetails = (props) => {
                         {!product.by && 
                         <div className={style.quantity}>
                             <label htmlFor="">Quantity:</label>
-                            <input onChange={e => setQuantity(Number(e.target.value))} value={product.quantity} type="number" min="1" step="1"/>
+                            <input onChange={e => setQuantity(Number(e.target.value))} value={quantity} type="number" min="1" step="1"/>
                         </div>
                         }
                     </div>
