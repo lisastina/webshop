@@ -19,16 +19,16 @@
   justify-content: space-between;
 
 }
-.placeOrder .shippingInfo input {
+.placeOrder input[type=text], input[type=email] {
   padding: .5rem;
   margin: .5rem 0 0;
   border-radius: .25rem;
   border: solid #b3c5ce 1px; 
   font: inherit;
-  width: 44%;
+  width: 45%;
 }
 
-.placeOrder .shippingInfo input:focus {
+.placeOrder input:focus {
   outline: 1.5px solid rgb(141, 157, 165);
   -moz-outline-radius: .3em;
 }
@@ -41,4 +41,24 @@
   margin: .5rem .5rem 0 0;
   min-width: 218px;
   height: 32px;
+}
+
+.placeOrder .paymentInfo .radio input{
+  margin: 0 .5rem;
+}
+.placeOrder .paymentInfo .radio label {
+  margin-right: .5rem;
+}
+.placeOrder .paymentInfo .cardInfo {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.placeOrder .paymentInfo .selectedPayment .cardInfo #cardnumber {
+  width: 100%;
+  min-width: 200px;
+}
+
+.cardInfo form div {
+  display: block;
 }

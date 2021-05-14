@@ -5,7 +5,7 @@ const PlaceOrder = () => {
     <div className={style.placeOrder}>
       <div className={style.shippingInfo}>
         <h1>Shipping </h1>
-        <form action="">
+        <form>
           <div className={style.name}>
             <input id="firstName" type="text" placeholder="First Name"/>
             <input id="lastName" type="text" placeholder="Last Name"/>
@@ -28,6 +28,35 @@ const PlaceOrder = () => {
       </div>
       <div className={style.paymentInfo}>
         <h2>Payment</h2>
+        <form>
+          <div className={style.radio}>
+            <input type="radio" id="card" name="payment"/>
+            <label htmlFor="card">Card</label>
+            <input type="radio" id="invoice" name="payment"/>
+            <label htmlFor="invoice">Invoice</label>
+            <input type="radio" id="paypal" name="payment"/>
+            <label htmlFor="paypal">Paypal</label>
+            <input type="radio" id="swish" name="payment"/>
+            <label htmlFor="swish">Swish</label>
+          </div>
+        </form>
+        <div className={style.selectedPayment}>
+          <form className={style.cardInfo}>
+            <div>
+              <label htmlFor="cardnumber">Cardnumber</label>
+              <input type="text" id={style.cardnumber} name="card"/>
+            </div>
+            <div>
+              <label htmlFor="securitynumber">Security number</label>
+              <input type="text" id="securitynumber" name="card"/>
+            </div>
+            <div>
+              <label htmlFor="date">Expiration date</label>
+              <input type="text" id="date" name="card"/>
+            </div>
+
+          </form>
+        </div>
       </div>
     </div>
    );
