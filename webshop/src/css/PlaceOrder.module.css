@@ -1,0 +1,76 @@
+.placeOrder {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+/*   display: grid;
+  grid-template-columns: repeat(auto-fill, 450px); */
+}
+.placeOrder .shippingInfo,
+.placeOrder .paymentInfo {
+  width: 45%;
+  padding: .5rem;
+}
+.placeOrder .name {
+  display: flex;
+}
+
+.placeOrder .shippingInfo form div:not(.select) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+.placeOrder input[type=text], input[type=email] {
+  padding: .5rem;
+  margin: .5rem 0 0;
+  border-radius: .25rem;
+  border: solid #b3c5ce 1px; 
+  font: inherit;
+  width: 45%;
+}
+
+.placeOrder input:focus {
+  outline: 1.5px solid rgb(141, 157, 165);
+  -moz-outline-radius: .3em;
+}
+.placeOrder .shippingInfo input[type=email] {
+  width: 96%;
+  min-width: 200px;
+  margin: .5rem auto;
+}
+.placeOrder .shippingInfo .select {
+  margin: .5rem .5rem 0 0;
+  min-width: 218px;
+  height: 32px;
+}
+.placeOrder .paymentInfo .options {
+  margin-bottom: 1rem;
+  display: flex;
+}
+.placeOrder .paymentInfo .radio input{
+  margin: 0 .5rem;
+}
+.placeOrder .paymentInfo .radio label {
+  margin-right: .5rem;
+}
+.placeOrder .paymentInfo .cardInfo {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.placeOrder .paymentInfo .selectedPayment .cardInfo #cardnumber {
+  width: 100%;
+  min-width: 200px;
+}
+.placeOrder .paymentInfo .selectedPayment .cardInfo .inputsContainer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.placeOrder .paymentInfo .selectedPayment .cardInfo .inputsContainer .inputs {
+  display: flex;
+  flex-direction: column;
+}
+.placeOrder .paymentInfo .selectedPayment .cardInfo .inputsContainer .inputs input {
+ width: 90%;
+}

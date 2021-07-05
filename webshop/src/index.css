@@ -35,6 +35,7 @@ button {
   border: none;
   padding: .6rem 1.1rem;
   cursor: pointer;
+  max-height: 45px;
 }
 .btn-sm {
   padding: .4rem .9rem;
@@ -71,8 +72,8 @@ select {
 /*   New styling to Select  */
 .customSelect {
   min-width: 15ch;
+  border-radius: .25em;
   width: 100%;
-  border-radius: 0.25em;
   cursor: pointer;
   background-color: #fff;
   border: solid #b3c5ce 1px; 

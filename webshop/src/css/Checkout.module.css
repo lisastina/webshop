@@ -1,0 +1,27 @@
+.checkout {
+    margin: 150px auto;
+}
+.checkout hr {
+    border: .5px solid #b3c5ce;
+}
+.checkout h1 {
+    font-size: 1.5rem;
+}
+.checkout .buy {
+    text-align: right;
+}
+
+.checkout .buy.checkingOut {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.buy.buy.checkingOut h2 {
+    font-size: 1.1rem;
+}
+.buy.checkingOut button.checkingOut {
+    margin: .7rem 0;
+    background-color: #d5dcdf79;
+    color: #463a3b;
+    margin-right: 1rem;
+}

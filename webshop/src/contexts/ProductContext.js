@@ -4,8 +4,8 @@ export const ProductContext = createContext();
 
 const ProductContextProvider = (props) => {
 
-    const [products, setProducts] = useState()
-
+    const [products, setProducts] = useState();
+    const [quantity, setQuantity] = useState(1);
 
     const changeLetters = (value) => {
         value = value.toLowerCase();
@@ -39,10 +39,15 @@ const ProductContextProvider = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+
+
+
     const values = {
         products,
         viewProduct,
         changeLetters,
+        quantity,
+        setQuantity,
     }
 
     return (
