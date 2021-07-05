@@ -36,22 +36,14 @@ const PlaceOrder = () => {
         <h2>Payment</h2>
         <form>
           <div className={style.options}>
-            {paymentOptions.map(option => {
+            {paymentOptions.map((option, i) => {
               return (
-                <div className={style.radio}>
-                  <input type="radio" id={option} name="payment" onClick={()=>setPayment(option)} checked={payment === option}/>
+                <div className={style.radio} key={i}>
+                  <input type="radio" id={option} name="payment" onClick={()=>setPayment(option)} defaultChecked={payment === option}/>
                   <label htmlFor={option}>{option}</label>
                 </div>
               )
             })}
-            {/* <input type="radio" id="card" name="payment" onClick={()=>setPayment("card")} checked={payment === "card"}/>
-            <label htmlFor="card">Card</label>
-            <input type="radio" id="invoice" name="payment" onClick={()=>setPayment("invoice")}/>
-            <label htmlFor="invoice">Invoice</label>
-            <input type="radio" id="paypal" name="payment" onClick={()=>setPayment("other")}/>
-            <label htmlFor="paypal">Paypal</label>
-            <input type="radio" id="swish" name="payment" onClick={()=>setPayment("other")}/>
-            <label htmlFor="swish">Swish</label> */}
           </div>
         </form>
         <div className={style.selectedPayment}>

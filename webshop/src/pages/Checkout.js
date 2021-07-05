@@ -1,5 +1,5 @@
 import style from '../css/Checkout.module.css';
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../contexts/CartContext';
 import CartItem from '../components/CartItem';
 import NoItems from '../components/NoItems';
@@ -10,13 +10,21 @@ const Checkout = () => {
     const history = useHistory();
 
     const { cartItems, cartTotal, checkout, setCheckout, removeAllFromCart } = useContext(CartContext);
+    const [order, setOrder] = useState(null);
 
     useEffect(() => {
         setCheckout(false);
-    }, []);
+    }, [setCheckout]);
 
     const handleCheckout = () => {
         setCheckout(!checkout)
+    }
+
+    const handlePlaceOrder = () => {
+        let orderNumber = Math.round(Math.random() * 10000000)
+        setOrder({cartItems, ordernumber: orderNumber})
+        history.push(`/confirmation/${orderNumber}`);
+        removeAllFromCart();
     }
 
     return ( 
@@ -51,8 +59,7 @@ const Checkout = () => {
                         <button className={style.checkingOut} onClick={handleCheckout}>Go back</button>
                         <button 
                             onClick={() => {
-                            history.push('/confirmation');
-                            removeAllFromCart();
+                                handlePlaceOrder()
                             }}
                         >Place order</button>
                     </div>
