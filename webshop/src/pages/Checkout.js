@@ -4,8 +4,10 @@ import { CartContext } from '../contexts/CartContext';
 import CartItem from '../components/CartItem';
 import NoItems from '../components/NoItems';
 import PlaceOrder from '../components/PlaceOrder';
+import { useHistory } from 'react-router-dom';
 
 const Checkout = () => {
+    const history = useHistory();
 
     const { cartItems, cartTotal, checkout, setCheckout, removeAllFromCart } = useContext(CartContext);
 
@@ -49,6 +51,7 @@ const Checkout = () => {
                         <button className={style.checkingOut} onClick={handleCheckout}>Go back</button>
                         <button 
                             onClick={() => {
+                            history.push('/confirmation');
                             removeAllFromCart();
                             }}
                         >Place order</button>
