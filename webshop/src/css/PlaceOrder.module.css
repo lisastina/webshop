@@ -43,7 +43,10 @@
   min-width: 218px;
   height: 32px;
 }
-
+.placeOrder .paymentInfo .options {
+  margin-bottom: 1rem;
+  display: flex;
+}
 .placeOrder .paymentInfo .radio input{
   margin: 0 .5rem;
 }
