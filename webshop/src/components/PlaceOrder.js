@@ -1,11 +1,27 @@
 import style from '../css/PlaceOrder.module.css';
-import { useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import { CartContext } from '../contexts/CartContext';
 
 const PlaceOrder = () => {
 
   const [payment, setPayment] = useState("Card");
 
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [country, setCountry] = useState();
+  const [street, setStreet] = useState();
+  const [zip, setZip] = useState();
+  const [city, setCity] = useState();
+  const [phone, setPhone] = useState();
+  const [email, setEmail] = useState();  
+
   const paymentOptions = ["Card", "Invoice", "Paypal"]
+
+  const { setShipping } = useContext(CartContext);
+
+useEffect(() => {
+  setShipping({firstName, lastName, country, street, zip, city, phone, email, payment})
+}, [firstName, lastName, country, street, zip, city, phone, email, payment]);
 
   return ( 
     <div className={style.placeOrder}>
@@ -13,23 +29,23 @@ const PlaceOrder = () => {
         <h1>Shipping </h1>
         <form>
           <div className={style.name}>
-            <input id="firstName" type="text" placeholder="First Name"/>
-            <input id="lastName" type="text" placeholder="Last Name"/>
+            <input id="firstName" type="text" placeholder="First Name" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
+            <input id="lastName" type="text" placeholder="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
           </div>
           <div className={`customSelect ${style.select}`}>  
-            <select name="country" id="country">
+            <select name="country" id="country" value={country} onChange={(e)=>setCountry(e.target.value)}>
               <option value="sweden">Sweden</option>
             </select>
           </div>
           <div>
-          <input type="text" placeholder="Street name"/>
-            <input type="text" name="zip-code" id="zip-code" placeholder="Zip code"/>
+            <input type="text" placeholder="Street name" value={street} onChange={(e)=>setStreet(e.target.value)}/>
+            <input type="text" name="zip-code" id="zip-code" placeholder="Zip code" value={zip} onChange={(e)=>setZip(e.target.value)}/>
           </div>
           <div>
-            <input type="text" name="city" id="city" placeholder="City"/>
-            <input type="text" name="phone" id="phone" placeholder="Phone number"/>
+            <input type="text" name="city" id="city" placeholder="City" value={city} onChange={(e)=>setCity(e.target.value)}/>
+            <input type="text" name="phone" id="phone" placeholder="Phone number" value={phone} onChange={(e)=>setPhone(e.target.value)}/>
           </div>
-          <input type="email" name="email" id="email" placeholder="Email address"/>
+          <input type="email" name="email" id="email" placeholder="Email address" value={email} onChange={(e)=>setEmail(e.target.value)}/>
         </form>
       </div>
       <div className={style.paymentInfo}>
@@ -39,7 +55,7 @@ const PlaceOrder = () => {
             {paymentOptions.map((option, i) => {
               return (
                 <div className={style.radio} key={i}>
-                  <input type="radio" id={option} name="payment" onClick={()=>setPayment(option)} defaultChecked={payment === option}/>
+                  <input type="radio" id={option} name="payment" onClick={(e)=>setPayment(option)} defaultChecked={payment === option}/>
                   <label htmlFor={option}>{option}</label>
                 </div>
               )

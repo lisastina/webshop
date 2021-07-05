@@ -9,8 +9,7 @@ import { useHistory } from 'react-router-dom';
 const Checkout = () => {
     const history = useHistory();
 
-    const { cartItems, cartTotal, checkout, setCheckout, removeAllFromCart } = useContext(CartContext);
-    const [order, setOrder] = useState(null);
+    const { cartItems, cartTotal, checkout, setCheckout, handlePlaceOrder} = useContext(CartContext);
 
     useEffect(() => {
         setCheckout(false);
@@ -20,13 +19,13 @@ const Checkout = () => {
         setCheckout(!checkout)
     }
 
-    const handlePlaceOrder = () => {
+/*     const handlePlaceOrder = () => {
         let orderNumber = Math.round(Math.random() * 10000000)
         setOrder({cartItems, ordernumber: orderNumber})
         history.push(`/confirmation/${orderNumber}`);
         removeAllFromCart();
     }
-
+ */
     return ( 
         <div>
             {cartItems.length ? 
@@ -40,7 +39,7 @@ const Checkout = () => {
                 )}
                 <hr/>
                 {checkout && <div>
-                    <PlaceOrder/>
+                    <PlaceOrder />
                     <hr />
                     </div>}
                 <div className={`${style.buy} ${checkout && style.checkingOut}`}>
@@ -58,9 +57,7 @@ const Checkout = () => {
                     <div>
                         <button className={style.checkingOut} onClick={handleCheckout}>Go back</button>
                         <button 
-                            onClick={() => {
-                                handlePlaceOrder()
-                            }}
+                            onClick={() => {handlePlaceOrder()}}
                         >Place order</button>
                     </div>
                     :

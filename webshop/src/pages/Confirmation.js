@@ -19,10 +19,10 @@ const Confirmation = () => {
         )}
         </div>
         <div className={style.shippingInfo}>
-          <p>Lisa Hansson <br /> Lindblomsvägen 8 <br />47542 Hönö</p>
-          <p>lisastina.hansson@gmail.com <br />0733450892</p>
-          <p>Payment method: Card</p>
-          <h3>Total price: 234 kr</h3>
+          <p>{order.shipping.firstName} {order.shipping.lastName}<br /> {order.shipping.street} <br />{order.shipping.zip} {order.shipping.city} <br />{order.shipping.country}</p>
+          <p>{order.shipping.email} <br />{order.shipping.phone}</p>
+          <p>Payment method: {order.shipping.payment}</p>
+          <h3>Total price: {order.totalPrice}</h3>
         </div>
         </div>
       </div>
