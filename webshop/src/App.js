@@ -18,13 +18,16 @@ function App() {
         <ProductContext>
           <CartContext>
             <Navbar />
+            <div className="site-container">
+
               <Route exact path="/" component={Home} />
-              <div className="site-container">
+              <div className="pages-container">
                 <Route exact path="/about" component={About} />
                 <Route exact path="/products" component={AllProducts} />
                 <Route exact path="/details/:id" component={ProductDetails} />
                 <Route exact path="/checkout" component={Checkout} />
               </div>
+            </div>
           </CartContext>
         </ProductContext>
         <Footer/>
