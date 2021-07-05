@@ -42,17 +42,19 @@ const PlaceOrder = () => {
         </form>
         <div className={style.selectedPayment}>
           <form className={style.cardInfo}>
-            <div>
+            <div className={style.inputs}>
               <label htmlFor="cardnumber">Cardnumber</label>
               <input type="text" id={style.cardnumber} name="card"/>
             </div>
-            <div>
-              <label htmlFor="securitynumber">Security number</label>
-              <input type="text" id="securitynumber" name="card"/>
-            </div>
-            <div>
-              <label htmlFor="date">Expiration date</label>
-              <input type="text" id="date" name="card"/>
+            <div className={style.inputsContainer}>
+              <div className={style.inputs}>
+                <label htmlFor="date">Expiration date</label>
+                <input type="text" id="date" name="card"/>
+              </div>
+              <div className={style.inputs}>
+                <label htmlFor="securitynumber">Security number</label>
+                <input type="text" id="securitynumber" name="card"/>
+              </div>
             </div>
 
           </form>
