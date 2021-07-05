@@ -13,6 +13,9 @@ h1, h2, h3, h4, h5, h6, p {
   font-weight: 400;
 }
 .site-container {
+  min-height: calc(100vh - 200px - 115px);
+}
+.pages-container {
   max-width: 900px;
   padding: 0 50px;
   margin: auto;
