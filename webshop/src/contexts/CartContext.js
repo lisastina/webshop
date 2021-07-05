@@ -90,6 +90,11 @@ const CartContextProvider = (props) => {
         setCartLength(Number(cartLength) - Number(itemToRemove.quantity))
     }
 
+    const removeAllFromCart = () => {
+        setCartItems([]);
+        setCartLength(0);
+    }
+
     const values = {   
         cartItems,
         setCartItems,
@@ -100,7 +105,8 @@ const CartContextProvider = (props) => {
         setCartLength,
         changeQuantity,
         checkout,
-        setCheckout
+        setCheckout,
+        removeAllFromCart
     }
     return (
         <CartContext.Provider value={values}>

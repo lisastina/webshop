@@ -7,7 +7,7 @@ import PlaceOrder from '../components/PlaceOrder';
 
 const Checkout = () => {
 
-    const { cartItems, cartTotal, checkout, setCheckout} = useContext(CartContext);
+    const { cartItems, cartTotal, checkout, setCheckout, removeAllFromCart } = useContext(CartContext);
 
     useEffect(() => {
         setCheckout(false);
@@ -47,7 +47,11 @@ const Checkout = () => {
                     {checkout ? 
                     <div>
                         <button className={style.checkingOut} onClick={handleCheckout}>Go back</button>
-                        <button>Place order </button>
+                        <button 
+                            onClick={() => {
+                            removeAllFromCart();
+                            }}
+                        >Place order</button>
                     </div>
                     :
                         <button onClick={handleCheckout}>Checkout</button>
