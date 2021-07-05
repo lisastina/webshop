@@ -1,5 +1,5 @@
 import style from '../css/Checkout.module.css';
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { CartContext } from '../contexts/CartContext';
 import CartItem from '../components/CartItem';
 import NoItems from '../components/NoItems';
@@ -7,16 +7,14 @@ import PlaceOrder from '../components/PlaceOrder';
 
 const Checkout = () => {
 
-    const { cartItems, cartTotal, checkout, setCheckout } = useContext(CartContext);
-    
+    const { cartItems, cartTotal, checkout, setCheckout} = useContext(CartContext);
+
+    useEffect(() => {
+        setCheckout(false);
+    }, []);
 
     const handleCheckout = () => {
-        if(checkout){
-            setCheckout(false);
-        }
-        if(!checkout){
-            setCheckout(true);
-        }
+        setCheckout(!checkout)
     }
 
     return ( 
@@ -36,7 +34,16 @@ const Checkout = () => {
                     <hr />
                     </div>}
                 <div className={`${style.buy} ${checkout && style.checkingOut}`}>
+                    <div>
                     <h2>Subtotal {cartTotal} kr</h2>
+                    {checkout && 
+                    <div>
+                        <h2>Shipping 50 kr</h2>
+                        <h1>Total {cartTotal + 50}</h1>
+                    </div>
+                    }
+                    
+                    </div>
                     {checkout ? <button onClick={handleCheckout}>Go back</button>
                     :
                         <button onClick={handleCheckout}>Checkout</button>
