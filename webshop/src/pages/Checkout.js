@@ -44,7 +44,11 @@ const Checkout = () => {
                     }
                     
                     </div>
-                    {checkout ? <button onClick={handleCheckout}>Go back</button>
+                    {checkout ? 
+                    <div>
+                        <button className={style.checkingOut} onClick={handleCheckout}>Go back</button>
+                        <button>Place order </button>
+                    </div>
                     :
                         <button onClick={handleCheckout}>Checkout</button>
                     }

@@ -19,8 +19,9 @@
 .buy.buy.checkingOut h2 {
     font-size: 1.1rem;
 }
-.buy.checkingOut button {
+.buy.checkingOut button.checkingOut {
     margin: .7rem 0;
     background-color: #d5dcdf79;
     color: #463a3b;
+    margin-right: 1rem;
 }
