@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { CartContext } from '../contexts/CartContext';
 import style from '../css/Confirmation.module.css';
 
@@ -22,7 +22,7 @@ const Confirmation = () => {
           <p>{order.shipping.firstName} {order.shipping.lastName}<br /> {order.shipping.street} <br />{order.shipping.zip} {order.shipping.city} <br />{order.shipping.country}</p>
           <p>{order.shipping.email} <br />{order.shipping.phone}</p>
           <p>Payment method: {order.shipping.payment}</p>
-          <h3>Total price: {order.totalPrice}</h3>
+          <h3>Total price: {order.totalPrice} kr</h3>
         </div>
         </div>
       </div>

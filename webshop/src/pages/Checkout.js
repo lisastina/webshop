@@ -1,34 +1,27 @@
 import style from '../css/Checkout.module.css';
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { CartContext } from '../contexts/CartContext';
 import CartItem from '../components/CartItem';
 import NoItems from '../components/NoItems';
 import PlaceOrder from '../components/PlaceOrder';
-import { useHistory } from 'react-router-dom';
 
 const Checkout = () => {
-    const history = useHistory();
 
-    const { cartItems, cartTotal, checkout, setCheckout, handlePlaceOrder} = useContext(CartContext);
+    const { cartItems, cartTotal, checkout, setCheckout} = useContext(CartContext);
 
     useEffect(() => {
         setCheckout(false);
     }, [setCheckout]);
 
-    const handleCheckout = () => {
+    const handleCheckout = (e) => {
+        e.preventDefault()
         setCheckout(!checkout)
     }
 
-/*     const handlePlaceOrder = () => {
-        let orderNumber = Math.round(Math.random() * 10000000)
-        setOrder({cartItems, ordernumber: orderNumber})
-        history.push(`/confirmation/${orderNumber}`);
-        removeAllFromCart();
-    }
- */
     return ( 
         <div>
             {cartItems.length ? 
+            <form action="">
             <div className={style.checkout}>
                 {checkout ? <h1>Checkout</h1> : <h1>Shopping cart</h1>}
                 {cartItems && cartItems.map((item, index) => 
@@ -38,34 +31,18 @@ const Checkout = () => {
                 </div>
                 )}
                 <hr/>
-                {checkout && <div>
-                    <PlaceOrder />
-                    <hr />
-                    </div>}
-                <div className={`${style.buy} ${checkout && style.checkingOut}`}>
+                {checkout ? <PlaceOrder /> :
+                
+                <div className={`${style.buy}`}>
                     <div>
                     <h2>Subtotal {cartTotal} kr</h2>
-                    {checkout && 
-                    <div>
-                        <h2>Shipping 50 kr</h2>
-                        <h1>Total {cartTotal + 50}</h1>
                     </div>
-                    }
-                    
-                    </div>
-                    {checkout ? 
-                    <div>
-                        <button className={style.checkingOut} onClick={handleCheckout}>Go back</button>
-                        <button 
-                            onClick={() => {handlePlaceOrder()}}
-                        >Place order</button>
-                    </div>
-                    :
-                        <button onClick={handleCheckout}>Checkout</button>
-                    }
+                    <button onClick={handleCheckout}>Checkout</button>
                 </div>
+                }
                 
             </div>
+            </form>
             : <NoItems />
             }
             

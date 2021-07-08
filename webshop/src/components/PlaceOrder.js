@@ -13,24 +13,27 @@ const PlaceOrder = () => {
   const [zip, setZip] = useState();
   const [city, setCity] = useState();
   const [phone, setPhone] = useState();
-  const [email, setEmail] = useState();  
-
+  const [email, setEmail] = useState(); 
+  const [cardNumber, setCardNumber] = useState(); 
+  const [exDate, setExDate] = useState(); 
+  const [securityNumber, setSecurityNumber] = useState(); 
+  
   const paymentOptions = ["Card", "Invoice", "Paypal"]
 
-  const { setShipping } = useContext(CartContext);
+  const { setShipping, checkout, setCheckout, cartTotal, handlePlaceOrder } = useContext(CartContext);
 
 useEffect(() => {
   setShipping({firstName, lastName, country, street, zip, city, phone, email, payment})
-}, [firstName, lastName, country, street, zip, city, phone, email, payment]);
+}, [firstName, lastName, country, street, zip, city, phone, email, payment, setShipping]);
 
   return ( 
+    <form>
     <div className={style.placeOrder}>
       <div className={style.shippingInfo}>
         <h1>Shipping </h1>
-        <form>
           <div className={style.name}>
-            <input id="firstName" type="text" placeholder="First Name" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
-            <input id="lastName" type="text" placeholder="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
+            <input required id="firstName" type="text" placeholder="First Name" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
+            <input required id="lastName" type="text" placeholder="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
           </div>
           <div className={`customSelect ${style.select}`}>  
             <select name="country" id="country" value={country} onChange={(e)=>setCountry(e.target.value)}>
@@ -38,19 +41,18 @@ useEffect(() => {
             </select>
           </div>
           <div>
-            <input type="text" placeholder="Street name" value={street} onChange={(e)=>setStreet(e.target.value)}/>
-            <input type="text" name="zip-code" id="zip-code" placeholder="Zip code" value={zip} onChange={(e)=>setZip(e.target.value)}/>
+            <input required type="text" placeholder="Street name" value={street} onChange={(e)=>setStreet(e.target.value)}/>
+            <input required type="text" name="zip-code" id="zip-code" placeholder="Zip code" value={zip} onChange={(e)=>setZip(e.target.value)}/>
           </div>
           <div>
-            <input type="text" name="city" id="city" placeholder="City" value={city} onChange={(e)=>setCity(e.target.value)}/>
-            <input type="text" name="phone" id="phone" placeholder="Phone number" value={phone} onChange={(e)=>setPhone(e.target.value)}/>
+            <input required type="text" name="city" id="city" placeholder="City" value={city} onChange={(e)=>setCity(e.target.value)}/>
+            <input required type="text" name="phone" id="phone" placeholder="Phone number" value={phone} onChange={(e)=>setPhone(e.target.value)}/>
           </div>
-          <input type="email" name="email" id="email" placeholder="Email address" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-        </form>
+          <input required type="email" name="email" id="email" placeholder="Email address" value={email} onChange={(e)=>setEmail(e.target.value)}/>
       </div>
       <div className={style.paymentInfo}>
         <h2>Payment</h2>
-        <form>
+
           <div className={style.options}>
             {paymentOptions.map((option, i) => {
               return (
@@ -61,10 +63,10 @@ useEffect(() => {
               )
             })}
           </div>
-        </form>
+
         <div className={style.selectedPayment}>
         {payment === "Card" &&
-          <form className={style.cardInfo}>
+          <div className={style.cardInfo}>
             <div className={style.inputs}>
               <label htmlFor="cardnumber">Cardnumber</label>
               <input type="text" id={style.cardnumber}/>
@@ -79,7 +81,7 @@ useEffect(() => {
                 <input type="text" id="securitynumber" name="card"/>
               </div>
             </div>
-          </form>}
+          </div>}
 
           {payment === "Invoice" &&
           <div>
@@ -93,6 +95,26 @@ useEffect(() => {
         </div>
       </div>
     </div>
+      <div>
+      <hr />
+        <div className={`${style.buy} ${style.checkingOut}`}>
+          <div>
+            <h2>Subtotal {cartTotal} kr</h2>
+            <div>
+              <h2>Shipping 50 kr</h2>
+              <h1>Total {cartTotal + 50}</h1>
+            </div>      
+          </div>
+          <div>
+            <button className={style.checkingOut} onClick={()=>setCheckout(!checkout)}>Go back</button>
+            <button 
+              type="submit"
+              onClick={handleClick}
+              >Place order</button>
+            </div>                
+          </div>
+        </div>
+    </form>
    );
 }
  
