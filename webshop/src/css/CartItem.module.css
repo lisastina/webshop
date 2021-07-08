@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     width: 50%;
 }
 .cartItem .imgContainer .title {
@@ -25,12 +26,12 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
-    margin-right: 2rem;
+    z-index: -1;
   }
   .x:before, .x:after {
     position: absolute;
-    margin-left: 20px;
-    content: ' ';
+    margin-left: 10px;
+    content: '';
     height: 20px;
     width: 2px;
     background-color: #463a3b;
@@ -53,6 +54,11 @@
       justify-content: space-between;
       align-items: center;
   }
+  .cartItem .quantity {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
   .cartItem .quantity input{
     width: 50px;
     height: 32px;
@@ -64,14 +70,13 @@
     font-family: 'Libre Caslon Text', serif;
     padding: 0 0 0 1rem;
     outline: none;
-    margin-left: 1rem;
 }
 .cartItem .quantity input:focus {
     outline: 1.5px solid rgb(141, 157, 165);
     -moz-outline-radius: .3em;
 }
 
-
+/* Checking out */
 .checkingOut .imgWrapper,
 .checkingOut .x {
   display: none;
@@ -81,6 +86,7 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 .checkingOut .imgContainer {
   width: 100%;
@@ -90,4 +96,51 @@
 }
 .checkingOut .quantity span {
   margin-left: 1rem;
+}
+.checkingOut .quantity {
+  gap: 0;
+}
+
+
+@media screen and (max-width: 700px) {
+  .cartItem .info {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .cartItem .imgContainer {
+    width: 80%;
+  }
+  .cartItem .imgContainer .title {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .cartItem {
+    padding: 0;
+  }
+  .cartItem .imgContainer {
+    width: 90%;
+  }
+  .cartItem:not(.checkingOut) .quantity {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: flex-end;
+  }
+  .cartItem .title h2,
+  .cartItem .title p {
+    font-size: .9rem;
+  }
+  .cartItem .imgWrapper {
+    max-width: 90px;
+  }
+  .cartItem .info label{
+    font-size: .8rem;
+  }
+  .cartItem .info h2 {
+   font-size: 1rem;
+  }
+  .cartItem .x {
+    margin-right: .5rem;
+  }
 }

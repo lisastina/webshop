@@ -112,3 +112,9 @@ select:focus + .focus {
   border: 2px solid rgb(141, 157, 165);
   border-radius: inherit;
 }
+
+@media screen and (max-width: 600px) {
+  .pages-container {
+    padding: 0 30px;
+  }
+}
