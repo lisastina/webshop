@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
-/* font-family: 'Libre Caslon Display', serif; width: 400*/
-/* font-family: 'Libre Caslon Text', serif; width: 400, 400 italic, 700*/
-/* #463a3b */
+
 body {
   margin: 0;
   padding: 0;
@@ -51,7 +49,9 @@ p {
   letter-spacing: 1px;
   line-height: 1.8rem;
 }
-
+hr {
+  border: .5px solid #b3c5ce;
+}
 /* custom select element styling */
 /*  Remove default styling of select element  */
 *::before, *::after {

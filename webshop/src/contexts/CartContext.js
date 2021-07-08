@@ -1,11 +1,16 @@
-/* eslint-disable */
 import { createContext, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export const CartContext = createContext();
 
 const CartContextProvider = (props) => {
+    const history = useHistory();
+
+    const [shipping, setShipping] = useState();
 
     const [checkout, setCheckout] = useState(false);
+    const [order, setOrder] = useState(null);
+
 
     const [cartLength, setCartLength] = useState(() => {
         const localData = localStorage.getItem('cartLength');
@@ -35,36 +40,14 @@ const CartContextProvider = (props) => {
         localStorage.setItem('cartLength', JSON.stringify(cartLength))
     }, [cartLength]);
 
- /*    const handleCartLength = (item) => {
-        if(cartItems.length === 0) {
-            setCartLength(0)
-        }
-        if(cartItems.length ++){
-            console.log(cartLength)
-            setCartLength(Number(cartLength) + Number(item.quantity))
-        }
-    } */
+
     useEffect(() => {
         if(cartItems.length === 0){
             setCartLength(0)
         }
-    }, [cartLength]);
+    }, [cartLength, cartItems.length]);
 
     const addToCart = (newItem) => {        
-     /*    const match = cartItems.find((item) => {
-            item.name === newItem.name && item.size === newItem.size
-            console.log(item)
-        })
-        if(!match){
-            setCartItems([ ...cartItems, newItem]);
-            setCartLength(Number(cartLength) + Number(newItem.quantity))
-        }    
-        if(match){
-            setCartLength(cartLength + newItem.quantity)
-            let copyCartItems = [...cartItems]
-            copyCartItems[index].quantity = quantity
-            setCartItems(copyCartItems);
-        }    */
         setCartItems([ ...cartItems, newItem]);
         setCartLength(Number(cartLength) + Number(newItem.quantity))
     }
@@ -90,6 +73,14 @@ const CartContextProvider = (props) => {
         setCartLength(Number(cartLength) - Number(itemToRemove.quantity))
     }
 
+    const handlePlaceOrder = () => {
+        let orderNumber = Math.round(Math.random() * 10000000)
+        setOrder({shipping, cartItems, ordernumber: orderNumber, totalPrice: cartTotal + 50})
+        history.push(`/confirmation/${orderNumber}`);
+        setCartItems([]);
+        setCartLength(0);
+    }
+
     const values = {   
         cartItems,
         setCartItems,
@@ -100,7 +91,10 @@ const CartContextProvider = (props) => {
         setCartLength,
         changeQuantity,
         checkout,
-        setCheckout
+        setCheckout,
+        order,
+        handlePlaceOrder,
+        setShipping
     }
     return (
         <CartContext.Provider value={values}>

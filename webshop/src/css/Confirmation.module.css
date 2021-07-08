@@ -1,0 +1,9 @@
+.confirmation {
+  margin: 150px auto;
+  text-align: center;
+}
+.confirmation .orderInfo {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+}

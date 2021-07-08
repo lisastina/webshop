@@ -9,6 +9,7 @@ import ScrollToTop from './components/ScrollToTop';
 import ProductDetails from './pages/ProductDetails';
 import AllProducts from './pages/AllProducts';
 import Checkout from './pages/Checkout';
+import Confirmation from './pages/Confirmation';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                 <Route exact path="/products" component={AllProducts} />
                 <Route exact path="/details/:id" component={ProductDetails} />
                 <Route exact path="/checkout" component={Checkout} />
+                <Route exact path="/confirmation/:id" component={Confirmation} />
               </div>
             </div>
           </CartContext>
