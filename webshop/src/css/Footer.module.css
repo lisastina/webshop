@@ -8,6 +8,7 @@
 .footerContainer {
     max-width: 1000px;
     margin: auto;
+    padding: 0 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,4 +34,17 @@
     padding: .5rem;
     border: none;
     margin-right: .3rem;
+}
+@media screen and (max-width: 600px){
+    .footerContainer {
+        display: block;
+    }
+    .footer .form {
+        margin-top: 2rem;
+        text-align: left;
+    }
+    .footer form {
+        justify-content: left;
+    }
+
 }

@@ -20,7 +20,6 @@ function App() {
           <CartContext>
             <Navbar />
             <div className="site-container">
-
               <Route exact path="/" component={Home} />
               <div className="pages-container">
                 <Route exact path="/about" component={About} />
