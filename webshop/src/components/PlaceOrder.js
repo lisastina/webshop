@@ -8,7 +8,7 @@ const PlaceOrder = () => {
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-  const [country, setCountry] = useState();
+  const [country, setCountry] = useState("sweden");
   const [street, setStreet] = useState();
   const [zip, setZip] = useState();
   const [city, setCity] = useState();
@@ -21,6 +21,22 @@ const PlaceOrder = () => {
   const paymentOptions = ["Card", "Invoice", "Paypal"]
 
   const { setShipping, checkout, setCheckout, cartTotal, handlePlaceOrder } = useContext(CartContext);
+
+const handleClick = (e) => {
+  if(firstName && lastName && country && street && zip && city && phone && email){
+    if(payment === "Card" && (cardNumber && exDate && securityNumber)){
+      e.preventDefault()
+      handlePlaceOrder()
+    }
+    if (payment !== "Card"){
+      e.preventDefault()
+      handlePlaceOrder()
+    }
+    else {
+      e.preventDefault()
+    }
+  }
+}
 
 useEffect(() => {
   setShipping({firstName, lastName, country, street, zip, city, phone, email, payment})
@@ -69,16 +85,16 @@ useEffect(() => {
           <div className={style.cardInfo}>
             <div className={style.inputs}>
               <label htmlFor="cardnumber">Cardnumber</label>
-              <input type="text" id={style.cardnumber}/>
+              <input required type="text" id={style.cardnumber} value={cardNumber} onChange={(e)=>setCardNumber(e.target.value)}/>
             </div>
             <div className={style.inputsContainer}>
               <div className={style.inputs}>
                 <label htmlFor="date">Expiration date</label>
-                <input type="text" id="date" name="card"/>
+                <input required type="text" id="date" name="card" value={exDate} onChange={(e)=>setExDate(e.target.value)}/>
               </div>
               <div className={style.inputs}>
                 <label htmlFor="securitynumber">Security number</label>
-                <input type="text" id="securitynumber" name="card"/>
+                <input required type="text" id="securitynumber" name="card" value={securityNumber} onChange={(e)=>setSecurityNumber(e.target.value)}/>
               </div>
             </div>
           </div>}
@@ -108,7 +124,7 @@ useEffect(() => {
           <div>
             <button className={style.checkingOut} onClick={()=>setCheckout(!checkout)}>Go back</button>
             <button 
-              type="submit"
+              // type="submit"
               onClick={handleClick}
               >Place order</button>
             </div>                
