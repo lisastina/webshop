@@ -21,3 +21,13 @@
 .home .seeAll a:hover {
   color: rgb(141, 157, 165);
 }
+
+@media screen and (max-width: 600px) {
+  .home .desc {
+    margin: 3rem auto;
+    width: 90%;
+  }
+  .home .seeAll {
+    margin: 50px;
+  }
+}

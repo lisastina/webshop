@@ -30,3 +30,12 @@
     font-size: 1rem;
     letter-spacing: 1px;
 }
+
+@media screen and (max-width: 600px) {
+    .productCard, .productCard.productCard.reverse {
+        flex-direction: column;
+    }
+    .productCard .desc {
+        width: 100%;
+    }
+} 
