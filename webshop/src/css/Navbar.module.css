@@ -8,8 +8,8 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
+    align-items: flex-start;
+    padding: 1.5rem 1rem;
 }
 .linkContainer {
     margin-left: 1rem;
@@ -41,6 +41,7 @@
     font-weight: 700;
     text-align: center;
     cursor: pointer;
+    margin: 0 auto;
 }
 .cartIconWrapper {
     margin-right: 2rem;
@@ -72,9 +73,71 @@
 .white a, .white h1, .white .cartIcon {
     color: #fff;
 }
-.white a::before {
+.white a::before, 
+.white .hamburger span {
     background-color: #FFF;
 }
 .navbar.white {
     background: linear-gradient(to bottom, #292f5050 0%, #c5c5c500 100%);
 }
+
+/* Hamburger */
+
+.hamburger {
+    display: none;
+    margin: .5rem;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin-bottom: 5px;
+    background-color: #463a3b;
+    border-radius: 3px;
+    z-index: 200;
+    transform-origin: 4px 0px;
+  }
+  .hamburger span:first-child,
+  .hamburger span:nth-child(3) {
+      transition: 0.3s;
+  }
+  
+  .navbarContainer.clickedHam .hamburger span:first-child {
+    transform: rotate(45deg) translate(4px, 1px);
+    transition: 0.3s;
+  }
+  .navbarContainer.clickedHam .hamburger span:nth-child(3) {
+    transition: 0.3s;
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  .navbarContainer.clickedHam .hamburger span:nth-child(2) {
+    visibility:hidden;
+  }
+
+  @media only screen and (max-width: 800px){
+    .navbarContainer {
+        padding: 1.5rem 0rem;
+    }
+    .navbar .link {
+      display: none;
+      margin-top: 1.8rem;
+    }
+    .hamburger, 
+    .navbarContainer.clickedHam .link,
+    .navbarContainer.clickedHam .linkContainer {
+      display: block;
+    }
+    .navbarContainer.clickedHam {
+      background-color: white;
+      border-bottom: #b3c5ce 2px solid;
+    }
+    .navbar h1 {
+        font-size: 1.5rem;
+    }
+    .linkContainer a:hover::before, .linkContainer .active::before {
+        visibility: visible;
+        width: 56px;
+    }
+  }
