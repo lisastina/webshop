@@ -25,10 +25,14 @@ const CartItem = (props) => {
         <div className={`${style.cartItem} ${checkout && style.checkingOut}`}>
             <div className={style.imgContainer}>
                 <div className={style.x} onClick={() =>{ 
+                    console.log("click");
                     removeFromCart(props.item)
-                    }}></div>
+                    }}>
+                        <span></span>
+                        <span></span>
+                    </div>
                 <div className={style.imgWrapper}>
-                    <img src={props.item.img} alt=""/>
+                    <img src={props.item.img} alt={props.item.name}/>
                 </div>
                 <div className={style.title}>
                     <h2>{props.item.name} {props.item.productType}</h2>

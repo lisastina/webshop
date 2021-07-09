@@ -21,12 +21,30 @@
   text-transform: capitalize;
 }
 .x {
+  cursor: pointer;
+  z-index: 2;
+}
+.x span{
+  display: block;
+    width: 20px;
+    height: 2px;
+    margin-bottom: 5px;
+    background-color: #463a3b;
+    border-radius: 3px;
+    transform-origin: 5px 0px;
+}
+.x span:first-child {
+  transform: rotate(45deg) translate(0px, -1px);
+}
+.x span:last-child {
+  transform: rotate(-45deg) translate(0px, -1px);
+}
+/* .x {
     right: 20px;
     top: 20px;
     width: 20px;
     height: 20px;
     cursor: pointer;
-    z-index: -1;
   }
   .x:before, .x:after {
     position: absolute;
@@ -41,7 +59,7 @@
   }
   .x:after {
     transform: rotate(-45deg);
-  }
+  } */
   .cartItem .imgWrapper {
       max-width: 120px;
   }
