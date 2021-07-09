@@ -2,12 +2,13 @@
   display: flex;
   justify-content: space-between;
   margin: 2rem 0;
+  gap: 2rem;
 }
-.placeOrder .shippingInfo,
+/* .placeOrder .shippingInfo,
 .placeOrder .paymentInfo {
   width: 45%;
   padding: .5rem;
-}
+} */
 .placeOrder .name {
   display: flex;
 }
@@ -42,7 +43,7 @@
   height: 32px;
 }
 .placeOrder .paymentInfo .options {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   display: flex;
 }
 .placeOrder .paymentInfo .radio input{
@@ -54,22 +55,20 @@
 .placeOrder .paymentInfo .cardInfo {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  /* width: 100%; */
 }
-.placeOrder .paymentInfo .selectedPayment .cardInfo #cardnumber {
-  width: 100%;
-  min-width: 200px;
-}
-.placeOrder .paymentInfo .selectedPayment .cardInfo .inputsContainer {
-  margin-top: 1rem;
+
+.placeOrder .inputsContainer {
   display: flex;
   justify-content: space-between;
+  gap: .5rem;
 }
-.placeOrder .paymentInfo .selectedPayment .cardInfo .inputsContainer .inputs {
+.placeOrder .inputs {
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 }
-.placeOrder .paymentInfo .selectedPayment .cardInfo .inputsContainer .inputs input {
+.placeOrder .inputs input {
  width: 90%;
 }
 
@@ -101,5 +100,19 @@
   }
   .buy.checkingOut h1 {
     font-size: 1.3rem;
+  }
+  .placeOrder {
+    flex-direction: column;
+    margin: 1rem 0;
+  }
+  .placeOrder .shippingInfo,
+  .placeOrder .paymentInfo {
+    /* width: 100%; */
+  }
+  .placeOrder .inputsContainer {
+    flex-direction: column;
+  }
+  .placeOrder .paymentInfo .cardInfo {
+    flex-direction: column;
   }
 }

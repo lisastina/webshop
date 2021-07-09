@@ -85,7 +85,7 @@ useEffect(() => {
           <div className={style.cardInfo}>
             <div className={style.inputs}>
               <label htmlFor="cardnumber">Cardnumber</label>
-              <input required type="text" id={style.cardnumber} value={cardNumber} onChange={(e)=>setCardNumber(e.target.value)}/>
+              <input required type="text" id="cardnumber" value={cardNumber} onChange={(e)=>setCardNumber(e.target.value)}/>
             </div>
             <div className={style.inputsContainer}>
               <div className={style.inputs}>
