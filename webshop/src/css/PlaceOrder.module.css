@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-between;
   margin: 2rem 0;
-/*   display: grid;
-  grid-template-columns: repeat(auto-fill, 450px); */
 }
 .placeOrder .shippingInfo,
 .placeOrder .paymentInfo {
@@ -80,6 +78,7 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   text-align: right;
+  gap: 1rem;
 }
 .buy.checkingOut h2 {
   font-size: 1.1rem;
@@ -89,4 +88,18 @@
   background-color: #d5dcdf79;
   color: #463a3b;
   margin-right: 1rem;
+}
+@media screen and (max-width: 700px) {
+  .buy.checkingOut {
+    text-align: left;
+  }
+  .buy.checkingOut .buttons {
+    max-width: 55%;
+  }
+  .buy.checkingOut h2 {
+    font-size: .9rem;
+  }
+  .buy.checkingOut h1 {
+    font-size: 1.3rem;
+  }
 }

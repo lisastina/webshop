@@ -117,4 +117,10 @@ select:focus + .focus {
   .pages-container {
     padding: 0 30px;
   }
+  button {
+    font-size: 1.1rem;
+  }
+  .btn-sm {
+    font-size: .8rem;
+  }
 }

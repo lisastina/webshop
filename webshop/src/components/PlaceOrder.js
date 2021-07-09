@@ -121,15 +121,12 @@ useEffect(() => {
               <h1>Total {cartTotal + 50}</h1>
             </div>      
           </div>
-          <div>
+          <div className={style.buttons}>
             <button className={style.checkingOut} onClick={()=>setCheckout(!checkout)}>Go back</button>
-            <button 
-              // type="submit"
-              onClick={handleClick}
-              >Place order</button>
-            </div>                
-          </div>
+            <button onClick={handleClick}>Place order</button>
+          </div>                
         </div>
+      </div>
     </form>
    );
 }
