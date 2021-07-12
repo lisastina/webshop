@@ -47,7 +47,7 @@ useEffect(() => {
     <div className={style.placeOrder}>
       <div className={style.shippingInfo}>
         <h1>Shipping </h1>
-          <div className={style.name}>
+          <div className={style.shippingInputContainer}>
             <input required id="firstName" type="text" placeholder="First Name" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
             <input required id="lastName" type="text" placeholder="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
           </div>
@@ -56,15 +56,17 @@ useEffect(() => {
               <option value="sweden">Sweden</option>
             </select>
           </div>
-          <div>
+          <div className={style.shippingInputContainer}>
             <input required type="text" placeholder="Street name" value={street} onChange={(e)=>setStreet(e.target.value)}/>
             <input required type="text" name="zip-code" id="zip-code" placeholder="Zip code" value={zip} onChange={(e)=>setZip(e.target.value)}/>
           </div>
-          <div>
+          <div className={style.shippingInputContainer}>
             <input required type="text" name="city" id="city" placeholder="City" value={city} onChange={(e)=>setCity(e.target.value)}/>
             <input required type="text" name="phone" id="phone" placeholder="Phone number" value={phone} onChange={(e)=>setPhone(e.target.value)}/>
           </div>
+          <div className={style.shippingInputContainer}>
           <input required type="email" name="email" id="email" placeholder="Email address" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+          </div>
       </div>
       <div className={style.paymentInfo}>
         <h2>Payment</h2>

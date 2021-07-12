@@ -1,24 +1,14 @@
 .placeOrder {
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem 0;
-  gap: 2rem;
-}
-/* .placeOrder .shippingInfo,
-.placeOrder .paymentInfo {
-  width: 45%;
-  padding: .5rem;
-} */
-.placeOrder .name {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2.5rem;
 }
 
-.placeOrder .shippingInfo form div:not(.select) {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
+.placeOrder .shippingInputContainer {
+  display: flex; 
+  gap: .5rem;
 }
+
 .placeOrder input[type=text], input[type=email] {
   padding: .5rem;
   margin: .5rem 0 0;
@@ -33,17 +23,14 @@
   -moz-outline-radius: .3em;
 }
 .placeOrder .shippingInfo input[type=email] {
-  width: 96%;
-  min-width: 200px;
+  width: 100%;
   margin: .5rem auto;
 }
 .placeOrder .shippingInfo .select {
-  margin: .5rem .5rem 0 0;
-  min-width: 218px;
-  height: 32px;
+  margin: .5rem 0 0 0;
+  height: 36px;
 }
 .placeOrder .paymentInfo .options {
-  /* margin-bottom: 1rem; */
   display: flex;
 }
 .placeOrder .paymentInfo .radio input{
@@ -55,18 +42,20 @@
 .placeOrder .paymentInfo .cardInfo {
   display: flex;
   flex-wrap: wrap;
-  /* width: 100%; */
 }
 
 .placeOrder .inputsContainer {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  align-items: flex-end;
   gap: .5rem;
 }
+
 .placeOrder .inputs {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  width: 100%;
 }
 .placeOrder .inputs input {
  width: 90%;
@@ -102,17 +91,7 @@
     font-size: 1.3rem;
   }
   .placeOrder {
-    flex-direction: column;
+    display: block;
     margin: 1rem 0;
-  }
-  .placeOrder .shippingInfo,
-  .placeOrder .paymentInfo {
-    /* width: 100%; */
-  }
-  .placeOrder .inputsContainer {
-    flex-direction: column;
-  }
-  .placeOrder .paymentInfo .cardInfo {
-    flex-direction: column;
   }
 }
