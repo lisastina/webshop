@@ -41,6 +41,7 @@
 
 .productDetails .quantity input{
     width: 100%;
+    min-width: 97px;
     height: 32px;
     border-radius: 0.25rem;
     background-color: #fff;
@@ -57,4 +58,27 @@
 }
 .select {
     width: 100%;
+}
+
+@media screen and (max-width: 650px) {
+    .productDetails {
+        margin: 100px auto;
+    }
+    .productDetails .content {
+        flex-direction: column;
+    }
+    .productDetails .imgWrapper {
+        width: 60%;
+    }
+    .productDetails .content .desc {
+        width: 90%;
+    }
+    .productDetails h1 {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 450px) {
+    .productDetails .imgWrapper {
+        width: 90%;
+    }
 }

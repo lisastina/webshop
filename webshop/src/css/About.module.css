@@ -11,3 +11,11 @@
     line-height: 2.7rem;
     letter-spacing: .8px;
 }
+@media screen and (max-width: 600px) {
+    .about p {
+        font-size: 1.4rem;
+    }
+    .about {
+        margin: 100px auto;
+    }
+}
