@@ -5,39 +5,43 @@
 }
 
 .placeOrder .shippingInputContainer {
-  display: flex; 
-  gap: .5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
-.placeOrder input[type=text], input[type=email] {
-  padding: .5rem;
-  margin: .5rem 0 0;
-  border-radius: .25rem;
-  border: solid #b3c5ce 1px; 
+.placeOrder input[type="text"],
+input[type="email"] {
+  padding: 0.5rem;
+  margin: 0.5rem 0 0;
+  border-radius: 0.25rem;
+  border: solid #b3c5ce 1px;
   font: inherit;
+}
+.placeOrder input[type="text"]:not(#cardNumber) {
   width: 45%;
 }
 
 .placeOrder input:focus {
   outline: 1.5px solid rgb(141, 157, 165);
-  -moz-outline-radius: .3em;
+  -moz-outline-radius: 0.3em;
 }
-.placeOrder .shippingInfo input[type=email] {
+.placeOrder .shippingInfo input[type="email"] {
   width: 100%;
-  margin: .5rem auto;
+  margin: 0.5rem auto;
 }
 .placeOrder .shippingInfo .select {
-  margin: .5rem 0 0 0;
+  margin: 0.5rem 0 0 0;
   height: 36px;
 }
 .placeOrder .paymentInfo .options {
   display: flex;
 }
-.placeOrder .paymentInfo .radio input{
-  margin: 0 .5rem;
+.placeOrder .paymentInfo .radio input {
+  margin: 0 0.5rem;
 }
 .placeOrder .paymentInfo .radio label {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 .placeOrder .paymentInfo .cardInfo {
   display: flex;
@@ -46,19 +50,19 @@
 
 .placeOrder .inputsContainer {
   display: flex;
-  /* justify-content: space-between; */
   align-items: flex-end;
-  gap: .5rem;
+  gap: 0.5rem;
+  width: 100%;
 }
 
 .placeOrder .inputs {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  width: 100%;
 }
-.placeOrder .inputs input {
- width: 90%;
+
+.placeOrder .inputs input:not(#cardNumber) {
+  width: 90%;
 }
 
 .buy.checkingOut {
@@ -72,7 +76,7 @@
   font-size: 1.1rem;
 }
 .buy.checkingOut button.checkingOut {
-  margin: .7rem 0;
+  margin: 0.7rem 0;
   background-color: #d5dcdf79;
   color: #463a3b;
   margin-right: 1rem;
@@ -85,7 +89,7 @@
     max-width: 55%;
   }
   .buy.checkingOut h2 {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
   .buy.checkingOut h1 {
     font-size: 1.3rem;
