@@ -1,75 +1,68 @@
 .placeOrder {
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem 0;
-  gap: 2rem;
-}
-/* .placeOrder .shippingInfo,
-.placeOrder .paymentInfo {
-  width: 45%;
-  padding: .5rem;
-} */
-.placeOrder .name {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2.5rem;
 }
 
-.placeOrder .shippingInfo form div:not(.select) {
+.placeOrder .shippingInputContainer {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-
+  gap: 0.5rem;
 }
-.placeOrder input[type=text], input[type=email] {
-  padding: .5rem;
-  margin: .5rem 0 0;
-  border-radius: .25rem;
-  border: solid #b3c5ce 1px; 
+
+.placeOrder input[type="text"],
+input[type="email"] {
+  padding: 0.5rem;
+  margin: 0.5rem 0 0;
+  border-radius: 0.25rem;
+  border: solid #b3c5ce 1px;
   font: inherit;
+}
+.placeOrder input[type="text"]:not(#cardNumber) {
   width: 45%;
 }
 
 .placeOrder input:focus {
   outline: 1.5px solid rgb(141, 157, 165);
-  -moz-outline-radius: .3em;
+  -moz-outline-radius: 0.3em;
 }
-.placeOrder .shippingInfo input[type=email] {
-  width: 96%;
-  min-width: 200px;
-  margin: .5rem auto;
+.placeOrder .shippingInfo input[type="email"] {
+  width: 100%;
+  margin: 0.5rem auto;
 }
 .placeOrder .shippingInfo .select {
-  margin: .5rem .5rem 0 0;
-  min-width: 218px;
-  height: 32px;
+  margin: 0.5rem 0 0 0;
+  height: 36px;
 }
 .placeOrder .paymentInfo .options {
-  /* margin-bottom: 1rem; */
   display: flex;
 }
-.placeOrder .paymentInfo .radio input{
-  margin: 0 .5rem;
+.placeOrder .paymentInfo .radio input {
+  margin: 0 0.5rem;
 }
 .placeOrder .paymentInfo .radio label {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 .placeOrder .paymentInfo .cardInfo {
   display: flex;
   flex-wrap: wrap;
-  /* width: 100%; */
 }
 
 .placeOrder .inputsContainer {
   display: flex;
-  justify-content: space-between;
-  gap: .5rem;
+  align-items: flex-end;
+  gap: 0.5rem;
+  width: 100%;
 }
+
 .placeOrder .inputs {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
 }
-.placeOrder .inputs input {
- width: 90%;
+
+.placeOrder .inputs input:not(#cardNumber) {
+  width: 90%;
 }
 
 .buy.checkingOut {
@@ -83,7 +76,7 @@
   font-size: 1.1rem;
 }
 .buy.checkingOut button.checkingOut {
-  margin: .7rem 0;
+  margin: 0.7rem 0;
   background-color: #d5dcdf79;
   color: #463a3b;
   margin-right: 1rem;
@@ -96,23 +89,13 @@
     max-width: 55%;
   }
   .buy.checkingOut h2 {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
   .buy.checkingOut h1 {
     font-size: 1.3rem;
   }
   .placeOrder {
-    flex-direction: column;
+    display: block;
     margin: 1rem 0;
-  }
-  .placeOrder .shippingInfo,
-  .placeOrder .paymentInfo {
-    /* width: 100%; */
-  }
-  .placeOrder .inputsContainer {
-    flex-direction: column;
-  }
-  .placeOrder .paymentInfo .cardInfo {
-    flex-direction: column;
   }
 }
