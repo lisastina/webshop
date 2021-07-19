@@ -1,4 +1,3 @@
-/* eslint-disable */
 import style from "../css/CartItem.module.css";
 import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
@@ -19,6 +18,7 @@ const CartItem = (props) => {
 
   useEffect(() => {
     setProduct({ ...product, quantity: props.item.quantity });
+    //eslint-disable-next-line
   }, [props]);
 
   return (
