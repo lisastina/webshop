@@ -1,21 +1,21 @@
-import { BrowserRouter, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Navbar from './components/Navbar';
-import ProductContext from './contexts/ProductContext';
-import CartContext from './contexts/CartContext';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import ProductDetails from './pages/ProductDetails';
-import AllProducts from './pages/AllProducts';
-import Checkout from './pages/Checkout';
-import Confirmation from './pages/Confirmation';
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Navbar from "./components/Navbar";
+import ProductContext from "./contexts/ProductContext";
+import CartContext from "./contexts/CartContext";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import ProductDetails from "./pages/ProductDetails";
+import AllProducts from "./pages/AllProducts";
+import Checkout from "./pages/Checkout";
+import Confirmation from "./pages/Confirmation";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <ScrollToTop />
+        <ScrollToTop />
         <ProductContext>
           <CartContext>
             <Navbar />
@@ -26,12 +26,16 @@ function App() {
                 <Route exact path="/products" component={AllProducts} />
                 <Route exact path="/details/:id" component={ProductDetails} />
                 <Route exact path="/checkout" component={Checkout} />
-                <Route exact path="/confirmation/:id" component={Confirmation} />
+                <Route
+                  exact
+                  path="/confirmation/:id"
+                  component={Confirmation}
+                />
               </div>
             </div>
           </CartContext>
         </ProductContext>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </div>
   );
