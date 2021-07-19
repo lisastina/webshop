@@ -1,41 +1,42 @@
 .productCard {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-    margin: 4rem auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin: 4rem auto;
 }
 .productCard.reverse {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 .productCard .imgWrapper {
-    width: 50%;
+  width: 50%;
 }
 .productCard .imgWrapper img {
-    width: 100%;
+  width: 100%;
 }
 .productCard .desc {
-    text-align: center;
-    width: 40%;
+  text-align: center;
+  width: 40%;
 }
-.productCard .desc h2::first-letter, 
+.productCard .desc h2::first-letter,
 .productCard .desc p::first-letter {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
-.productCard  h2 {
-    font-size: 2rem;
-    letter-spacing: 1px;
+.productCard h2 {
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 .productCard p {
-    font-size: 1rem;
-    letter-spacing: 1px;
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
 
 @media screen and (max-width: 600px) {
-    .productCard, .productCard.productCard.reverse {
-        flex-direction: column;
-    }
-    .productCard .desc {
-        width: 100%;
-    }
-} 
+  .productCard,
+  .productCard.productCard.reverse {
+    flex-direction: column;
+  }
+  .productCard .desc {
+    width: 100%;
+  }
+}
