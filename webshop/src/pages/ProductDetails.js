@@ -48,11 +48,6 @@ const ProductDetails = (props) => {
 
   useEffect(() => {
     setQuantity(1);
-    findProduct();
-    // eslint-disable-next-line
-  }, [props.match.params.id, products]);
-
-  const findProduct = () => {
     if (products) {
       let newProduct = products.find(
         (product) =>
@@ -64,7 +59,8 @@ const ProductDetails = (props) => {
       setProduct({ ...newProduct, quantity: 1 });
       setSize("30x40");
     }
-  };
+  }, [props.match.params.id, products, changeLetters]);
+
   const handleAddToCart = () => {
     if (product.productType === "poster") {
       product.size = size;
