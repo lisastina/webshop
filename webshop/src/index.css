@@ -1,12 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap");
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Libre Caslon Text', serif;
+  font-family: "Libre Caslon Text", serif;
 }
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   color: #463a3b;
   font-weight: 400;
 }
@@ -28,18 +34,18 @@ a {
 
 button {
   background: #b3c5ce;
-  font-family: 'Libre Caslon Display', serif;
+  font-family: "Libre Caslon Display", serif;
   color: #fff;
   text-transform: capitalize;
   font-size: 1.3rem;
   letter-spacing: 1px;
   border: none;
-  padding: .6rem 1.1rem;
+  padding: 0.6rem 1.1rem;
   cursor: pointer;
   max-height: 45px;
 }
 .btn-sm {
-  padding: .4rem .9rem;
+  padding: 0.4rem 0.9rem;
   font-size: 1rem;
 }
 button:hover {
@@ -50,11 +56,12 @@ p {
   line-height: 1.8rem;
 }
 hr {
-  border: .5px solid #b3c5ce;
+  border: 0.5px solid #b3c5ce;
 }
 /* custom select element styling */
 /*  Remove default styling of select element  */
-*::before, *::after {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 select {
@@ -75,11 +82,11 @@ select {
 /*   New styling to Select  */
 .customSelect {
   /* min-width: 15ch; */
-  border-radius: .25em;
+  border-radius: 0.25em;
   /* width: 100%; */
   cursor: pointer;
   background-color: #fff;
-  border: solid #b3c5ce 1px; 
+  border: solid #b3c5ce 1px;
   display: grid;
   grid-template-areas: "select";
   align-items: center;
@@ -99,7 +106,7 @@ select {
 
 select,
 .customSelect:after {
-    grid-area: select;
+  grid-area: select;
 }
 
 /*  Select focus state  */
@@ -121,6 +128,6 @@ select:focus + .focus {
     font-size: 1.1rem;
   }
   .btn-sm {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 }

@@ -5,17 +5,17 @@ import { CartContext } from "../contexts/CartContext";
 const PlaceOrder = () => {
   const [payment, setPayment] = useState("Card");
 
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [country, setCountry] = useState("sweden");
-  const [street, setStreet] = useState();
-  const [zip, setZip] = useState();
-  const [city, setCity] = useState();
-  const [phone, setPhone] = useState();
-  const [email, setEmail] = useState();
-  const [cardNumber, setCardNumber] = useState();
-  const [exDate, setExDate] = useState();
-  const [securityNumber, setSecurityNumber] = useState();
+  const [street, setStreet] = useState("");
+  const [zip, setZip] = useState("");
+  const [city, setCity] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [exDate, setExDate] = useState("");
+  const [securityNumber, setSecurityNumber] = useState("");
 
   const paymentOptions = ["Card", "Invoice", "Paypal"];
 
