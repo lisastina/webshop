@@ -44,63 +44,84 @@
   {
     "name": "harbour",
     "productType": "photo",
-    "price": 329,
+    "price": 279,
     "desc": "",
     "quantity": "1"
   },
   {
-    "name": "boulders",
+    "name": "windmill",
     "productType": "photo",
-    "price": 329,
+    "price": 279,
     "desc": "",
     "quantity": "1"
   },
   {
-    "name": "fishermen",
+    "name": "then and now",
     "productType": "photo",
-    "price": 329,
+    "price": 279,
     "desc": "",
     "quantity": "1"
   },
   {
-    "name": "heart pool",
+    "name": "coast",
     "productType": "photo",
-    "price": 329,
+    "price": 279,
     "desc": "",
     "quantity": "1"
   },
   {
     "name": "lighthouse",
     "productType": "photo",
-    "price": 329,
+    "price": 279,
+    "desc": "",
+    "quantity": "1"
+  },
+  {
+    "name": "boulders",
+    "productType": "photo",
+    "price": 279,
+    "desc": "",
+    "quantity": "1"
+  },
+  {
+    "name": "heart pool",
+    "productType": "photo",
+    "price": 279,
+    "desc": "",
+    "quantity": "1"
+  },
+  {
+    "name": "fishermen",
+    "productType": "photo",
+    "price": 279,
     "desc": "",
     "quantity": "1"
   },
   {
     "name": "lighthouses",
     "productType": "photo",
-    "price": 329,
+    "price": 279,
     "desc": "",
     "quantity": "1"
   },
   {
     "name": "swan",
     "productType": "photo",
-    "price": 329,
+    "price": 279,
+    "desc": "A curious little swan approached me as I was out walking. It was really photogenic and seemed to thrive in front of the camera.",
+    "quantity": "1"
+  },
+  {
+    "name": "tug of war",
+    "productType": "photo",
+    "price": 279,
     "desc": "",
     "quantity": "1"
   },
   {
     "name": "swans",
     "productType": "photo",
-    "price": 329,
-    "desc": "",
-    "quantity": "1"
-  },
-  {
-    "name": "tug of war",
-    "productType": "photo",
-    "price": 329,
+    "price": 279,
     "desc": "",
     "quantity": "1"
   },
