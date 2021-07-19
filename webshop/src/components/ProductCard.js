@@ -17,6 +17,7 @@ const ProductCard = (props) => {
     >
       <div className={style.imgWrapper}>
         <img
+          onClick={() => viewProduct(props.product, history)}
           src={props.product.img}
           alt={`${props.product.name} ${props.product.productType}`}
         />

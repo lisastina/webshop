@@ -13,6 +13,7 @@
 }
 .productCard .imgWrapper img {
   width: 100%;
+  cursor: pointer;
 }
 .productCard .desc {
   text-align: center;
