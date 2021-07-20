@@ -14,25 +14,21 @@ import Confirmation from "./pages/Confirmation";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/webshop/">
         <ScrollToTop />
         <ProductContext>
           <CartContext>
             <Navbar />
             <div className="site-container">
-              <Route exact path="/webshop/" component={Home} />
+              <Route exact path="/" component={Home} />
               <div className="pages-container">
-                <Route exact path="/webshop/about" component={About} />
-                <Route exact path="/webshop/products" component={AllProducts} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/products" component={AllProducts} />
+                <Route exact path="/details/:id" component={ProductDetails} />
+                <Route exact path="/checkout" component={Checkout} />
                 <Route
                   exact
-                  path="/webshop/details/:id"
-                  component={ProductDetails}
-                />
-                <Route exact path="/webshop/checkout" component={Checkout} />
-                <Route
-                  exact
-                  path="/webshop/confirmation/:id"
+                  path="/confirmation/:id"
                   component={Confirmation}
                 />
               </div>
