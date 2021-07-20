@@ -1,4 +1,6 @@
 import style from "../css/About.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const About = () => {
   return (
@@ -14,6 +16,14 @@ const About = () => {
         Unfortunately you can't actually buy any of my products. Yet! But in the
         meantime I hope that you will enjoy my take on a simple webshop.
       </p>
+      <div className={style.social}>
+        <a href="https://www.instagram.com/lisastina.h/">
+          <FontAwesomeIcon icon={faInstagram} className="fa-2x" />
+        </a>
+        <a href="https://github.com/lisastina">
+          <FontAwesomeIcon icon={faGithub} className="fa-2x" />
+        </a>
+      </div>
     </div>
   );
 };

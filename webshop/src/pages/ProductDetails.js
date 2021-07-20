@@ -14,7 +14,7 @@ const ProductDetails = (props) => {
 
   const changePrice = () => {
     let productPrice = product.price;
-    if (product.productType === "poster") {
+    if (product.productType === "poster" || "photo") {
       if (size === "30x40") {
         productPrice = 279;
       }
@@ -62,7 +62,7 @@ const ProductDetails = (props) => {
   }, [props.match.params.id, products, changeLetters]);
 
   const handleAddToCart = () => {
-    if (product.productType === "poster") {
+    if (product.productType === "poster" || "photo") {
       product.size = size;
     }
     const match = cartItems.find(
@@ -102,7 +102,7 @@ const ProductDetails = (props) => {
             <h2>{product.price} kr</h2>
             <p>{product.desc}</p>
             <div className={style.selects}>
-              {product.productType === "poster" && !product.by && (
+              {!product.by && (product.productType === "poster" || "photo") && (
                 <div className={style.sizes}>
                   <label htmlFor="size">Size:</label>
                   <div className={`customSelect ${style.select}`}>

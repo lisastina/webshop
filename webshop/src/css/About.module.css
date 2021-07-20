@@ -11,6 +11,13 @@
   line-height: 2.7rem;
   letter-spacing: 0.8px;
 }
+
+.about .social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
 @media screen and (max-width: 600px) {
   .about p {
     font-size: 1.4rem;
