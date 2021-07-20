@@ -21,24 +21,10 @@
     "quantity": "1"
   },
   {
-    "name": "a sea of garbage",
-    "productType": "photozine",
-    "price": 399,
-    "desc": "a selection of photos showcasing the environmental problems were large amounts of waste ends up in our oceans, destroying the beautiful nature and wildlife around us.",
-    "quantity": "1"
-  },
-  {
     "name": "hönö",
     "productType": "photo book",
     "price": 449,
     "desc": "hönö - an island, a history. Wander through both time and space in this book about my hometown and its transformations through the years.",
-    "quantity": "1"
-  },
-  {
-    "name": "worlds best dad",
-    "productType": "shortstory",
-    "price": 139,
-    "desc": "a story about fatherhood, melancholic love, toxic masculinity and the many struggles in life. ",
     "quantity": "1"
   },
   {
@@ -70,12 +56,13 @@
     "quantity": "1"
   },
   {
-    "name": "lighthouse",
-    "productType": "photo",
-    "price": 279,
-    "desc": "small lighthouse and an old fishing net seen from the beach. Selected photo from the photozine 'A sea of garbage'.",
+    "name": "a sea of garbage",
+    "productType": "photozine",
+    "price": 399,
+    "desc": "a selection of photos showcasing the environmental problems were large amounts of waste ends up in our oceans, destroying the beautiful nature and wildlife around us.",
     "quantity": "1"
   },
+
   {
     "name": "boulders",
     "productType": "photo",
@@ -84,10 +71,24 @@
     "quantity": "1"
   },
   {
+    "name": "lighthouse",
+    "productType": "photo",
+    "price": 279,
+    "desc": "small lighthouse and an old fishing net seen from the beach. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+  {
     "name": "heart pool",
     "productType": "photo",
     "price": 279,
     "desc": "a heartshaped pool shining beneath the sunset. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+  {
+    "name": "swan",
+    "productType": "photo",
+    "price": 279,
+    "desc": "a curious little swan approached me as I was out walking. It was really photogenic and seemed to thrive in front of the camera.",
     "quantity": "1"
   },
   {
@@ -104,13 +105,7 @@
     "desc": "sailing off into the pink sky. Selected photo from the photozine 'A sea of garbage'.",
     "quantity": "1"
   },
-  {
-    "name": "swan",
-    "productType": "photo",
-    "price": 279,
-    "desc": "a curious little swan approached me as I was out walking. It was really photogenic and seemed to thrive in front of the camera.",
-    "quantity": "1"
-  },
+
   {
     "name": "tug of war",
     "productType": "photo",
@@ -123,6 +118,13 @@
     "productType": "photo",
     "price": 279,
     "desc": "an adorable swan couple showing you some love. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+  {
+    "name": "worlds best dad",
+    "productType": "shortstory",
+    "price": 139,
+    "desc": "a story about fatherhood, melancholic love, toxic masculinity and the many struggles in life. ",
     "quantity": "1"
   },
   {
