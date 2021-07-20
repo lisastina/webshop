@@ -31,7 +31,7 @@ const ProductContextProvider = (props) => {
 
       return {
         ...product,
-        img: `../assets/imgs/products/${productName}-${productType}.jpg`,
+        img: `assets/imgs/products/${productName}-${productType}.jpg`,
       };
     });
     setProducts(productsWithImg);
