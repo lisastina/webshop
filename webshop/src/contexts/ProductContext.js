@@ -31,7 +31,7 @@ const ProductContextProvider = (props) => {
 
       return {
         ...product,
-        img: `https://lisastina.github.io/webshop/public/assets/imgs/products/${productName}-${productType}.jpg`,
+        img: `../assets/imgs/products/${productName}-${productType}.jpg`,
       };
     });
     setProducts(productsWithImg);
