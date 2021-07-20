@@ -62,7 +62,7 @@ const ProductDetails = (props) => {
   }, [props.match.params.id, products, changeLetters]);
 
   const handleAddToCart = () => {
-    if (product.productType === "poster" || roduct.productType === "photo") {
+    if (product.productType === "poster" || product.productType === "photo") {
       product.size = size;
     }
     const match = cartItems.find(
