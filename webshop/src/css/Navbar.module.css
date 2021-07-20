@@ -1,0 +1,147 @@
+.navbar {
+  top: 0;
+  width: 100%;
+  position: absolute;
+  z-index: 200;
+}
+.navbarContainer {
+  max-width: 1500px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 1rem;
+}
+.linkContainer {
+  margin-left: 1rem;
+  display: flex;
+  width: 33%;
+}
+.link {
+  position: relative;
+  margin: 1rem;
+}
+.linkContainer a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #463a3b;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.linkContainer a:hover::before,
+.linkContainer .active::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.pageTitle h1 {
+  color: #463a3b;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.cartIconWrapper {
+  margin-right: 1rem;
+  width: 33%;
+}
+.cartIcon {
+  text-align: end;
+  color: #463a3b;
+  display: flex;
+  justify-content: flex-end;
+}
+.cartIcon img {
+  width: 40px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.cartIcon .cartNumWrapper {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.cartIcon .cartNumber {
+  height: 100%;
+  font-size: 1.1rem;
+  line-height: 1rem;
+}
+
+/* When on homepage make elements in navbar white */
+.white a,
+.white h1,
+.white .cartIcon {
+  color: #fff;
+}
+.white a::before,
+.white .hamburger span {
+  background-color: #fff;
+}
+.navbar.white {
+  background: linear-gradient(to bottom, #292f5050 0%, #c5c5c500 100%);
+}
+
+/* Hamburger */
+
+.hamburger {
+  display: none;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: #463a3b;
+  border-radius: 3px;
+  transform-origin: 4px 0px;
+}
+.hamburger span:first-child,
+.hamburger span:nth-child(3) {
+  transition: 0.3s;
+}
+
+.navbarContainer.clickedHam .hamburger span:first-child {
+  transform: rotate(45deg) translate(4px, 1px);
+  transition: 0.3s;
+}
+.navbarContainer.clickedHam .hamburger span:nth-child(3) {
+  transition: 0.3s;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+.navbarContainer.clickedHam .hamburger span:nth-child(2) {
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 800px) {
+  .navbarContainer {
+    padding: 1.5rem 0rem;
+  }
+  .navbar .link {
+    display: none;
+    margin-top: 1.8rem;
+  }
+  .hamburger,
+  .navbarContainer.clickedHam .link,
+  .navbarContainer.clickedHam .linkContainer {
+    display: block;
+  }
+  .navbarContainer.clickedHam {
+    background-color: white;
+    border-bottom: #b3c5ce 2px solid;
+  }
+  .navbar h1 {
+    font-size: 1.5rem;
+  }
+  .linkContainer a:hover::before,
+  .linkContainer .active::before {
+    visibility: visible;
+    width: 56px;
+  }
+}

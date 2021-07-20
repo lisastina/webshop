@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Libre Caslon Text", serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #463a3b;
+  font-weight: 400;
+}
+.site-container {
+  min-height: calc(100vh - 200px - 115px);
+}
+.pages-container {
+  max-width: 900px;
+  padding: 0 50px;
+  margin: auto;
+}
+
+a {
+  color: #463a3b;
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+button {
+  background: #b3c5ce;
+  font-family: "Libre Caslon Display", serif;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  max-height: 45px;
+}
+.btn-sm {
+  padding: 0.4rem 0.9rem;
+  font-size: 1rem;
+}
+button:hover {
+  background-color: rgb(141, 157, 165);
+}
+p {
+  letter-spacing: 1px;
+  line-height: 1.8rem;
+}
+hr {
+  border: 0.5px solid #b3c5ce;
+}
+/* custom select element styling */
+/*  Remove default styling of select element  */
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1rem 0 1rem;
+  margin: 0;
+  /* width: 100%; */
+  height: 32px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+  color: #463a3b;
+}
+/*   New styling to Select  */
+.customSelect {
+  /* min-width: 15ch; */
+  border-radius: 0.25em;
+  /* width: 100%; */
+  cursor: pointer;
+  background-color: #fff;
+  border: solid #b3c5ce 1px;
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+}
+
+/*  Custom select-arrow  */
+.customSelect::after {
+  content: "";
+  width: 0.7em;
+  height: 0.4em;
+  background-color: #463a3b;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  justify-self: end;
+  margin-right: 1rem;
+}
+
+select,
+.customSelect:after {
+  grid-area: select;
+}
+
+/*  Select focus state  */
+select:focus + .focus {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid rgb(141, 157, 165);
+  border-radius: inherit;
+}
+
+@media screen and (max-width: 600px) {
+  .pages-container {
+    padding: 0 30px;
+  }
+  button {
+    font-size: 1.1rem;
+  }
+  .btn-sm {
+    font-size: 0.8rem;
+  }
+}

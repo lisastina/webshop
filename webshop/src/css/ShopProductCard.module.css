@@ -1,0 +1,29 @@
+.shopProductCard {
+  margin: 1rem;
+  max-width: 29%;
+  min-width: 200px;
+  cursor: pointer;
+}
+.shopProductCard .imgWrapper {
+  width: 100%;
+}
+.shopProductCard .imgWrapper img {
+  width: 100%;
+}
+.shopProductCard .desc {
+  padding: 0.5rem 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  min-height: 60px;
+}
+.shopProductCard .desc h2 {
+  font-size: 1.2rem;
+  margin: 0 0.3rem;
+  min-width: 60%;
+}
+.shopProductCard .desc .price {
+  min-width: 58px;
+}
+.shopProductCard .desc h2::first-letter {
+  text-transform: capitalize;
+}

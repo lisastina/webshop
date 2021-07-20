@@ -1,0 +1,50 @@
+.footer {
+  width: 100%;
+  background-color: #d5dcdf79;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  min-height: 200px;
+}
+.footerContainer {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer address,
+.footer a {
+  font-style: normal;
+  font-size: 0.9rem;
+}
+.footer .form {
+  text-align: center;
+  font-size: 0.9rem;
+}
+.footer h3 {
+  font-weight: 700;
+}
+.footer form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer input {
+  padding: 0.5rem;
+  border: none;
+  margin-right: 0.3rem;
+}
+@media screen and (max-width: 600px) {
+  .footerContainer {
+    display: block;
+  }
+  .footer .form {
+    margin-top: 2rem;
+    text-align: left;
+  }
+  .footer form {
+    justify-content: left;
+  }
+}

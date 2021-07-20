@@ -1,0 +1,33 @@
+.home img {
+  width: 100vw;
+}
+.home .desc {
+  text-align: center;
+  margin: 5rem auto;
+  width: 65%;
+}
+.home .desc h2 {
+  letter-spacing: 1px;
+  font-size: 1.6rem;
+}
+.home .seeAll {
+  text-align: center;
+  margin: 100px;
+}
+.home .seeAll a {
+  font-size: 2rem;
+  color: #463a3b;
+}
+.home .seeAll a:hover {
+  color: rgb(141, 157, 165);
+}
+
+@media screen and (max-width: 600px) {
+  .home .desc {
+    margin: 3rem auto;
+    width: 90%;
+  }
+  .home .seeAll {
+    margin: 50px;
+  }
+}

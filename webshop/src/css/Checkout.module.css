@@ -1,0 +1,18 @@
+.checkout {
+  margin: 150px auto;
+}
+.checkout h1 {
+  font-size: 1.5rem;
+}
+.checkout .buy {
+  text-align: right;
+}
+
+@media screen and (max-width: 700px) {
+  .checkout {
+    margin: 100px auto;
+  }
+  .checkout .buy h2 {
+    font-size: 1.3rem;
+  }
+}

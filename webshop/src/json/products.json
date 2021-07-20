@@ -1,0 +1,238 @@
+[
+  {
+    "name": "west coast birds",
+    "productType": "poster",
+    "price": 279,
+    "desc": "west coast birds from the Öckerö islands of Sweden. This poster shows the most common birds and their names.",
+    "quantity": "1"
+  },
+  {
+    "name": "wildflowers",
+    "productType": "poster",
+    "price": 279,
+    "desc": "west coast wildflowers from the Öckerö islands of Sweden. This poster shows the most common flowers and their names.",
+    "quantity": "1"
+  },
+  {
+    "name": "west coast birds",
+    "productType": "poster",
+    "price": 279,
+    "desc": "west coast birds from the Öckerö islands of Sweden. This poster shows the most common birds and their names.",
+    "quantity": "1"
+  },
+  {
+    "name": "hönö",
+    "productType": "photo book",
+    "price": 449,
+    "desc": "hönö - an island, a history. Wander through both time and space in this book about my hometown and its transformations through the years.",
+    "quantity": "1"
+  },
+  {
+    "name": "harbour",
+    "productType": "photo",
+    "price": 279,
+    "desc": "Öckerö harbour seen from Hönö. Selected photo from the photo book 'Hönö - an island, a history'.",
+    "quantity": "1"
+  },
+  {
+    "name": "windmill",
+    "productType": "photo",
+    "price": 279,
+    "desc": "Hönö Heden windmill. About 170 years old. Selected photo from the photo book 'Hönö - an island, a history'.",
+    "quantity": "1"
+  },
+  {
+    "name": "then and now",
+    "productType": "photo",
+    "price": 279,
+    "desc": "two separate photos taken over Hönö Klåva harbour. Years 1921 and 2017. Selected photo from the photo book 'Hönö - an island, a history'.",
+    "quantity": "1"
+  },
+  {
+    "name": "coast",
+    "productType": "photo",
+    "price": 279,
+    "desc": "the beach Lapposand on Hönö. Selected photo from the photo book 'Hönö - an island, a history'.",
+    "quantity": "1"
+  },
+  {
+    "name": "a sea of garbage",
+    "productType": "photozine",
+    "price": 399,
+    "desc": "a selection of photos showcasing the environmental problems were large amounts of waste ends up in our oceans, destroying the beautiful nature and wildlife around us.",
+    "quantity": "1"
+  },
+
+  {
+    "name": "boulders",
+    "productType": "photo",
+    "price": 279,
+    "desc": "wall of boulders lining up beneath the golden light. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+  {
+    "name": "lighthouse",
+    "productType": "photo",
+    "price": 279,
+    "desc": "small lighthouse and an old fishing net seen from the beach. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+  {
+    "name": "heart pool",
+    "productType": "photo",
+    "price": 279,
+    "desc": "a heartshaped pool shining beneath the sunset. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+  {
+    "name": "swan",
+    "productType": "photo",
+    "price": 279,
+    "desc": "a curious little swan approached me as I was out walking. It was really photogenic and seemed to thrive in front of the camera.",
+    "quantity": "1"
+  },
+  {
+    "name": "fishermen",
+    "productType": "photo",
+    "price": 279,
+    "desc": "two fishermen returning home. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+  {
+    "name": "lighthouses",
+    "productType": "photo",
+    "price": 279,
+    "desc": "sailing off into the pink sky. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+
+  {
+    "name": "tug of war",
+    "productType": "photo",
+    "price": 279,
+    "desc": "colourful old rope washed up on shore. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+  {
+    "name": "swans",
+    "productType": "photo",
+    "price": 279,
+    "desc": "an adorable swan couple showing you some love. Selected photo from the photozine 'A sea of garbage'.",
+    "quantity": "1"
+  },
+  {
+    "name": "worlds best dad",
+    "productType": "shortstory",
+    "price": 139,
+    "desc": "a story about fatherhood, melancholic love, toxic masculinity and the many struggles in life. ",
+    "quantity": "1"
+  },
+  {
+    "name": "lidatorp",
+    "productType": "poster",
+    "by": "STOREFACTORY",
+    "price": 149,
+    "desc": "Posters with graphic motifs against a beige background. A beautiful poster that you can hang with or without a frame. Fits well in all rooms but perhaps best in the hall or living room. Place it next to products displayed as motifs and create a fun effect!",
+    "link": "https://www.storefactory.se/en/produkt/poster-lidatorp-23/",
+    "quantity": "1"
+  },
+  {
+    "name": "källa vase",
+    "productType": "poster",
+    "by": "STOREFACTORY",
+    "price": 149,
+    "desc": "Posters with graphic motifs against a beige background. A beautiful poster that you can hang with or without a frame. Fits well in all rooms but perhaps best in the hall or living room. Place it next to products displayed as motifs and create a fun effect!",
+    "link": "https://www.storefactory.se/en/produkt/poster-kalla-singel-2/",
+    "quantity": "1"
+  },
+  {
+    "name": "källa vases",
+    "productType": "poster",
+    "by": "STOREFACTORY",
+    "price": 149,
+    "desc": "Posters with graphic motifs against a beige background. A beautiful poster that you can hang with or without a frame. Fits well in all rooms but perhaps best in the hall or living room. Place it next to products displayed as motifs and create a fun effect!",
+    "link": "https://www.storefactory.se/en/produkt/poster-kalla-grupp-2/",
+    "quantity": "1"
+  },
+  {
+    "name": "tree",
+    "productType": "sculpture",
+    "by": "STOREFACTORY",
+    "price": 149,
+    "desc": "Decoration made of metal. The tree brings a bit of nature into the home and creates a soothing feeling. Feel free to place it in the bedroom, living room or another place for rest and recovery.",
+    "link": "https://www.storefactory.se/en/produkt/trad-2/",
+    "quantity": "1"
+  },
+  {
+    "name": "ljungby no1",
+    "productType": "easter decoration",
+    "by": "STOREFACTORY",
+    "price": 29,
+    "desc": "decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/ljungby/",
+    "quantity": "1"
+  },
+  {
+    "name": "ljungby no2",
+    "productType": "easter decoration",
+    "by": "STOREFACTORY",
+    "price": 29,
+    "desc": "decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/ljungby-2/",
+    "quantity": "1"
+  },
+  {
+    "name": "blad",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/blad/",
+    "quantity": "1"
+  },
+  {
+    "name": "källa duo",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/kalla-duo/",
+    "quantity": "1"
+  },
+  {
+    "name": "källa single",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/kalla-singel/",
+    "quantity": "1"
+  },
+  {
+    "name": "källa group",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/kalla-grupp/",
+    "quantity": "1"
+  },
+  {
+    "name": "lidatorp",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/lidatorp-22/",
+    "quantity": "1"
+  },
+  {
+    "name": "strå",
+    "productType": "matchbox",
+    "by": "STOREFACTORY",
+    "price": 25,
+    "desc": "Matchbox with motif. On each page of the matchbox there is a motif that breathes Storefactory. Decorate your Lidatorp or some other candle holder with the box. From now on you will always know where the matches are!decoration in plastic. A durable egg with a beautiful motif. Perfect to hang in the birch crisis or put on the Easter tablecloth.",
+    "link": "https://www.storefactory.se/en/produkt/stra/",
+    "quantity": "1"
+  }
+]
