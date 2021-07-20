@@ -8,14 +8,14 @@ const Home = () => {
       <img src="/assets/imgs/header.jpg" alt="header" />
       <div className="pages-container">
         <div className={style.desc}>
-          <h2>An exploration in color and texture.</h2>
+          <h2>The freedom in nature and artwork.</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Venenatis tellus in metus vulputate eu scelerisque felis imperdiet.
-            Euismod elementum nisi quis eleifend quam. Vitae ultricies leo
-            integer malesuada. Eu augue ut lectus arcu bibendum at. Non
-            curabitur gravida arcu ac tortor dignissim.
+            I can't deny my love for nature and wildlife. And to be able to
+            capture that feeling through art is a passion for me. The sense of
+            freedom from jumping between cliffs, feeling the warmth beneath your
+            soles and smelling the salt in the breeeze. It smells sweet, like
+            home and possibilities. And expressing myself through art feels like
+            the path leading me there.
           </p>
           <NavLink exact to="/about">
             <button className="btn-sm">Learn more</button>
