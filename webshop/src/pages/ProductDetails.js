@@ -14,7 +14,7 @@ const ProductDetails = (props) => {
 
   const changePrice = () => {
     let productPrice = product.price;
-    if (product.productType === "poster" || "photo") {
+    if (product.productType === "poster" || product.productType === "photo") {
       if (size === "30x40") {
         productPrice = 279;
       }
@@ -62,7 +62,7 @@ const ProductDetails = (props) => {
   }, [props.match.params.id, products, changeLetters]);
 
   const handleAddToCart = () => {
-    if (product.productType === "poster" || "photo") {
+    if (product.productType === "poster" || product.productType === "photo") {
       product.size = size;
     }
     const match = cartItems.find(
@@ -102,26 +102,28 @@ const ProductDetails = (props) => {
             <h2>{product.price} kr</h2>
             <p>{product.desc}</p>
             <div className={style.selects}>
-              {!product.by && (product.productType === "poster" || "photo") && (
-                <div className={style.sizes}>
-                  <label htmlFor="size">Size:</label>
-                  <div className={`customSelect ${style.select}`}>
-                    <select
-                      name="size"
-                      id="size"
-                      onChange={(e) => {
-                        setSize(e.target.value);
-                      }}
-                      value={size}
-                    >
-                      <option value="30x40">30x40 cm</option>
-                      <option value="50x70">50x70 cm</option>
-                      <option value="70x100">70x100 cm</option>
-                    </select>
-                    <span className="focus"></span>
+              {!product.by &&
+                (product.productType === "poster" ||
+                  product.productType === "photo") && (
+                  <div className={style.sizes}>
+                    <label htmlFor="size">Size:</label>
+                    <div className={`customSelect ${style.select}`}>
+                      <select
+                        name="size"
+                        id="size"
+                        onChange={(e) => {
+                          setSize(e.target.value);
+                        }}
+                        value={size}
+                      >
+                        <option value="30x40">30x40 cm</option>
+                        <option value="50x70">50x70 cm</option>
+                        <option value="70x100">70x100 cm</option>
+                      </select>
+                      <span className="focus"></span>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
               {!product.by && (
                 <div className={style.quantity}>
                   <label htmlFor="">Quantity:</label>
