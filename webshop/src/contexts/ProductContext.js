@@ -15,7 +15,7 @@ const ProductContextProvider = (props) => {
 
   const viewProduct = (clickedProduct, history) => {
     history.push(
-      `/webshop/details/${changeLetters(
+      `/details/${changeLetters(
         clickedProduct.name.split(" ").join("-")
       )}-${changeLetters(clickedProduct.productType.split(" ").join("-"))}`
     );
@@ -31,7 +31,7 @@ const ProductContextProvider = (props) => {
 
       return {
         ...product,
-        img: `assets/imgs/products/${productName}-${productType}.jpg`,
+        img: `/assets/imgs/products/${productName}-${productType}.jpg`,
       };
     });
     setProducts(productsWithImg);
