@@ -51,6 +51,12 @@ button {
 button:hover {
   background-color: rgb(141, 157, 165);
 }
+button:disabled,
+button[disabled] {
+  background-color: rgb(141, 157, 165);
+  cursor: initial;
+}
+
 p {
   letter-spacing: 1px;
   line-height: 1.8rem;

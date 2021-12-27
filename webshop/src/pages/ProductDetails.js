@@ -11,6 +11,7 @@ const ProductDetails = (props) => {
   const [size, setSize] = useState("30x40");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState();
+  const [buttonClick, setButtonClick] = useState(false);
 
   const changePrice = () => {
     let productPrice = product.price;
@@ -62,6 +63,8 @@ const ProductDetails = (props) => {
   }, [props.match.params.id, products, changeLetters]);
 
   const handleAddToCart = () => {
+    setButtonClick(true);
+    /* Move this to context file */
     if (product.productType === "poster" || product.productType === "photo") {
       product.size = size;
     }
@@ -82,6 +85,10 @@ const ProductDetails = (props) => {
       setCartItems(copyCartItems);
       setCartLength(Number(cartLength) + Number(quantity));
     }
+
+    setTimeout(() => {
+      setButtonClick(false);
+    }, 1000);
   };
 
   return (
@@ -142,7 +149,9 @@ const ProductDetails = (props) => {
                 <button>Buy from STOREFACTORY</button>
               </a>
             ) : (
-              <button onClick={handleAddToCart}>Add to cart</button>
+              <button onClick={handleAddToCart} disabled={buttonClick}>
+                {buttonClick ? "Added to cart!" : "Add to cart"}
+              </button>
             )}
           </div>
         </div>
