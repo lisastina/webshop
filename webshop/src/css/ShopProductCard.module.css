@@ -8,6 +8,8 @@
   width: 100%;
 }
 .shopProductCard .imgWrapper img {
+  object-fit: cover;
+  aspect-ratio: 4 / 5.7;
   width: 100%;
 }
 .shopProductCard .desc {
