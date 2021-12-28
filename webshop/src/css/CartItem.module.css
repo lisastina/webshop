@@ -43,6 +43,8 @@
 }
 .cartItem .imgWrapper img {
   width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 5.7;
 }
 .cartItem .info {
   width: 40%;
