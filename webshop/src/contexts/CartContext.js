@@ -1,25 +1,19 @@
 import { createContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export const CartContext = createContext();
 
 const CartContextProvider = (props) => {
   const history = useHistory();
 
+  const [cartItems, setCartItems] = useLocalStorage("cartItems", []);
+  const [cartLength, setCartLength] = useLocalStorage("cartLength", []);
+
   const [shipping, setShipping] = useState();
 
   const [checkout, setCheckout] = useState(false);
   const [order, setOrder] = useState(null);
-
-  const [cartLength, setCartLength] = useState(() => {
-    const localData = localStorage.getItem("cartLength");
-    return localData ? JSON.parse(localData) : 0;
-  });
-
-  const [cartItems, setCartItems] = useState(() => {
-    const localData = localStorage.getItem("cartItems");
-    return localData ? JSON.parse(localData) : [];
-  });
 
   const [cartTotal, setCartTotal] = useState(0);
 
