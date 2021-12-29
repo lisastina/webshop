@@ -3,10 +3,10 @@ import { collection } from "firebase/firestore";
 import { db } from "../firebase";
 
 const useGetCol = (col) => {
-  const colRef = collection(db, "frontpage");
+  const colRef = collection(db, col);
 
   const colQuery = useFirestoreQueryData(
-    ["frontpage"],
+    [col],
     colRef,
     {
       idField: "_id",
