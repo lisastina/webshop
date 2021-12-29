@@ -10,6 +10,7 @@ import ProductDetails from "./pages/ProductDetails";
 import AllProducts from "./pages/AllProducts";
 import Checkout from "./pages/Checkout";
 import Confirmation from "./pages/Confirmation";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         </ProductContext>
         <Footer />
       </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </div>
   );
 }
