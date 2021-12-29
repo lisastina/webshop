@@ -11,14 +11,14 @@ const Footer = () => {
               lisastina.hansson@gmail.com
             </a>
             <p>
-              Drottninggatan 4B <br /> 212 11 Malmö{" "}
+              Drottninggatan 4B <br /> 212 11 Malmö
             </p>
             <p>070-123 45 67</p>
           </address>
         </div>
         <div className={style.form}>
-          <h3>Subscribe for our newsletter</h3>
-          <p>Sign up to recieve news and updates.</p>
+          <h3>Subscribe to my newsletter</h3>
+          <p>Sign up to receive news and updates.</p>
           <form>
             <input type="text" placeholder="Email Address" />
             <button type="submit" className="btn-sm">
