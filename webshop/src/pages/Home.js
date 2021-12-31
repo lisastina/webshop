@@ -20,8 +20,12 @@ const Home = () => {
               </NavLink>
             </div>
             <ProductList
+              products={[
+                colQuery.data[0].product01,
+                colQuery.data[0].product02,
+              ]}
               product01={colQuery.data[0].product01}
-              product02={colQuery.data[0].product01}
+              product02={colQuery.data[0].product02}
             />
             <div className={style.seeAll}>
               <NavLink exact to="/products">

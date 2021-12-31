@@ -14,11 +14,7 @@ const ProductContextProvider = (props) => {
   };
 
   const viewProduct = (clickedProduct, history) => {
-    history.push(
-      `/details/${changeLetters(
-        clickedProduct.name.split(" ").join("-")
-      )}-${changeLetters(clickedProduct.productType.split(" ").join("-"))}`
-    );
+    history.push(`/details/${clickedProduct}`);
   };
 
   useEffect(() => {
