@@ -4,19 +4,19 @@ import { faInstagram, faGithub } from "@fortawesome/free-brands-svg-icons";
 import useGetCol from "../hooks/useGetCol";
 
 const About = () => {
-  const colQuery = useGetCol("about");
+  const { data } = useGetCol("about");
 
   return (
     <div className="pages-container">
-      {colQuery?.data && (
+      {data && (
         <div className={style.about}>
           <h1>About me</h1>
-          <p>{colQuery?.data[0].text}</p>
+          <p>{data[0].text}</p>
           <div className={style.social}>
-            <a href={colQuery?.data[0].instagram}>
+            <a href={data[0].instagram}>
               <FontAwesomeIcon icon={faInstagram} className="fa-2x" />
             </a>
-            <a href={colQuery?.data[0].github}>
+            <a href={data[0].github}>
               <FontAwesomeIcon icon={faGithub} className="fa-2x" />
             </a>
           </div>
