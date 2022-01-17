@@ -1,10 +1,9 @@
 import style from "../css/Navbar.module.css";
-import { NavLink, useHistory, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 
 const Navbar = () => {
-  const history = useHistory();
   const location = useLocation();
   const { cartItems: cart, cartLength, setCheckout } = useContext(CartContext);
 
@@ -30,9 +29,8 @@ const Navbar = () => {
           </div>
           <div className={style.link}>
             <NavLink
-              exact
               to="/"
-              activeClassName={style.active}
+              activeclassname={style.active}
               onClick={() => setHamburger(false)}
             >
               Home
@@ -40,9 +38,8 @@ const Navbar = () => {
           </div>
           <div className={style.link}>
             <NavLink
-              exact
               to="/about"
-              activeClassName={style.active}
+              activeclassname={style.active}
               onClick={() => setHamburger(false)}
             >
               About
@@ -50,9 +47,8 @@ const Navbar = () => {
           </div>
           <div className={style.link}>
             <NavLink
-              exact
               to="/products"
-              activeClassName={style.active}
+              activeclassname={style.active}
               onClick={() => setHamburger(false)}
             >
               Shop
@@ -61,20 +57,21 @@ const Navbar = () => {
         </div>
 
         <div className={style.pageTitle}>
-          <h1
-            onClick={() => {
-              history.push("/");
-              setHamburger(false);
-            }}
-          >
-            LisaStina
-          </h1>
+          <Link to="/">
+            <h1
+              onClick={() => {
+                setHamburger(false);
+              }}
+            >
+              LisaStina
+            </h1>
+          </Link>
         </div>
         <div className={style.cartIconWrapper}>
-          <div
+          <Link
+            to="/checkout"
             className={style.cartIcon}
             onClick={() => {
-              history.push("/checkout");
               setCheckout(false);
               setHamburger(false);
             }}
@@ -93,7 +90,7 @@ const Navbar = () => {
             ) : (
               <img src="/assets/icons/cart-icon.png" alt="shopping cart icon" />
             )}
-          </div>
+          </Link>
         </div>
       </div>
     </div>
