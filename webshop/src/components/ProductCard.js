@@ -2,36 +2,43 @@ import style from "../css/ProductCard.module.css";
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ProductContext } from "../contexts/ProductContext";
+import useGetDoc from "../hooks/useGetDoc";
 
-const ProductCard = (props) => {
+const ProductCard = ({ productId, index }) => {
   const history = useHistory();
   const { viewProduct } = useContext(ProductContext);
+
+  const product = useGetDoc("products", "frontpageProduct01", productId);
 
   const isOdd = (num) => {
     return num % 2;
   };
 
   return (
-    <div
-      className={`${style.productCard} ${isOdd(props.index) && style.reverse}`}
-    >
-      <div className={style.imgWrapper}>
-        <img
-          onClick={() => viewProduct(props.product, history)}
-          src={props.product.img}
-          alt={`${props.product.name} ${props.product.productType}`}
-        />
-      </div>
-      <div className={style.desc}>
-        <h2>
-          {props.product.name} {props.product.productType}
-        </h2>
-        <p>{props.product.desc}</p>
-        <button onClick={() => viewProduct(props.product, history)}>
-          Purchase item
-        </button>
-      </div>
-    </div>
+    <>
+      {product.data && (
+        <div
+          className={`${style.productCard} ${isOdd(index) && style.reverse}`}
+        >
+          <div className={style.imgWrapper}>
+            <img
+              onClick={() => viewProduct(product.data, history)}
+              src={product.data.images[0].url}
+              alt={`${product.data.name} ${product.data.productType}`}
+            />
+          </div>
+          <div className={style.desc}>
+            <h2>
+              {product.data.name} {product.data.productType}
+            </h2>
+            <p>{product.data.desc}</p>
+            <button onClick={() => viewProduct(product.data, history)}>
+              Purchase item
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

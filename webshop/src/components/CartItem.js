@@ -34,7 +34,7 @@ const CartItem = (props) => {
           <span></span>
         </div>
         <div className={style.imgWrapper}>
-          <img src={props.item.img} alt={props.item.name} />
+          <img src={props.item.images[0].url} alt={props.item.name} />
         </div>
         <div className={style.title}>
           <h2>

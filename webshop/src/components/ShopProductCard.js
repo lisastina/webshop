@@ -3,26 +3,26 @@ import { useContext } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { useHistory } from "react-router-dom";
 
-const ShopProductCard = (props) => {
+const ShopProductCard = ({ product }) => {
   const history = useHistory();
   const { viewProduct } = useContext(ProductContext);
 
   return (
     <div
       className={style.shopProductCard}
-      onClick={() => viewProduct(props.product, history)}
+      onClick={() => viewProduct(product._id, history)}
     >
       <div className={style.imgWrapper}>
         <img
-          src={props.product.img}
-          alt={`${props.product.name} ${props.product.productType}`}
+          src={product.images[0].url}
+          alt={`${product.name} ${product.productType}`}
         />
       </div>
       <div className={style.desc}>
         <h2>
-          {props.product.name} {props.product.productType}
+          {product.name} {product.productType}
         </h2>
-        <h2 className={style.price}>{props.product.price} kr</h2>
+        <h2 className={style.price}>{product.price} kr</h2>
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
 import style from "../css/ProductDetails.module.css";
 import { useState, useEffect, useContext } from "react";
-import { ProductContext } from "../contexts/ProductContext";
 import { CartContext } from "../contexts/CartContext";
+import useGetDoc from "../hooks/useGetDoc";
 
 const ProductDetails = (props) => {
-  const { products, changeLetters } = useContext(ProductContext);
   const { addToCart, cartItems, setCartItems, cartLength, setCartLength } =
     useContext(CartContext);
   const [product, setProduct] = useState(null);
@@ -12,6 +11,14 @@ const ProductDetails = (props) => {
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState();
   const [buttonClick, setButtonClick] = useState(false);
+  const { data } = useGetDoc("products", "product", props.match.params.id);
+
+  useEffect(() => {
+    setQuantity(1);
+
+    setProduct({ ...data, quantity: 1 });
+    setSize("30x40");
+  }, [props.match.params.id, data]);
 
   const changePrice = () => {
     let productPrice = product.price;
@@ -47,21 +54,6 @@ const ProductDetails = (props) => {
     // eslint-disable-next-line
   }, [size]);
 
-  useEffect(() => {
-    setQuantity(1);
-    if (products) {
-      let newProduct = products.find(
-        (product) =>
-          props.match.params.id ===
-          `${changeLetters(product.name.split(" ").join("-"))}-${changeLetters(
-            product.productType.split(" ").join("-")
-          )}`
-      );
-      setProduct({ ...newProduct, quantity: 1 });
-      setSize("30x40");
-    }
-  }, [props.match.params.id, products, changeLetters]);
-
   const handleAddToCart = () => {
     setButtonClick(true);
     /* Move this to context file */
@@ -96,10 +88,12 @@ const ProductDetails = (props) => {
       {product && (
         <div className={style.content}>
           <div className={style.imgWrapper}>
-            <img
-              src={product.img}
-              alt={`${product.name} ${product.productType}`}
-            />
+            {product.images && (
+              <img
+                src={product.images[0].url}
+                alt={`${product.name} ${product.productType}`}
+              />
+            )}
           </div>
           <div className={style.desc}>
             <h1>
@@ -133,10 +127,11 @@ const ProductDetails = (props) => {
                 )}
               {!product.by && (
                 <div className={style.quantity}>
-                  <label htmlFor="">Quantity:</label>
+                  <label htmlFor="quantity">Quantity:</label>
                   <input
                     onChange={(e) => setQuantity(Number(e.target.value))}
                     value={quantity}
+                    name="quantity"
                     type="number"
                     min="1"
                     step="1"
