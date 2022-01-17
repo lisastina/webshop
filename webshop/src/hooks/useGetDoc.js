@@ -10,6 +10,7 @@ const useGetDoc = (col, docName, id) => {
     [docName, id],
     docRef,
     {
+      idField: "_id",
       subscribe: true,
     },
     {
