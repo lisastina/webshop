@@ -103,6 +103,7 @@ const PlaceOrder = () => {
             >
               <option value="sweden">Sweden</option>
             </select>
+            <span className="focus"></span>
           </div>
           <div className={style.shippingInputContainer}>
             <input
