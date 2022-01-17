@@ -1,8 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import { QueryClient, QueryClientProvider } from "react-query";
+import ScrollToTop from "./components/ScrollToTop";
+import ProductContext from "./contexts/ProductContext";
+import CartContext from "./contexts/CartContext";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,7 +22,15 @@ const queryClient = new QueryClient({
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <BrowserRouter>
+        <ScrollToTop />
+        <ProductContext>
+          <CartContext>
+            <App />
+          </CartContext>
+        </ProductContext>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
