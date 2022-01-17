@@ -25,14 +25,14 @@ const CartContextProvider = (props) => {
     setCartTotal(prices.reduce((sum, curr) => sum + curr, 0));
   }, [cartItems]);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
-
-  useEffect(() => {
+ */
+  /*   useEffect(() => {
     localStorage.setItem("cartLength", JSON.stringify(cartLength));
   }, [cartLength]);
-
+ */
   useEffect(() => {
     if (cartItems.length === 0) {
       setCartLength(0);
