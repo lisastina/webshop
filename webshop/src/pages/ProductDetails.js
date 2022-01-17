@@ -88,10 +88,12 @@ const ProductDetails = (props) => {
       {product && (
         <div className={style.content}>
           <div className={style.imgWrapper}>
-            <img
-              src={product.image01}
-              alt={`${product.name} ${product.productType}`}
-            />
+            {product.images && (
+              <img
+                src={product.images[0].url}
+                alt={`${product.name} ${product.productType}`}
+              />
+            )}
           </div>
           <div className={style.desc}>
             <h1>

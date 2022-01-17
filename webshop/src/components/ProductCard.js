@@ -23,7 +23,7 @@ const ProductCard = ({ productId, index }) => {
           <div className={style.imgWrapper}>
             <img
               onClick={() => viewProduct(product.data, history)}
-              src={product.data.image01}
+              src={product.data.images[0].url}
               alt={`${product.data.name} ${product.data.productType}`}
             />
           </div>

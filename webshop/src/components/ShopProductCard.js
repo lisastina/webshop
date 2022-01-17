@@ -14,7 +14,7 @@ const ShopProductCard = ({ product }) => {
     >
       <div className={style.imgWrapper}>
         <img
-          src={product.image01}
+          src={product.images[0].url}
           alt={`${product.name} ${product.productType}`}
         />
       </div>

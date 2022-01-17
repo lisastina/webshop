@@ -6,7 +6,16 @@ const useGetDoc = (col, docName, id) => {
   const colRef = collection(db, col);
   const docRef = doc(colRef, id);
 
-  const docQuery = useFirestoreDocumentData([docName, id], docRef);
+  const docQuery = useFirestoreDocumentData(
+    [docName, id],
+    docRef,
+    {
+      subscribe: true,
+    },
+    {
+      refetchOnMount: "always",
+    }
+  );
 
   return docQuery;
 };
