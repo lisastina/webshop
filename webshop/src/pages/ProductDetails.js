@@ -1,9 +1,11 @@
 import style from "../css/ProductDetails.module.css";
 import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import useGetDoc from "../hooks/useGetDoc";
 
 const ProductDetails = (props) => {
+  const { id } = useParams();
   const { addToCart, cartItems, setCartItems, cartLength, setCartLength } =
     useContext(CartContext);
   const [product, setProduct] = useState(null);
@@ -11,14 +13,14 @@ const ProductDetails = (props) => {
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState();
   const [buttonClick, setButtonClick] = useState(false);
-  const { data } = useGetDoc("products", "product", props.match.params.id);
+  const { data } = useGetDoc("products", "product", id);
 
   useEffect(() => {
     setQuantity(1);
 
     setProduct({ ...data, quantity: 1 });
     setSize("30x40");
-  }, [props.match.params.id, data]);
+  }, [id, data]);
 
   const changePrice = () => {
     let productPrice = product.price;
@@ -84,74 +86,76 @@ const ProductDetails = (props) => {
   };
 
   return (
-    <div className={style.productDetails}>
+    <>
       {product && (
-        <div className={style.content}>
-          <div className={style.imgWrapper}>
-            {product.images && (
-              <img
-                src={product.images[0].url}
-                alt={`${product.name} ${product.productType}`}
-              />
-            )}
-          </div>
-          <div className={style.desc}>
-            <h1>
-              {product.name} {product.productType}
-            </h1>
-            {product.by && <h2>{product.by}</h2>}
-            <h2>{product.price} kr</h2>
-            <p>{product.desc}</p>
-            <div className={style.selects}>
-              {!product.by &&
-                (product.productType === "poster" ||
-                  product.productType === "photo") && (
-                  <div className={style.sizes}>
-                    <label htmlFor="size">Size:</label>
-                    <div className={`customSelect ${style.select}`}>
-                      <select
-                        name="size"
-                        id="size"
-                        onChange={(e) => {
-                          setSize(e.target.value);
-                        }}
-                        value={size}
-                      >
-                        <option value="30x40">30x40 cm</option>
-                        <option value="50x70">50x70 cm</option>
-                        <option value="70x100">70x100 cm</option>
-                      </select>
-                      <span className="focus"></span>
-                    </div>
-                  </div>
-                )}
-              {!product.by && (
-                <div className={style.quantity}>
-                  <label htmlFor="quantity">Quantity:</label>
-                  <input
-                    onChange={(e) => setQuantity(Number(e.target.value))}
-                    value={quantity}
-                    name="quantity"
-                    type="number"
-                    min="1"
-                    step="1"
-                  />
-                </div>
+        <div className={`pages-container ${style.productDetails}`}>
+          <div className={style.content}>
+            <div className={style.imgWrapper}>
+              {product.images && (
+                <img
+                  src={product.images[0].url}
+                  alt={`${product.name} ${product.productType}`}
+                />
               )}
             </div>
-            {product.by ? (
-              <a href={product.link}>
-                <button>Buy from STOREFACTORY</button>
-              </a>
-            ) : (
-              <button onClick={handleAddToCart} disabled={buttonClick}>
-                {buttonClick ? "Added to cart!" : "Add to cart"}
-              </button>
-            )}
+            <div className={style.desc}>
+              <h1>
+                {product.name} {product.productType}
+              </h1>
+              {product.by && <h2>{product.by}</h2>}
+              <h2>{product.price} kr</h2>
+              <p>{product.desc}</p>
+              <div className={style.selects}>
+                {!product.by &&
+                  (product.productType === "poster" ||
+                    product.productType === "photo") && (
+                    <div className={style.sizes}>
+                      <label htmlFor="size">Size:</label>
+                      <div className={`customSelect ${style.select}`}>
+                        <select
+                          name="size"
+                          id="size"
+                          onChange={(e) => {
+                            setSize(e.target.value);
+                          }}
+                          value={size}
+                        >
+                          <option value="30x40">30x40 cm</option>
+                          <option value="50x70">50x70 cm</option>
+                          <option value="70x100">70x100 cm</option>
+                        </select>
+                        <span className="focus"></span>
+                      </div>
+                    </div>
+                  )}
+                {!product.by && (
+                  <div className={style.quantity}>
+                    <label htmlFor="quantity">Quantity:</label>
+                    <input
+                      onChange={(e) => setQuantity(Number(e.target.value))}
+                      value={quantity}
+                      name="quantity"
+                      type="number"
+                      min="1"
+                      step="1"
+                    />
+                  </div>
+                )}
+              </div>
+              {product.by ? (
+                <a href={product.link}>
+                  <button>Buy from STOREFACTORY</button>
+                </a>
+              ) : (
+                <button onClick={handleAddToCart} disabled={buttonClick}>
+                  {buttonClick ? "Added to cart!" : "Add to cart"}
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

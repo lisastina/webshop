@@ -1,11 +1,11 @@
 import { createContext, useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 export const CartContext = createContext();
 
 const CartContextProvider = (props) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [cartItems, setCartItems] = useLocalStorage("cartItems", []);
   const [cartLength, setCartLength] = useLocalStorage("cartLength", []);
@@ -77,7 +77,7 @@ const CartContextProvider = (props) => {
       ordernumber: orderNumber,
       totalPrice: cartTotal + 50,
     });
-    history.push(`/confirmation/${orderNumber}`);
+    navigate(`/confirmation/${orderNumber}`);
     setCartItems([]);
     setCartLength(0);
   };

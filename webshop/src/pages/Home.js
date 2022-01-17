@@ -1,36 +1,27 @@
 import ProductList from "../components/ProductList";
 import style from "../css/Home.module.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useGetCol from "../hooks/useGetCol";
 
 const Home = () => {
-  const colQuery = useGetCol("frontpage");
+  const { data } = useGetCol("frontpage");
 
   return (
     <>
-      {colQuery?.data && (
+      {data && (
         <div className={style.home}>
-          <img src={colQuery?.data[0].imageUrl} alt="hero image" />
+          <img src={data[0].imageUrl} alt="hero" />
           <div className="pages-container">
             <div className={style.desc}>
-              <h2>{colQuery?.data[0].title}</h2>
-              <p>{colQuery?.data[0].text}</p>
-              <NavLink exact to="/about">
+              <h2>{data[0].title}</h2>
+              <p>{data[0].text}</p>
+              <Link to="/about">
                 <button className="btn-sm">Learn more</button>
-              </NavLink>
+              </Link>
             </div>
-            <ProductList
-              products={[
-                colQuery.data[0].product01,
-                colQuery.data[0].product02,
-              ]}
-              product01={colQuery.data[0].product01}
-              product02={colQuery.data[0].product02}
-            />
+            <ProductList products={data[0].products} />
             <div className={style.seeAll}>
-              <NavLink exact to="/products">
-                View all products
-              </NavLink>
+              <Link to="/products">View all products</Link>
             </div>
           </div>
         </div>

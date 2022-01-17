@@ -19,7 +19,7 @@ const Checkout = () => {
   };
 
   return (
-    <div>
+    <div className="pages-container">
       {cartItems.length ? (
         <div className={style.checkout}>
           {checkout ? <h1>Checkout</h1> : <h1>Shopping cart</h1>}

@@ -5,7 +5,6 @@ import "./index.css";
 import App from "./App";
 import { QueryClient, QueryClientProvider } from "react-query";
 import ScrollToTop from "./components/ScrollToTop";
-import ProductContext from "./contexts/ProductContext";
 import CartContext from "./contexts/CartContext";
 import { ReactQueryDevtools } from "react-query/devtools";
 
@@ -24,11 +23,9 @@ ReactDOM.render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <ScrollToTop />
-        <ProductContext>
-          <CartContext>
-            <App />
-          </CartContext>
-        </ProductContext>
+        <CartContext>
+          <App />
+        </CartContext>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

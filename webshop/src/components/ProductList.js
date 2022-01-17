@@ -1,5 +1,4 @@
 import ProductCard from "./ProductCard";
-
 const ProductList = ({ products }) => {
   return (
     <div>

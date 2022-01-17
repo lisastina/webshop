@@ -7,7 +7,7 @@ const About = () => {
   const colQuery = useGetCol("about");
 
   return (
-    <>
+    <div className="pages-container">
       {colQuery?.data && (
         <div className={style.about}>
           <h1>About me</h1>
@@ -22,7 +22,7 @@ const About = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
