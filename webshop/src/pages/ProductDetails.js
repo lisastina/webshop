@@ -11,7 +11,7 @@ const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
   const [size, setSize] = useState("30x40");
   const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(1);
   const [buttonClick, setButtonClick] = useState(false);
   const { data } = useGetDoc("products", "product", id);
 
@@ -87,28 +87,28 @@ const ProductDetails = (props) => {
 
   return (
     <>
-      {product && (
+      {data && (
         <div className={`pages-container ${style.productDetails}`}>
           <div className={style.content}>
             <div className={style.imgWrapper}>
-              {product.images && (
+              {data.images && (
                 <img
-                  src={product.images[0].url}
-                  alt={`${product.name} ${product.productType}`}
+                  src={data.images[0].url}
+                  alt={`${data.name} ${data.productType}`}
                 />
               )}
             </div>
             <div className={style.desc}>
               <h1>
-                {product.name} {product.productType}
+                {data.name} {data.productType}
               </h1>
-              {product.by && <h2>{product.by}</h2>}
-              <h2>{product.price} kr</h2>
-              <p>{product.desc}</p>
+              {data.by && <h2>{data.by}</h2>}
+              <h2>{data.price} kr</h2>
+              <p>{data.desc}</p>
               <div className={style.selects}>
-                {!product.by &&
-                  (product.productType === "poster" ||
-                    product.productType === "photo") && (
+                {!data.by &&
+                  (data.productType === "poster" ||
+                    data.productType === "photo") && (
                     <div className={style.sizes}>
                       <label htmlFor="size">Size:</label>
                       <div className={`customSelect ${style.select}`}>
@@ -128,7 +128,7 @@ const ProductDetails = (props) => {
                       </div>
                     </div>
                   )}
-                {!product.by && (
+                {!data.by && (
                   <div className={style.quantity}>
                     <label htmlFor="quantity">Quantity:</label>
                     <input
@@ -142,8 +142,8 @@ const ProductDetails = (props) => {
                   </div>
                 )}
               </div>
-              {product.by ? (
-                <a href={product.link}>
+              {data.by ? (
+                <a href={data.link}>
                   <button>Buy from STOREFACTORY</button>
                 </a>
               ) : (
