@@ -1,4 +1,4 @@
-.loginPage {
+.login {
   padding-top: 100px;
   display: flex;
   flex-direction: column;
@@ -6,13 +6,13 @@
   align-items: center;
   gap: 1rem;
 }
-.loginPage .input {
+.login .input {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 300px;
 }
-.loginPage input {
+.login input {
   width: 100%;
 
   padding: 0.5rem;
@@ -21,7 +21,7 @@
   border: solid #b3c5ce 1px;
   font: inherit;
 }
-.loginPage input:focus {
+.login input:focus {
   outline: 1.5px solid rgb(141, 157, 165);
   -moz-outline-radius: 0.3em;
 }

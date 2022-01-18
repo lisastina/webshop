@@ -9,7 +9,6 @@ import Checkout from "./pages/Checkout";
 import Confirmation from "./pages/Confirmation";
 import PageNotFound from "./pages/PageNotFound";
 import RequireAuth from "./components/RequireAuth";
-import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 
 function App() {
@@ -24,16 +23,8 @@ function App() {
           <Route path="/details/:id" element={<ProductDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/confirmation/:id" element={<Confirmation />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<PageNotFound />} />
-          <Route path="/admin/login" element={<LoginPage />} />
-          <Route
-            path="/admin"
-            element={
-              <RequireAuth redirect="/">
-                <AdminPage />
-              </RequireAuth>
-            }
-          />
         </Routes>
       </div>
 

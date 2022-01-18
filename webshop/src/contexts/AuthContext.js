@@ -5,6 +5,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -13,6 +14,7 @@ const useAuthContext = () => {
 };
 
 const AuthContextProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -20,8 +22,9 @@ const AuthContextProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logout = () => {
-    return signOut(auth);
+  const logout = async () => {
+    await signOut(auth);
+    navigate("/");
   };
 
   useEffect(() => {
@@ -41,7 +44,7 @@ const AuthContextProvider = ({ children }) => {
   return (
     <AuthContext.Provider value={contextValues}>
       {loading && (
-        <div id="spinner">
+        <div className="loading">
           <p>Loading...</p>
         </div>
       )}

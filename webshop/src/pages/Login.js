@@ -1,9 +1,9 @@
-import style from "../css/LoginPage.module.css";
+import style from "../css/Login.module.css";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../contexts/AuthContext";
 
-const LoginPage = () => {
+const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [error, setError] = useState(null);
@@ -16,7 +16,6 @@ const LoginPage = () => {
 
     try {
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate("/admin");
     } catch (err) {
       setError(err.message);
       setLoading(false);
@@ -24,10 +23,7 @@ const LoginPage = () => {
   };
 
   return (
-    <form
-      className={`pages-container ${style.loginPage}`}
-      onSubmit={handleSubmit}
-    >
+    <form className={`pages-container ${style.login}`} onSubmit={handleSubmit}>
       <h1>Login</h1>
       <div className={style.input}>
         <label htmlFor="email">Email</label>
@@ -42,4 +38,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
