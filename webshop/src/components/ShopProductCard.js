@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 
 const ShopProductCard = ({ product }) => {
   return (
-    <Link to={`/details/${product._id}`}>
-      <div className={style.shopProductCard}>
-        <div className={style.imgWrapper}>
+    <div className={style.shopProductCard}>
+      <div className={style.imgWrapper}>
+        <Link to={`/details/${product._id}`}>
           <img
             src={product.images[0].url}
             alt={`${product.name} ${product.productType}`}
           />
-        </div>
-        <div className={style.desc}>
-          <h2>
-            {product.name} {product.productType}
-          </h2>
-          <h2 className={style.price}>{product.price} kr</h2>
-        </div>
+        </Link>
       </div>
-    </Link>
+      <div className={style.desc}>
+        <h2>
+          {product.name} {product.productType}
+        </h2>
+        <h2 className={style.price}>{product.price} kr</h2>
+      </div>
+    </div>
   );
 };
 
