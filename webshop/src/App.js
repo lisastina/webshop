@@ -8,6 +8,8 @@ import AllProducts from "./pages/AllProducts";
 import Checkout from "./pages/Checkout";
 import Confirmation from "./pages/Confirmation";
 import PageNotFound from "./pages/PageNotFound";
+import RequireAuth from "./components/RequireAuth";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/confirmation/:id" element={<Confirmation />} />
           <Route path="*" element={<PageNotFound />} />
+          <Route path="/admin/login" element={<LoginPage />} />
         </Routes>
       </div>
 
