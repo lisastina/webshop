@@ -10,6 +10,7 @@ import Confirmation from "./pages/Confirmation";
 import PageNotFound from "./pages/PageNotFound";
 import RequireAuth from "./components/RequireAuth";
 import LoginPage from "./pages/LoginPage";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -25,6 +26,14 @@ function App() {
           <Route path="/confirmation/:id" element={<Confirmation />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/admin/login" element={<LoginPage />} />
+          <Route
+            path="/admin"
+            element={
+              <RequireAuth redirect="/">
+                <AdminPage />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </div>
 

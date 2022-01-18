@@ -2,8 +2,10 @@ import style from "../css/Navbar.module.css";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { useAuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
+  const { currentUser } = useAuthContext();
   const location = useLocation();
   const { cartItems: cart, cartLength, setCheckout } = useContext(CartContext);
 
@@ -54,6 +56,17 @@ const Navbar = () => {
               Shop
             </NavLink>
           </div>
+          {currentUser && (
+            <div className={style.link}>
+              <NavLink
+                to="/admin"
+                activeclassname={style.active}
+                onClick={() => setHamburger(false)}
+              >
+                Admin
+              </NavLink>
+            </div>
+          )}
         </div>
 
         <div className={style.pageTitle}>
