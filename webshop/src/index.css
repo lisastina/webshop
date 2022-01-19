@@ -126,6 +126,13 @@ select:focus + .focus {
   border-radius: inherit;
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 @media screen and (max-width: 600px) {
   .pages-container {
     padding: 0 30px;

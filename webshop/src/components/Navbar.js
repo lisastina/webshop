@@ -2,8 +2,10 @@ import style from "../css/Navbar.module.css";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { useAuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
+  const { currentUser } = useAuthContext();
   const location = useLocation();
   const { cartItems: cart, cartLength, setCheckout } = useContext(CartContext);
 
@@ -27,35 +29,33 @@ const Navbar = () => {
             <span></span>
             <span></span>
           </div>
-          <div className={style.link}>
-            <NavLink
-              to="/"
-              activeclassname={style.active}
-              onClick={() => setHamburger(false)}
-            >
-              Home
-            </NavLink>
-          </div>
-          <div className={style.link}>
-            <NavLink
-              to="/about"
-              activeclassname={style.active}
-              onClick={() => setHamburger(false)}
-            >
-              About
-            </NavLink>
-          </div>
-          <div className={style.link}>
-            <NavLink
-              to="/products"
-              activeclassname={style.active}
-              onClick={() => setHamburger(false)}
-            >
-              Shop
-            </NavLink>
-          </div>
+          {/* Links */}
+          {[
+            { to: "/", title: "Home" },
+            { to: "/about", title: "About" },
+            { to: "/products", title: "Products" },
+            { to: "/admin", title: "Admin", protected: true },
+          ].map((link, i) => {
+            const linkEl = (
+              <div className={style.link} key={i}>
+                <NavLink
+                  to={link.to}
+                  activeclassname={style.active}
+                  onClick={() => setHamburger(false)}
+                >
+                  {link.title}
+                </NavLink>
+              </div>
+            );
+
+            if (link.protected && !currentUser) {
+              return;
+            }
+            return linkEl;
+          })}
         </div>
 
+        {/* Page title */}
         <div className={style.pageTitle}>
           <Link to="/">
             <h1
@@ -67,6 +67,7 @@ const Navbar = () => {
             </h1>
           </Link>
         </div>
+        {/* Cart */}
         <div className={style.cartIconWrapper}>
           <Link
             to="/checkout"
