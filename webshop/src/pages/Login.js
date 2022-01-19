@@ -1,6 +1,5 @@
 import style from "../css/Login.module.css";
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../contexts/AuthContext";
 
 const Login = () => {
@@ -9,7 +8,6 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const { login } = useAuthContext();
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
