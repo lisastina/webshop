@@ -23,13 +23,13 @@ const ProductCard = ({ productId, index }) => {
             <Link to={`/details/${productId}`}>
               <img
                 src={product.images[0].url}
-                alt={`${product.name} ${product.productType}`}
+                alt={`${product.name} ${product.type}`}
               />
             </Link>
           </div>
           <div className={style.desc}>
             <h2>
-              {product.name} {product.productType}
+              {product.name} {product.type}
             </h2>
             <p>{product.desc}</p>
             <Link to={`/details/${productId}`}>

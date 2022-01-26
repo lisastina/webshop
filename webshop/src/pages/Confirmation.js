@@ -18,7 +18,7 @@ const Confirmation = () => {
               {order.cartItems &&
                 order.cartItems.map((item, i) => (
                   <p key={i}>
-                    {item.quantity} x {item.name} {item.productType}{" "}
+                    {item.quantity} x {item.name} {item.type}
                     {item.size && item.size}
                   </p>
                 ))}
