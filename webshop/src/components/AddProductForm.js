@@ -74,7 +74,12 @@ const AddProductForm = () => {
           }}
         />
       </div>
-      <button type="submit">add product</button>
+      <button
+        type="submit"
+        disabled={acceptedFiles.length <= 0 || addProduct.isAdding}
+      >
+        {addProduct.isAdding ? "Adding..." : "Add product"}
+      </button>
     </form>
   );
 };
