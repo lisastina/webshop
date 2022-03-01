@@ -1,3 +1,15 @@
 .adminPage {
   margin-top: 150px;
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+}
+.adminPage .options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.adminPage .options p {
+  font-size: 1.2rem;
+  margin: 0;
 }
