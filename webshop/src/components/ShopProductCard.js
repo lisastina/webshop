@@ -5,7 +5,7 @@ const ShopProductCard = ({ product }) => {
   return (
     <div className={style.shopProductCard}>
       <div className={style.imgWrapper}>
-        <Link to={`/details/${product._id}`}>
+        <Link to={`/products/${product._id}`}>
           <img
             src={product.images[0].url}
             alt={`${product.name} ${product.type}`}
