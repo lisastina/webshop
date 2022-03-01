@@ -42,8 +42,8 @@ const AddProductForm = () => {
 
   return (
     <form className={style.addProductForm} onSubmit={handleSubmit}>
-      <div className={style.titleAndInputs}>
-        <h2>Add new product</h2>
+      <h2>Add new product</h2>
+      <div className={style.formContent}>
         <div className={style.inputs}>
           <label htmlFor="product-name">Product name</label>
           <input
@@ -54,7 +54,7 @@ const AddProductForm = () => {
             ref={productNameRef}
           />
           <label htmlFor="desc">Description</label>
-          <textarea id="desc" rows="3" required ref={descRef} />
+          <textarea id="desc" rows="3" required ref={descRef} maxLength="150" />
 
           <label htmlFor="price">Price</label>
           <input type="number" id="price" required ref={priceRef} />
@@ -62,9 +62,7 @@ const AddProductForm = () => {
           <label htmlFor="product-type">Product type</label>
           <input type="text" id="product-type" required ref={productTypeRef} />
         </div>
-      </div>
 
-      <div className={style.imageAndButton}>
         <ImageDropzone
           required
           params={{
@@ -75,8 +73,8 @@ const AddProductForm = () => {
             isDragAccept,
           }}
         />
-        <button type="submit">add product</button>
       </div>
+      <button type="submit">add product</button>
     </form>
   );
 };

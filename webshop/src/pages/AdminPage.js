@@ -17,9 +17,9 @@ const AdminPage = () => {
             <p>Edit content</p>
             <button onClick={() => logout()}>Logout</button>
           </div>
-          <div>
-            <AddProductForm />
-          </div>
+          {/* <div> */}
+          <AddProductForm />
+          {/* </div> */}
         </div>
       ) : (
         <Login />
