@@ -15,7 +15,7 @@ const useAddProduct = () => {
 
   const productUuid = uuidv4();
 
-  const addProduct = (product) => {
+  const addProduct = async (images, product) => {
     setDoc(doc(db, "products", productUuid), {
       created: serverTimestamp(),
       desc: product.desc,
@@ -23,15 +23,16 @@ const useAddProduct = () => {
       price: product.price,
       type: product.type,
     });
-  };
-  const uploadImages = async (images, name, type) => {
+
     setError(null);
     setIsError(null);
     setIsSuccess(null);
     setIsAdding(true);
 
     const productName = changeLetters(
-      name.split(" ").join("-") + "-" + type.split(" ").join("-")
+      product.name.split(" ").join("-") +
+        "-" +
+        product.type.split(" ").join("-")
     );
 
     /* add every image in firebase storage */
@@ -97,7 +98,6 @@ const useAddProduct = () => {
     isAdding,
     isSuccess,
     addProduct,
-    uploadImages,
     progress,
   };
 };

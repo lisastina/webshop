@@ -19,12 +19,8 @@ const AddProductForm = () => {
     if (!acceptedFiles.length) {
       return;
     }
-    addProduct.uploadImages(
-      acceptedFiles,
-      productNameRef.current.value,
-      productTypeRef.current.value
-    );
-    addProduct.addProduct({
+
+    addProduct.addProduct(acceptedFiles, {
       name: productNameRef.current.value,
       desc: descRef.current.value,
       price: priceRef.current.value,
@@ -43,13 +39,7 @@ const AddProductForm = () => {
     accept: "image/gif, image/jpeg, image/png, image/webp",
     handleSubmit,
   });
-  /* 
-  useEffect(() => {
-    if (acceptedFiles) {
-      setImages(acceptedFiles);
-    }
-  }, [acceptedFiles]);
- */
+
   return (
     <form className={style.addProductForm} onSubmit={handleSubmit}>
       <div className={style.titleAndInputs}>
@@ -78,7 +68,6 @@ const AddProductForm = () => {
         <ImageDropzone
           required
           params={{
-            // uploadAlbum,
             acceptedFiles,
             getRootProps,
             getInputProps,
