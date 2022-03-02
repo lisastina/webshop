@@ -1,13 +1,15 @@
 import { useFirestoreQueryData } from "@react-query-firebase/firestore";
-import { collection } from "firebase/firestore";
+import { collection, query, orderBy } from "firebase/firestore";
 import { db } from "../firebase";
 
 const useGetCol = (col) => {
   const colRef = collection(db, col);
 
+  const q = query(colRef, orderBy("created", "desc"));
+
   const colQuery = useFirestoreQueryData(
     [col],
-    colRef,
+    col === "products" ? q : colRef,
     {
       idField: "_id",
       subscribe: true,
