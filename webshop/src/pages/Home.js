@@ -16,7 +16,7 @@ const Home = () => {
               <h2>{data[0].title}</h2>
               <p>{data[0].text}</p>
               <Link to="/about">
-                <button className="btn-sm">Learn more</button>
+                <button className=" btn btn-sm">Learn more</button>
               </Link>
             </div>
             <ProductList products={data[0].products} />

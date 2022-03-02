@@ -9,21 +9,39 @@
   flex-direction: column;
   gap: 0.8rem;
   min-width: 180px;
+  align-items: flex-start;
 }
-.adminPage .options p {
+.adminPage .options .link {
   font-size: 1.2rem;
   margin: 0;
-  transition: 1s;
-}
-.adminPage .options p:hover {
-  text-decoration: underline;
+  position: relative;
   cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
 }
 
-.adminPage .options button {
+.adminPage .options .link:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #463a3b;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.adminPage .options .link:hover:before,
+.adminPage .link.active::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.adminPage .options .btn {
   max-width: 120px;
 }
-
 @media screen and (max-width: 700px) {
   .adminPage {
     flex-direction: column;

@@ -33,7 +33,7 @@ const ProductCard = ({ productId, index }) => {
             </h2>
             <p>{product.desc}</p>
             <Link to={`/products/${productId}`}>
-              <button>Purchase item</button>
+              <button className="btn">Purchase item</button>
             </Link>
           </div>
         </div>

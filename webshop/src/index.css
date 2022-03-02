@@ -13,9 +13,11 @@ h4,
 h5,
 h6,
 p,
-label {
+label,
+button {
   color: #463a3b;
   font-weight: 400;
+  font-family: "Libre Caslon Text", serif;
 }
 .site-container {
   min-height: calc(100vh - 200px - 115px);
@@ -33,7 +35,7 @@ a {
   cursor: pointer;
 }
 
-button {
+.btn {
   background: #b3c5ce;
   font-family: "Libre Caslon Display", serif;
   color: #fff;
@@ -49,11 +51,11 @@ button {
   padding: 0.4rem 0.9rem;
   font-size: 1rem;
 }
-button:hover {
+.btn:hover {
   background-color: rgb(141, 157, 165);
 }
-button:disabled,
-button[disabled] {
+.btn:disabled,
+.btn[disabled] {
   background-color: rgb(141, 157, 165);
   cursor: initial;
 }
@@ -138,7 +140,7 @@ select:focus + .focus {
   .pages-container {
     padding: 0 30px;
   }
-  button {
+  .btn {
     font-size: 1.1rem;
   }
   .btn-sm {

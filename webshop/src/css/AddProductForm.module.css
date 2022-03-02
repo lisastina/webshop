@@ -49,7 +49,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-self: end;
+  align-self: flex-end;
   box-sizing: border-box;
   cursor: pointer;
 }
@@ -65,7 +65,7 @@
 .imageAndButton {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .addProductForm button {
   margin-top: 1rem;
