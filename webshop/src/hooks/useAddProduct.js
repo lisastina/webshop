@@ -4,7 +4,6 @@ import { useAuthContext } from "../contexts/AuthContext";
 import { doc, setDoc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { changeLetters } from "../helpers/changeLetters";
-import { v4 as uuidv4 } from "uuid";
 
 const useAddProduct = () => {
   const [error, setError] = useState(null);
@@ -13,9 +12,7 @@ const useAddProduct = () => {
   const [isSuccess, setIsSuccess] = useState(null);
   const [progress, setProgress] = useState(null);
 
-  const productUuid = uuidv4();
-
-  const addProduct = async (images, product) => {
+  const addProduct = async (productUuid, images, product) => {
     setDoc(doc(db, "products", productUuid), {
       created: serverTimestamp(),
       desc: product.desc,

@@ -3,30 +3,41 @@ import style from "../css/AddProductForm.module.css";
 import useAddProduct from "../hooks/useAddProduct";
 import { useDropzone } from "react-dropzone";
 import { useRef, useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 const AddProductForm = () => {
-  // const [images, setImages] = useState(null);
   const productNameRef = useRef();
   const descRef = useRef();
   const priceRef = useRef();
   const productTypeRef = useRef();
+  const navigate = useNavigate();
 
   const addProduct = useAddProduct();
+  const productUuid = uuidv4();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!acceptedFiles.length) {
       return;
     }
 
-    addProduct.addProduct(acceptedFiles, {
+    await addProduct.addProduct(productUuid, acceptedFiles, {
       name: productNameRef.current.value,
       desc: descRef.current.value,
       price: priceRef.current.value,
       type: productTypeRef.current.value,
     });
   };
+
+  /* 
+  useEffect(() => {
+    if (addProduct.isSuccess) {
+      navigate(`/products/${productUuid}`);
+    }
+  }, [addProduct.isSuccess]);
+ */
 
   const {
     getRootProps,
