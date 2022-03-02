@@ -1,3 +1,41 @@
 .adminPage {
   margin-top: 150px;
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+}
+.adminPage .options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-width: 180px;
+}
+.adminPage .options p {
+  font-size: 1.2rem;
+  margin: 0;
+  transition: 1s;
+}
+.adminPage .options p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.adminPage .options button {
+  max-width: 120px;
+}
+
+@media screen and (max-width: 700px) {
+  .adminPage {
+    flex-direction: column;
+  }
+  .adminPage .options {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+  .adminPage .options p {
+    font-size: 1rem;
+  }
 }

@@ -37,12 +37,12 @@ const CartItem = ({ item, index }) => {
               <span></span>
             </div>
             <div className={style.imgWrapper}>
-              <Link to={`/details/${item._id}`}>
+              <Link to={`/products/${item._id}`}>
                 <img src={item.images && item.images[0].url} alt={item.name} />
               </Link>
             </div>
             <div className={style.title}>
-              <Link to={`/details/${item._id}`}>
+              <Link to={`/products/${item._id}`}>
                 <h2>
                   {item.name} {item.productType}
                 </h2>
