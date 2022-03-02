@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import style from "../css/EditProductsList.module.css";
 import useEditDoc from "../hooks/useEditDoc";
+import useDeleteDoc from "../hooks/useDeleteDoc";
 
 const EditProductCard = ({ product }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -9,6 +10,7 @@ const EditProductCard = ({ product }) => {
   const priceRef = useRef();
   const productTypeRef = useRef();
 
+  const deleteProduct = useDeleteDoc("products", product);
   const editProduct = useEditDoc("products", product._id);
 
   const handleSubmit = (e) => {
@@ -20,6 +22,11 @@ const EditProductCard = ({ product }) => {
       price: priceRef.current.value,
       type: productTypeRef.current.value,
     });
+  };
+
+  const handleDelete = () => {
+    deleteProduct.deleteDocument();
+    setDropdown(false);
   };
 
   return (
@@ -72,13 +79,26 @@ const EditProductCard = ({ product }) => {
               />
             </div>
           </div>
-          <button
-            className="btn btn-sm"
-            type="submit"
-            /* disabled={acceptedFiles.length <= 0 || addProduct.isAdding} */
-          >
-            Save changes
-          </button>
+          <div className={style.buttons}>
+            <button
+              className={`btn btn-sm ${style.deleteBtn}`}
+              onClick={handleDelete}
+              disabled={
+                /* acceptedFiles.length <= 0 ||  */ deleteProduct.isDeleting
+              }
+            >
+              Delete product
+            </button>
+            <button
+              className="btn btn-sm"
+              type="submit"
+              disabled={
+                /* acceptedFiles.length <= 0 ||  */ deleteProduct.isDeleting
+              }
+            >
+              Save changes
+            </button>
+          </div>
         </form>
       )}
     </div>

@@ -59,7 +59,17 @@
 .editProduct label {
   margin-top: 1rem;
 }
-.editProduct .dropdownForm button {
+.editProduct .dropdownForm .buttons {
   align-self: flex-end;
   margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.editProductsList .buttons .deleteBtn {
+  background-color: #d5dcdf79;
+  color: #463a3b;
+}
+.editProductsList .buttons .deleteBtn:disabled,
+.editProductsList .buttons .deleteBtn:disabled[disabled] {
+  background-color: #9da8ac79;
 }
