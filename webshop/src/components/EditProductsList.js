@@ -1,5 +1,6 @@
 import style from "../css/EditProductsList.module.css";
 import useGetCol from "../hooks/useGetCol";
+import EditProductCard from "./EditProductCard";
 
 const EditProductsList = () => {
   const products = useGetCol("products");
@@ -12,11 +13,7 @@ const EditProductsList = () => {
           products.data.map((product, index) => (
             <div key={index}>
               <hr />
-              <div className={style.editProduct}>
-                <h3>
-                  {product.name} {product.type}
-                </h3>
-              </div>
+              <EditProductCard product={product} />
             </div>
           ))}
         <hr />

@@ -52,7 +52,7 @@ const AdminPage = () => {
             >
               Add product
             </button>
-            <button onClick={() => logout()} className="btn">
+            <button onClick={() => logout()} className={`btn ${style.btn}`}>
               Logout
             </button>
           </div>
