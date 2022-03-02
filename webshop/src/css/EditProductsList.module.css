@@ -1,0 +1,10 @@
+.editProductsList {
+  width: 100%;
+}
+
+.editProductsList h2 {
+  margin-top: 0;
+}
+.editProductsList h3::first-letter {
+  text-transform: capitalize;
+}
