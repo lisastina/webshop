@@ -1,4 +1,4 @@
-import style from "../css/AddProductForm.module.css";
+import style from "../css/ImageDropzone.module.css";
 
 const UploadImageDropzone = ({ params }) => {
   return (
@@ -10,27 +10,19 @@ const UploadImageDropzone = ({ params }) => {
       >
         <input {...params.getInputProps()} />
 
-        {params.isDragActive ? (
-          params.isDragAccept ? (
-            <p>Drop here</p>
-          ) : (
-            <p>That file type is not accepted</p>
-          )
+        {params.fileRejections.length > 0 ? (
+          <p>Do not select more than 3 files</p>
+        ) : params.acceptedFiles?.length > 0 ? (
+          <ul className={style.acceptedFiles}>
+            {params.acceptedFiles.map((file) => (
+              <li key={file.name}>{file.name}</li>
+            ))}
+          </ul>
         ) : (
-          <p>Drop your images here or click to browse</p>
-        )}
-
-        {params.acceptedFiles?.length > 0 && (
-          <div className="accepted-files mt-2">
-            <ul className="list-unstyled">
-              {params.acceptedFiles.map((file) => (
-                <li key={file.name}>
-                  {file.name} ({Math.round(file.size / 1024)}
-                  kb)
-                </li>
-              ))}
-            </ul>
-          </div>
+          <p>
+            Drop your images here or click to browse. <br />
+            Up to 3 images accepted.
+          </p>
         )}
       </div>
     </>

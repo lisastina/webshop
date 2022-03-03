@@ -46,7 +46,9 @@ const AddProductForm = () => {
     isDragActive,
     isDragAccept,
     isDragReject,
+    fileRejections,
   } = useDropzone({
+    maxFiles: 3,
     accept: "image/gif, image/jpeg, image/png, image/webp",
     handleSubmit,
   });
@@ -82,6 +84,7 @@ const AddProductForm = () => {
             getInputProps,
             isDragActive,
             isDragAccept,
+            fileRejections,
           }}
         />
       </div>
