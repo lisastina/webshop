@@ -25,3 +25,9 @@
   outline: 1.5px solid rgb(141, 157, 165);
   -moz-outline-radius: 0.3em;
 }
+
+.login .errorMessage {
+  color: #a83a43;
+  margin: 0.5rem;
+  font-size: 0.9rem;
+}
