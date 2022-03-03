@@ -56,6 +56,16 @@
   -moz-outline-radius: 0.3em;
 }
 
+.editProduct input[type="number"]::-webkit-outer-spin-button,
+.editProduct input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.editProduct input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .editProduct label {
   margin-top: 1rem;
 }
