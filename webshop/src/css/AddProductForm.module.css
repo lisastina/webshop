@@ -1,0 +1,92 @@
+.addProductForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.formContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.addProductForm h2 {
+  margin-top: 0;
+}
+
+.addProductForm input,
+.addProductForm textarea {
+  padding: 0.5rem;
+  margin: 0.5rem 0 0;
+  border-radius: 0.25rem;
+  border: solid #b3c5ce 1px;
+  font: inherit;
+  resize: none;
+}
+
+.addProductForm input:focus,
+.addProductForm textarea:focus {
+  outline: 1.5px solid rgb(141, 157, 165);
+  -moz-outline-radius: 0.3em;
+}
+.addProductForm input[type="number"]::-webkit-outer-spin-button,
+.addProductForm input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.addProductForm input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.addProductForm label {
+  margin-top: 1rem;
+}
+
+.addProductForm .inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.addProductForm .imageDropZone {
+  border: dashed #b3c5ce 2px;
+  border-radius: 0.25rem;
+  text-align: center;
+  aspect-ratio: 1 / 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.addProductForm .imageDropZone p {
+  color: rgb(141, 157, 165);
+  margin: 1rem;
+}
+.addProductForm .imageDropZone ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.imageAndButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.addProductForm button {
+  margin-top: 1rem;
+  align-self: end;
+}
+
+@media screen and (max-width: 800px) {
+  .addProductForm .formContent {
+    flex-direction: column;
+  }
+  .addProductForm .imageDropZone {
+    width: 100%;
+    max-height: 150px;
+  }
+}

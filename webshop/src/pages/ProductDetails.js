@@ -1,20 +1,30 @@
 import style from "../css/ProductDetails.module.css";
 import { useState, useEffect, useContext } from "react";
-import { ProductContext } from "../contexts/ProductContext";
+import { useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
+import useGetDoc from "../hooks/useGetDoc";
 
 const ProductDetails = (props) => {
-  const { products, changeLetters } = useContext(ProductContext);
+  const { id } = useParams();
   const { addToCart, cartItems, setCartItems, cartLength, setCartLength } =
     useContext(CartContext);
   const [product, setProduct] = useState(null);
   const [size, setSize] = useState("30x40");
   const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(1);
+  const [buttonClick, setButtonClick] = useState(false);
+  const { data } = useGetDoc("products", "product", id);
+
+  useEffect(() => {
+    setQuantity(1);
+
+    setProduct({ ...data, quantity: 1 });
+    setSize("30x40");
+  }, [id, data]);
 
   const changePrice = () => {
     let productPrice = product.price;
-    if (product.productType === "poster" || product.productType === "photo") {
+    if (product.type === "poster" || product.type === "photo") {
       if (size === "30x40") {
         productPrice = 279;
       }
@@ -46,23 +56,10 @@ const ProductDetails = (props) => {
     // eslint-disable-next-line
   }, [size]);
 
-  useEffect(() => {
-    setQuantity(1);
-    if (products) {
-      let newProduct = products.find(
-        (product) =>
-          props.match.params.id ===
-          `${changeLetters(product.name.split(" ").join("-"))}-${changeLetters(
-            product.productType.split(" ").join("-")
-          )}`
-      );
-      setProduct({ ...newProduct, quantity: 1 });
-      setSize("30x40");
-    }
-  }, [props.match.params.id, products, changeLetters]);
-
   const handleAddToCart = () => {
-    if (product.productType === "poster" || product.productType === "photo") {
+    setButtonClick(true);
+    /* Move this to context file */
+    if (product.type === "poster" || product.type === "photo") {
       product.size = size;
     }
     const match = cartItems.find(
@@ -82,29 +79,34 @@ const ProductDetails = (props) => {
       setCartItems(copyCartItems);
       setCartLength(Number(cartLength) + Number(quantity));
     }
+
+    setTimeout(() => {
+      setButtonClick(false);
+    }, 1000);
   };
 
   return (
-    <div className={style.productDetails}>
-      {product && (
-        <div className={style.content}>
-          <div className={style.imgWrapper}>
-            <img
-              src={product.img}
-              alt={`${product.name} ${product.productType}`}
-            />
-          </div>
-          <div className={style.desc}>
-            <h1>
-              {product.name} {product.productType}
-            </h1>
-            {product.by && <h2>{product.by}</h2>}
-            <h2>{product.price} kr</h2>
-            <p>{product.desc}</p>
-            <div className={style.selects}>
-              {!product.by &&
-                (product.productType === "poster" ||
-                  product.productType === "photo") && (
+    <>
+      {data && (
+        <div className={`pages-container ${style.productDetails}`}>
+          <div className={style.content}>
+            <div className={style.imgWrapper}>
+              {data.images && (
+                <img
+                  src={data.images[0].url}
+                  alt={`${data.name} ${data.type}`}
+                />
+              )}
+            </div>
+            <div className={style.desc}>
+              <h1>
+                {data.name} {data.type}
+              </h1>
+              {data.by && <h2>{data.by}</h2>}
+              <h2>{data.price} kr</h2>
+              <p>{data.desc}</p>
+              <div className={style.selects}>
+                {!data.by && (data.type === "poster" || data.type === "photo") && (
                   <div className={style.sizes}>
                     <label htmlFor="size">Size:</label>
                     <div className={`customSelect ${style.select}`}>
@@ -124,30 +126,38 @@ const ProductDetails = (props) => {
                     </div>
                   </div>
                 )}
-              {!product.by && (
-                <div className={style.quantity}>
-                  <label htmlFor="">Quantity:</label>
-                  <input
-                    onChange={(e) => setQuantity(Number(e.target.value))}
-                    value={quantity}
-                    type="number"
-                    min="1"
-                    step="1"
-                  />
-                </div>
+                {!data.by && (
+                  <div className={style.quantity}>
+                    <label htmlFor="quantity">Quantity:</label>
+                    <input
+                      onChange={(e) => setQuantity(Number(e.target.value))}
+                      value={quantity}
+                      name="quantity"
+                      type="number"
+                      min="1"
+                      step="1"
+                    />
+                  </div>
+                )}
+              </div>
+              {data.by ? (
+                <a href={data.link}>
+                  <button className="btn">Buy from STOREFACTORY</button>
+                </a>
+              ) : (
+                <button
+                  className="btn"
+                  onClick={handleAddToCart}
+                  disabled={buttonClick}
+                >
+                  {buttonClick ? "Added to cart!" : "Add to cart"}
+                </button>
               )}
             </div>
-            {product.by ? (
-              <a href={product.link}>
-                <button>Buy from STOREFACTORY</button>
-              </a>
-            ) : (
-              <button onClick={handleAddToCart}>Add to cart</button>
-            )}
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

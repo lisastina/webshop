@@ -1,34 +1,32 @@
 import ProductList from "../components/ProductList";
 import style from "../css/Home.module.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useGetCol from "../hooks/useGetCol";
 
 const Home = () => {
+  const { data } = useGetCol("frontpage");
+
   return (
-    <div className={style.home}>
-      <img src="/assets/imgs/header.jpg" alt="header" />
-      <div className="pages-container">
-        <div className={style.desc}>
-          <h2>An exploration in color and texture.</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Venenatis tellus in metus vulputate eu scelerisque felis imperdiet.
-            Euismod elementum nisi quis eleifend quam. Vitae ultricies leo
-            integer malesuada. Eu augue ut lectus arcu bibendum at. Non
-            curabitur gravida arcu ac tortor dignissim.
-          </p>
-          <NavLink exact to="/about">
-            <button className="btn-sm">Learn more</button>
-          </NavLink>
+    <>
+      {data && (
+        <div className={style.home}>
+          <img src={data[0].imageUrl} alt="hero" />
+          <div className="pages-container">
+            <div className={style.desc}>
+              <h2>{data[0].title}</h2>
+              <p>{data[0].text}</p>
+              <Link to="/about">
+                <button className=" btn btn-sm">Learn more</button>
+              </Link>
+            </div>
+            <ProductList products={data[0].products} />
+            <div className={style.seeAll}>
+              <Link to="/products">View all products</Link>
+            </div>
+          </div>
         </div>
-        <ProductList />
-        <div className={style.seeAll}>
-          <NavLink exact to="/products">
-            View all products
-          </NavLink>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

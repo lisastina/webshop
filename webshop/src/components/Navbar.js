@@ -1,10 +1,11 @@
 import style from "../css/Navbar.module.css";
-import { NavLink, useHistory, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { useAuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
-  const history = useHistory();
+  const { currentUser } = useAuthContext();
   const location = useLocation();
   const { cartItems: cart, cartLength, setCheckout } = useContext(CartContext);
 
@@ -28,53 +29,50 @@ const Navbar = () => {
             <span></span>
             <span></span>
           </div>
-          <div className={style.link}>
-            <NavLink
-              exact
-              to="/"
-              activeClassName={style.active}
-              onClick={() => setHamburger(false)}
-            >
-              Home
-            </NavLink>
-          </div>
-          <div className={style.link}>
-            <NavLink
-              exact
-              to="/about"
-              activeClassName={style.active}
-              onClick={() => setHamburger(false)}
-            >
-              About
-            </NavLink>
-          </div>
-          <div className={style.link}>
-            <NavLink
-              exact
-              to="/products"
-              activeClassName={style.active}
-              onClick={() => setHamburger(false)}
-            >
-              Shop
-            </NavLink>
-          </div>
+          {/* Links */}
+          {[
+            { to: "/", title: "Home" },
+            { to: "/about", title: "About" },
+            { to: "/products", title: "Products" },
+            { to: "/admin", title: "Admin", protected: true },
+          ].map((link, i) => {
+            const linkEl = (
+              <div className={style.link} key={i}>
+                <NavLink
+                  to={link.to}
+                  activeclassname={style.active}
+                  onClick={() => setHamburger(false)}
+                >
+                  {link.title}
+                </NavLink>
+              </div>
+            );
+
+            if (link.protected && !currentUser) {
+              return;
+            }
+            return linkEl;
+          })}
         </div>
 
+        {/* Page title */}
         <div className={style.pageTitle}>
-          <h1
-            onClick={() => {
-              history.push("/");
-              setHamburger(false);
-            }}
-          >
-            LisaStina
-          </h1>
+          <Link to="/">
+            <h1
+              onClick={() => {
+                setHamburger(false);
+              }}
+            >
+              LisaStina
+            </h1>
+          </Link>
         </div>
+        {/* Cart */}
         <div className={style.cartIconWrapper}>
-          <div
+          <Link
+            to="/checkout"
             className={style.cartIcon}
             onClick={() => {
-              history.push("/checkout");
               setCheckout(false);
               setHamburger(false);
             }}
@@ -93,7 +91,7 @@ const Navbar = () => {
             ) : (
               <img src="/assets/icons/cart-icon.png" alt="shopping cart icon" />
             )}
-          </div>
+          </Link>
         </div>
       </div>
     </div>

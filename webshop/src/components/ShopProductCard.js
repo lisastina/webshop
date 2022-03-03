@@ -1,28 +1,22 @@
 import style from "../css/ShopProductCard.module.css";
-import { useContext } from "react";
-import { ProductContext } from "../contexts/ProductContext";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const ShopProductCard = (props) => {
-  const history = useHistory();
-  const { viewProduct } = useContext(ProductContext);
-
+const ShopProductCard = ({ product }) => {
   return (
-    <div
-      className={style.shopProductCard}
-      onClick={() => viewProduct(props.product, history)}
-    >
+    <div className={style.shopProductCard}>
       <div className={style.imgWrapper}>
-        <img
-          src={props.product.img}
-          alt={`${props.product.name} ${props.product.productType}`}
-        />
+        <Link to={`/products/${product._id}`}>
+          <img
+            src={product.images[0].url}
+            alt={`${product.name} ${product.type}`}
+          />
+        </Link>
       </div>
       <div className={style.desc}>
         <h2>
-          {props.product.name} {props.product.productType}
+          {product.name} {product.type}
         </h2>
-        <h2 className={style.price}>{props.product.price} kr</h2>
+        <h2 className={style.price}>{product.price} kr</h2>
       </div>
     </div>
   );

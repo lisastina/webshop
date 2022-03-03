@@ -19,7 +19,7 @@ const Checkout = () => {
   };
 
   return (
-    <div>
+    <div className="pages-container">
       {cartItems.length ? (
         <div className={style.checkout}>
           {checkout ? <h1>Checkout</h1> : <h1>Shopping cart</h1>}
@@ -38,7 +38,9 @@ const Checkout = () => {
               <div>
                 <h2>Subtotal {cartTotal} kr</h2>
               </div>
-              <button onClick={handleCheckout}>Checkout</button>
+              <button className="btn" onClick={handleCheckout}>
+                Checkout
+              </button>
             </div>
           )}
         </div>

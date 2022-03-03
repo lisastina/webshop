@@ -1,25 +1,19 @@
 import { createContext, useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export const CartContext = createContext();
 
 const CartContextProvider = (props) => {
-  const history = useHistory();
+  const navigate = useNavigate();
+
+  const [cartItems, setCartItems] = useLocalStorage("cartItems", []);
+  const [cartLength, setCartLength] = useLocalStorage("cartLength", []);
 
   const [shipping, setShipping] = useState();
 
   const [checkout, setCheckout] = useState(false);
   const [order, setOrder] = useState(null);
-
-  const [cartLength, setCartLength] = useState(() => {
-    const localData = localStorage.getItem("cartLength");
-    return localData ? JSON.parse(localData) : 0;
-  });
-
-  const [cartItems, setCartItems] = useState(() => {
-    const localData = localStorage.getItem("cartItems");
-    return localData ? JSON.parse(localData) : [];
-  });
 
   const [cartTotal, setCartTotal] = useState(0);
 
@@ -31,14 +25,14 @@ const CartContextProvider = (props) => {
     setCartTotal(prices.reduce((sum, curr) => sum + curr, 0));
   }, [cartItems]);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
-
-  useEffect(() => {
+ */
+  /*   useEffect(() => {
     localStorage.setItem("cartLength", JSON.stringify(cartLength));
   }, [cartLength]);
-
+ */
   useEffect(() => {
     if (cartItems.length === 0) {
       setCartLength(0);
@@ -83,7 +77,7 @@ const CartContextProvider = (props) => {
       ordernumber: orderNumber,
       totalPrice: cartTotal + 50,
     });
-    history.push(`/confirmation/${orderNumber}`);
+    navigate(`/confirmation/${orderNumber}`);
     setCartItems([]);
     setCartLength(0);
   };

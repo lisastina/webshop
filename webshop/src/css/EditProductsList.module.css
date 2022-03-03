@@ -1,0 +1,85 @@
+.editProductsList {
+  width: 100%;
+}
+
+.editProductsList h2 {
+  margin-top: 0;
+}
+.editProduct h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  user-select: none;
+}
+.editProduct h3::first-letter {
+  text-transform: capitalize;
+}
+
+.editProduct .header {
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.editProduct .arrow {
+  border: solid #463a3b;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  margin-left: 1rem;
+}
+.editProduct .arrow.up {
+  transform: rotate(-135deg);
+}
+.editProduct .dropdownForm {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 1rem;
+}
+.editProduct .inputs {
+  display: flex;
+  flex-direction: column;
+}
+.editProduct input,
+.editProduct textarea {
+  padding: 0.5rem;
+  margin: 0.5rem 0 0;
+  border-radius: 0.25rem;
+  border: solid #b3c5ce 1px;
+  font: inherit;
+  resize: none;
+}
+.editProduct input:focus,
+.editProduct textarea:focus {
+  outline: 1.5px solid rgb(141, 157, 165);
+  -moz-outline-radius: 0.3em;
+}
+
+.editProduct input[type="number"]::-webkit-outer-spin-button,
+.editProduct input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.editProduct input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.editProduct label {
+  margin-top: 1rem;
+}
+.editProduct .dropdownForm .buttons {
+  align-self: flex-end;
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.editProductsList .buttons .deleteBtn {
+  background-color: #d5dcdf79;
+  color: #463a3b;
+}
+.editProductsList .buttons .deleteBtn:disabled,
+.editProductsList .buttons .deleteBtn:disabled[disabled] {
+  background-color: #9da8ac79;
+}
