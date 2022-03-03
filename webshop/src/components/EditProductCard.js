@@ -33,6 +33,7 @@ const EditProductCard = ({ product }) => {
           setDropdown={setDropdown}
           product={product}
           setDeleteConfirm={setDeleteConfirm}
+          deleteProduct={deleteProduct}
         />
       )}
       <div className={style.editProduct}>
