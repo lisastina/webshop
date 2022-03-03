@@ -1,6 +1,6 @@
 import style from "../css/AdminPage.module.css";
 import { useAuthContext } from "../contexts/AuthContext";
-import Login from "./Login";
+import Login from "../components/Login";
 import { useState } from "react";
 import AddProductForm from "../components/AddProductForm";
 import EditProductsList from "../components/EditProductsList";
@@ -10,10 +10,11 @@ const AdminPage = () => {
   const [editProducts, setEditProducts] = useState(true);
   const [editContent, setEditContent] = useState(false);
   const [addProduct, setAddProduct] = useState(false);
+  const [isloggingIn, setIsLoggingIn] = useState(false);
 
   return (
     <>
-      {currentUser ? (
+      {currentUser && !isloggingIn ? (
         <div className={`${style.adminPage} pages-container`}>
           <div className={style.options}>
             <button
@@ -61,7 +62,7 @@ const AdminPage = () => {
           {addProduct && <AddProductForm />}
         </div>
       ) : (
-        <Login />
+        <Login setIsLoggingIn={setIsLoggingIn} />
       )}
     </>
   );
