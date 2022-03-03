@@ -26,6 +26,13 @@ const EditProductCard = ({ product }) => {
     });
   };
 
+  const handleDeleteImg = (i) => {
+    let imagesCopy = product.images;
+
+    imagesCopy.splice(i, 1);
+    editProduct.editDoc({ images: imagesCopy });
+  };
+
   return (
     <>
       {deleteConfirm && (
@@ -83,6 +90,24 @@ const EditProductCard = ({ product }) => {
                   ref={productTypeRef}
                   defaultValue={product.type}
                 />
+              </div>
+              <div className={style.editImages}>
+                <div className={style.images}>
+                  {product.images.map((image, i) => {
+                    return (
+                      <div className={style.imageWrapper} key={i}>
+                        <div
+                          className={style.deleteImg}
+                          onClick={() => handleDeleteImg(i)}
+                        >
+                          <span></span>
+                          <span></span>
+                        </div>
+                        <img src={image.url} alt={image.name} />
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
             <div className={style.buttons}>
