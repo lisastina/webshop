@@ -3,6 +3,9 @@ import style from "../css/EditProductsList.module.css";
 import useEditDoc from "../hooks/useEditDoc";
 import DeleteConfirmation from "./DeleteConfirmation";
 import useDeleteDoc from "../hooks/useDeleteDoc";
+import useDeleteImage from "../hooks/useDeleteImage";
+import ImageDropzone from "./ImageDropzone";
+import { useDropzone } from "react-dropzone";
 
 const EditProductCard = ({ product }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -11,7 +14,7 @@ const EditProductCard = ({ product }) => {
   const priceRef = useRef();
   const productTypeRef = useRef();
   const [deleteConfirm, setDeleteConfirm] = useState(false);
-
+  const deleteImage = useDeleteImage("products", product._id);
   const deleteProduct = useDeleteDoc("products", product);
   const editProduct = useEditDoc("products", product._id);
 
@@ -27,11 +30,29 @@ const EditProductCard = ({ product }) => {
   };
 
   const handleDeleteImg = (i) => {
-    let imagesCopy = product.images;
+    if (product.images[i]) {
+      let imagesCopy = product.images;
+      let imagePath = product.images[i].path;
+      console.log(product.images[i].path);
 
-    imagesCopy.splice(i, 1);
-    editProduct.editDoc({ images: imagesCopy });
+      imagesCopy.splice(i, 1);
+      deleteImage.deleteImage(imagePath, { images: imagesCopy });
+    }
   };
+
+  const {
+    getRootProps,
+    getInputProps,
+    acceptedFiles,
+    isDragActive,
+    isDragAccept,
+    isDragReject,
+    fileRejections,
+  } = useDropzone({
+    maxFiles: 3,
+    accept: "image/gif, image/jpeg, image/png, image/webp",
+    handleSubmit,
+  });
 
   return (
     <>
@@ -108,6 +129,16 @@ const EditProductCard = ({ product }) => {
                     );
                   })}
                 </div>
+                <ImageDropzone
+                  params={{
+                    acceptedFiles,
+                    getRootProps,
+                    getInputProps,
+                    isDragActive,
+                    isDragAccept,
+                    fileRejections,
+                  }}
+                />
               </div>
             </div>
             <div className={style.buttons}>
