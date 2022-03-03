@@ -31,7 +31,9 @@ const Login = () => {
         <label htmlFor="password">Password</label>
         <input required id="password" type="password" ref={passwordRef} />
       </div>
-      <button type="submit">Login</button>
+      <button className="btn" type="submit">
+        Login
+      </button>
     </form>
   );
 };

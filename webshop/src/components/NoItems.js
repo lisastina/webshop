@@ -8,7 +8,7 @@ const NoItems = () => {
       <h1>Your shopping bag is empty...</h1>
       <p>Take a look at some of my products!</p>
       <Link to="/products">
-        <button>Start shopping</button>
+        <button className="btn">Start shopping</button>
       </Link>
     </div>
   );

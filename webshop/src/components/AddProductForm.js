@@ -86,6 +86,7 @@ const AddProductForm = () => {
         />
       </div>
       <button
+        className="btn"
         type="submit"
         disabled={acceptedFiles.length <= 0 || addProduct.isAdding}
       >

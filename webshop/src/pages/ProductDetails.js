@@ -142,10 +142,14 @@ const ProductDetails = (props) => {
               </div>
               {data.by ? (
                 <a href={data.link}>
-                  <button>Buy from STOREFACTORY</button>
+                  <button className="btn">Buy from STOREFACTORY</button>
                 </a>
               ) : (
-                <button onClick={handleAddToCart} disabled={buttonClick}>
+                <button
+                  className="btn"
+                  onClick={handleAddToCart}
+                  disabled={buttonClick}
+                >
                   {buttonClick ? "Added to cart!" : "Add to cart"}
                 </button>
               )}

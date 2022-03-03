@@ -7,21 +7,41 @@
 .adminPage .options {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  min-width: 180px;
+  gap: 1rem;
+  min-width: 130px;
+  align-items: flex-start;
 }
-.adminPage .options p {
+.adminPage .options .link {
   font-size: 1.2rem;
   margin: 0;
-  transition: 1s;
-}
-.adminPage .options p:hover {
-  text-decoration: underline;
+  position: relative;
   cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
 }
 
-.adminPage .options button {
-  max-width: 120px;
+.adminPage .options .link:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #463a3b;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.adminPage .options .link:hover:before,
+.adminPage .link.active::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.adminPage .options .btn {
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 700px) {
@@ -35,7 +55,10 @@
     flex-wrap: wrap;
     gap: 1.2rem;
   }
-  .adminPage .options p {
+  .adminPage .options .link {
     font-size: 1rem;
+  }
+  .adminPage .options .btn {
+    margin: 0;
   }
 }
