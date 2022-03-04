@@ -23,7 +23,7 @@ const ProductCard = ({ productId, index }) => {
             <Link to={`/products/${productId}`}>
               <img
                 src={
-                  product.images[0]
+                  product.images?.length
                     ? product.images[0].url
                     : "../assets/imgs/placeholder.png"
                 }

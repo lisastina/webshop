@@ -77,7 +77,6 @@ const AddProductForm = () => {
         </div>
 
         <ImageDropzone
-          required
           params={{
             acceptedFiles,
             getRootProps,

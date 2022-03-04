@@ -8,7 +8,7 @@ const ShopProductCard = ({ product }) => {
         <Link to={`/products/${product._id}`}>
           <img
             src={
-              product.images[0]
+              product.images?.length
                 ? product.images[0].url
                 : "../assets/imgs/placeholder.png"
             }
