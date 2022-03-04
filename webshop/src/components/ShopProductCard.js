@@ -7,7 +7,11 @@ const ShopProductCard = ({ product }) => {
       <div className={style.imgWrapper}>
         <Link to={`/products/${product._id}`}>
           <img
-            src={product.images[0].url}
+            src={
+              product.images[0]
+                ? product.images[0].url
+                : "../assets/imgs/placeholder.png"
+            }
             alt={`${product.name} ${product.type}`}
           />
         </Link>

@@ -93,7 +93,11 @@ const ProductDetails = (props) => {
             <div className={style.imgWrapper}>
               {data.images && (
                 <img
-                  src={data.images[0].url}
+                  src={
+                    data.images[0]
+                      ? data.images[0].url
+                      : "../assets/imgs/placeholder.png"
+                  }
                   alt={`${data.name} ${data.type}`}
                 />
               )}

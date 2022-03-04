@@ -11,8 +11,8 @@ const useDeleteImage = (col, colId) => {
   });
 
   const deleteImage = async (imagePath, newValues) => {
-    deleteObject(ref(storage, imagePath));
     mutation.mutate(newValues);
+    deleteObject(ref(storage, imagePath));
   };
 
   return {

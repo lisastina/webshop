@@ -33,7 +33,6 @@ const EditProductCard = ({ product }) => {
     if (product.images[i]) {
       let imagesCopy = product.images;
       let imagePath = product.images[i].path;
-      console.log(product.images[i].path);
 
       imagesCopy.splice(i, 1);
       deleteImage.deleteImage(imagePath, { images: imagesCopy });
