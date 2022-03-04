@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { db, storage } from "../firebase";
 import { useFirestoreDocumentMutation } from "@react-query-firebase/firestore";
 import { collection, doc } from "firebase/firestore";
@@ -11,18 +12,8 @@ const useDeleteImage = (col, colId) => {
   });
 
   const deleteImage = async (imagePath, newValues) => {
-    // try {
-    // delete image from storage
-
-    // edit product in db
-    // mutation.mutate({ newValues });
-    // } catch (e) {
-    //   console.log(e.message);
-    //   /* setError(e.message);
-    //   setIsError(true); */
-    // }
     deleteObject(ref(storage, imagePath));
-    /* return */ mutation.mutate(newValues);
+    mutation.mutate(newValues);
   };
 
   return {
