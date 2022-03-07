@@ -97,6 +97,7 @@
   max-width: 100px;
   min-width: 70px;
   position: relative;
+  width: 100%;
 }
 .editProduct img {
   width: 100%;
