@@ -35,32 +35,37 @@ const useEditDoc = (col, document) => {
         return;
       }
 
-      document.images.map((currentImage) => {
-        const imageNumber = Number(
-          currentImage.name
-            .substring(currentImage.name.lastIndexOf("-") + 1)
-            .replace(
-              currentImage.name.substring(currentImage.name.lastIndexOf(".")),
-              ""
-            )
-        );
+      /* Name the new image with a number at the end, that is higher than the current images numbers */
+      if (document.images.length > 0) {
+        document.images.map((currentImage) => {
+          const imageNumber = Number(
+            currentImage.name
+              .substring(currentImage.name.lastIndexOf("-") + 1)
+              .replace(
+                currentImage.name.substring(currentImage.name.lastIndexOf(".")),
+                ""
+              )
+          );
 
-        const copyImageNumbers = imageNumbers;
-        copyImageNumbers.push(imageNumber);
+          const copyImageNumbers = imageNumbers;
+          copyImageNumbers.push(imageNumber);
 
-        setImageNumbers(copyImageNumbers);
-      });
+          setImageNumbers(copyImageNumbers);
+        });
+      }
 
       try {
         const ext = image.name.substring(image.name.lastIndexOf(".") + 1);
 
-        const imageNumber = Number(
-          imageNumbers.sort()[imageNumbers.length - 1] + 1
-        );
+        const imageNumber = (
+          "0" + Number(imageNumbers.sort()[imageNumbers.length - 1] + 1)
+        ).slice(-2);
 
         const imagePath = `products/${document.name}-${document.type}/${
           document.name
-        }-${document.type}-0${document.images ? imageNumber : i + 1}.${ext}`;
+        }-${document.type}-${
+          document.images.length > 0 ? imageNumber : ("0" + i + 1).slice(-2)
+        }.${ext}`;
 
         const storageRef = ref(storage, imagePath);
 
@@ -85,8 +90,8 @@ const useEditDoc = (col, document) => {
           ...document.images,
           {
             ext: ext,
-            name: `${document.name}-${document.type}-0${
-              document.images ? imageNumber : i + 1
+            name: `${document.name}-${document.type}-${
+              document.images.length > 0 ? imageNumber : ("0" + i + 1).slice(-2)
             }.${ext}`,
             path: imagePath,
             type: image.type,
