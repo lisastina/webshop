@@ -2,28 +2,34 @@ import ImageDropzone from "../components/ImageDropzone";
 import style from "../css/AddProductForm.module.css";
 import useAddProduct from "../hooks/useAddProduct";
 import { useDropzone } from "react-dropzone";
-import { useRef, useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { useNavigate } from "react-router-dom";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 const AddProductForm = () => {
   const productNameRef = useRef();
   const descRef = useRef();
   const priceRef = useRef();
   const productTypeRef = useRef();
-  const navigate = useNavigate();
+  const [myImages, setMyImages] = useState([]);
 
   const addProduct = useAddProduct();
-  const productUuid = uuidv4();
+
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      setMyImages([...myImages, ...acceptedFiles]);
+    },
+    [myImages]
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // setMyImages([...myImages, ...acceptedFiles]);
 
     if (!acceptedFiles.length) {
       return;
     }
 
-    await addProduct.addProduct(productUuid, acceptedFiles, {
+    await addProduct.addProduct(acceptedFiles, {
       name: productNameRef.current.value,
       desc: descRef.current.value,
       price: priceRef.current.value,
@@ -31,31 +37,28 @@ const AddProductForm = () => {
     });
   };
 
-  /* 
   useEffect(() => {
     if (addProduct.isSuccess) {
-      navigate(`/products/${productUuid}`);
+      productNameRef.current.value = "";
+      descRef.current.value = "";
+      priceRef.current.value = "";
+      productTypeRef.current.value = "";
     }
+    setMyImages([]);
   }, [addProduct.isSuccess]);
- */
 
-  const {
-    getRootProps,
-    getInputProps,
-    acceptedFiles,
-    isDragActive,
-    isDragAccept,
-    isDragReject,
-    fileRejections,
-  } = useDropzone({
-    maxFiles: 3,
-    accept: "image/gif, image/jpeg, image/png",
-    handleSubmit,
-  });
+  const { getRootProps, getInputProps, acceptedFiles, fileRejections } =
+    useDropzone({
+      maxFiles: 3,
+      accept: "image/gif, image/jpeg, image/png",
+      onDrop,
+      handleSubmit,
+    });
 
   return (
     <form className={style.addProductForm} onSubmit={handleSubmit}>
       <h2>Add new product</h2>
+      {addProduct.isSuccess && "Product added!"}
       <div className={style.formContent}>
         <div className={style.inputs}>
           <label htmlFor="product-name">Product name</label>
@@ -77,14 +80,10 @@ const AddProductForm = () => {
         </div>
 
         <ImageDropzone
-          params={{
-            acceptedFiles,
-            getRootProps,
-            getInputProps,
-            isDragActive,
-            isDragAccept,
-            fileRejections,
-          }}
+          acceptedFiles={myImages}
+          getRootProps={getRootProps}
+          getInputProps={getInputProps}
+          fileRejections={fileRejections}
         />
       </div>
       <button

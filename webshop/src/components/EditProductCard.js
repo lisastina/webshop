@@ -43,19 +43,12 @@ const EditProductCard = ({ product }) => {
     }
   };
 
-  const {
-    getRootProps,
-    getInputProps,
-    acceptedFiles,
-    isDragActive,
-    isDragAccept,
-    isDragReject,
-    fileRejections,
-  } = useDropzone({
-    maxFiles: 3,
-    accept: "image/gif, image/jpeg, image/png",
-    handleSubmit,
-  });
+  const { getRootProps, getInputProps, acceptedFiles, fileRejections } =
+    useDropzone({
+      maxFiles: 3,
+      accept: "image/gif, image/jpeg, image/png",
+      handleSubmit,
+    });
 
   return (
     <>
@@ -134,14 +127,10 @@ const EditProductCard = ({ product }) => {
                     })}
                 </div>
                 <ImageDropzone
-                  params={{
-                    acceptedFiles,
-                    getRootProps,
-                    getInputProps,
-                    isDragActive,
-                    isDragAccept,
-                    fileRejections,
-                  }}
+                  acceptedFiles={acceptedFiles}
+                  getRootProps={getRootProps}
+                  getInputProps={getInputProps}
+                  fileRejections={fileRejections}
                 />
               </div>
             </div>

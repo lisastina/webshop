@@ -1,20 +1,25 @@
 import style from "../css/ImageDropzone.module.css";
 
-const UploadImageDropzone = ({ params }) => {
+const UploadImageDropzone = ({
+  acceptedFiles,
+  fileRejections,
+  getInputProps,
+  getRootProps,
+}) => {
   return (
     <>
       <div
-        {...params.getRootProps()}
+        {...getRootProps()}
         id="image-dropzone"
         className={style.imageDropZone}
       >
-        <input {...params.getInputProps()} />
+        <input {...getInputProps()} />
 
-        {params.fileRejections.length > 0 ? (
+        {fileRejections.length > 0 ? (
           <p>Do not select more than 3 files</p>
-        ) : params.acceptedFiles?.length > 0 ? (
+        ) : acceptedFiles?.length > 0 ? (
           <ul className={style.acceptedFiles}>
-            {params.acceptedFiles.map((file) => (
+            {acceptedFiles.map((file) => (
               <li key={file.name}>{file.name}</li>
             ))}
           </ul>

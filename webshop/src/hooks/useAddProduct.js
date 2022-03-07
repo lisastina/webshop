@@ -9,6 +9,7 @@ import {
 } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { changeLetters } from "../helpers/changeLetters";
+import { v4 as uuidv4 } from "uuid";
 
 const useAddProduct = () => {
   const [error, setError] = useState(null);
@@ -17,7 +18,9 @@ const useAddProduct = () => {
   const [isSuccess, setIsSuccess] = useState(null);
   const [progress, setProgress] = useState(null);
 
-  const addProduct = async (productUuid, images, product) => {
+  const addProduct = async (images, product) => {
+    const productUuid = uuidv4();
+
     setDoc(doc(db, "products", productUuid), {
       created: serverTimestamp(),
       desc: product.desc,
