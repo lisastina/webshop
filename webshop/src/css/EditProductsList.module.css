@@ -35,11 +35,20 @@
 .editProduct .dropdownForm {
   display: flex;
   flex-direction: column;
-  padding: 0 1rem 1rem;
+  padding: 1.5rem 1rem;
 }
+
+.editProduct .formContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* inputs */
 .editProduct .inputs {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .editProduct input,
 .editProduct textarea {
@@ -69,6 +78,64 @@
 .editProduct label {
   margin-top: 1rem;
 }
+
+/* images */
+.editProduct .editImages {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.editProduct .images {
+  display: flex;
+  width: 50%;
+  gap: 0.5rem;
+  justify-content: space-between;
+  width: 100%;
+}
+.editProduct .imageWrapper {
+  max-width: 100px;
+  min-width: 70px;
+  position: relative;
+  width: 100%;
+}
+.editProduct img {
+  width: 100%;
+  aspect-ratio: 4 / 5.7;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.editProduct .deleteImg {
+  position: absolute;
+  cursor: pointer;
+  top: 5px;
+  right: 5px;
+  background-color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+.editProduct .deleteImg span {
+  display: block;
+  width: 16px;
+  height: 2px;
+  margin-bottom: 5px;
+  background-color: #463a3b;
+  border-radius: 3px;
+  transform-origin: 10px 0px;
+  position: absolute;
+  top: 10px;
+  left: 3px;
+}
+.editProduct .deleteImg span:first-child {
+  transform: rotate(45deg) translate(0px, 1px);
+}
+.editProduct .deleteImg span:last-child {
+  transform: rotate(-45deg) translate(0px, -3px);
+}
+
+/* buttons */
 .editProduct .dropdownForm .buttons {
   align-self: flex-end;
   margin-top: 1rem;
@@ -82,4 +149,14 @@
 .editProductsList .buttons .deleteBtn:disabled,
 .editProductsList .buttons .deleteBtn:disabled[disabled] {
   background-color: #9da8ac79;
+}
+
+@media screen and (max-width: 800px) {
+  .editProduct .formContent {
+    flex-direction: column;
+  }
+  .editProduct .imageWrapper {
+    max-width: 150px;
+    min-width: 65px;
+  }
 }

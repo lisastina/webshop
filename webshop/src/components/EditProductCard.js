@@ -3,6 +3,9 @@ import style from "../css/EditProductsList.module.css";
 import useEditDoc from "../hooks/useEditDoc";
 import DeleteConfirmation from "./DeleteConfirmation";
 import useDeleteDoc from "../hooks/useDeleteDoc";
+import useDeleteImage from "../hooks/useDeleteImage";
+import ImageDropzone from "./ImageDropzone";
+import { useDropzone } from "react-dropzone";
 
 const EditProductCard = ({ product }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -11,12 +14,16 @@ const EditProductCard = ({ product }) => {
   const priceRef = useRef();
   const productTypeRef = useRef();
   const [deleteConfirm, setDeleteConfirm] = useState(false);
-
+  const deleteImage = useDeleteImage("products", product._id);
   const deleteProduct = useDeleteDoc("products", product);
-  const editProduct = useEditDoc("products", product._id);
+  const editProduct = useEditDoc("products", product);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (acceptedFiles.length > 0) {
+      editProduct.uploadImages(acceptedFiles);
+    }
 
     editProduct.editDoc({
       name: productNameRef.current.value,
@@ -25,6 +32,30 @@ const EditProductCard = ({ product }) => {
       type: productTypeRef.current.value,
     });
   };
+
+  const handleDeleteImg = (i) => {
+    if (product.images[i]) {
+      let imagesCopy = product.images;
+      let imagePath = product.images[i].path;
+
+      imagesCopy.splice(i, 1);
+      deleteImage.deleteImage(imagePath, { images: imagesCopy });
+    }
+  };
+
+  const {
+    getRootProps,
+    getInputProps,
+    acceptedFiles,
+    isDragActive,
+    isDragAccept,
+    isDragReject,
+    fileRejections,
+  } = useDropzone({
+    maxFiles: 3,
+    accept: "image/gif, image/jpeg, image/png",
+    handleSubmit,
+  });
 
   return (
     <>
@@ -84,25 +115,50 @@ const EditProductCard = ({ product }) => {
                   defaultValue={product.type}
                 />
               </div>
+              <div className={style.editImages}>
+                <div className={style.images}>
+                  {product.images &&
+                    product.images.map((image, i) => {
+                      return (
+                        <div className={style.imageWrapper} key={i}>
+                          <div
+                            className={style.deleteImg}
+                            onClick={() => handleDeleteImg(i)}
+                          >
+                            <span></span>
+                            <span></span>
+                          </div>
+                          <img src={image.url} alt={image.name} />
+                        </div>
+                      );
+                    })}
+                </div>
+                <ImageDropzone
+                  params={{
+                    acceptedFiles,
+                    getRootProps,
+                    getInputProps,
+                    isDragActive,
+                    isDragAccept,
+                    fileRejections,
+                  }}
+                />
+              </div>
             </div>
             <div className={style.buttons}>
               <button
                 className={`btn btn-sm ${style.deleteBtn}`}
                 onClick={() => setDeleteConfirm(true)}
-                disabled={
-                  /* acceptedFiles.length <= 0 ||  */ deleteProduct.isDeleting
-                }
+                disabled={deleteProduct.isDeleting}
               >
                 Delete product
               </button>
               <button
                 className="btn btn-sm"
                 type="submit"
-                disabled={
-                  /* acceptedFiles.length <= 0 ||  */ deleteProduct.isDeleting
-                }
+                disabled={editProduct.isAdding || deleteProduct.isDeleting}
               >
-                Save changes
+                {editProduct.isAdding ? "Saving..." : "Save changes"}
               </button>
             </div>
           </form>

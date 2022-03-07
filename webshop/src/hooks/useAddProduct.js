@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { db, storage } from "../firebase";
-import { useAuthContext } from "../contexts/AuthContext";
-import { doc, setDoc, updateDoc, serverTimestamp } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  updateDoc,
+  serverTimestamp,
+  arrayUnion,
+} from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { changeLetters } from "../helpers/changeLetters";
 
@@ -19,6 +24,7 @@ const useAddProduct = () => {
       name: product.name,
       price: product.price,
       type: product.type,
+      images: [],
     });
 
     setError(null);
@@ -33,7 +39,7 @@ const useAddProduct = () => {
     );
 
     /* add every image in firebase storage */
-    await images.map(async (image) => {
+    await images.map(async (image, i) => {
       if (!image instanceof File) {
         setError("Please upload a file");
         setIsError(true);
@@ -44,7 +50,9 @@ const useAddProduct = () => {
       try {
         const ext = image.name.substring(image.name.lastIndexOf(".") + 1);
 
-        const imagePath = `products/${productName}/${productName}.${ext}`;
+        const imagePath = `products/${productName}/${productName}-0${
+          i + 1
+        }.${ext}`;
 
         const storageRef = ref(storage, imagePath);
 
@@ -66,15 +74,13 @@ const useAddProduct = () => {
 
         /* Add image field to the created document */
         await updateDoc(doc(db, "products", productUuid), {
-          images: [
-            {
-              ext: ext,
-              name: `${productName}.${ext}`,
-              path: imagePath,
-              type: image.type,
-              url: imageUrl,
-            },
-          ],
+          images: arrayUnion({
+            ext: ext,
+            name: `${productName}-0${i + 1}.${ext}`,
+            path: imagePath,
+            type: image.type,
+            url: imageUrl,
+          }),
         });
 
         setProgress(null);

@@ -22,7 +22,11 @@ const ProductCard = ({ productId, index }) => {
           <div className={style.imgWrapper}>
             <Link to={`/products/${productId}`}>
               <img
-                src={product.images[0].url}
+                src={
+                  product.images?.length
+                    ? product.images[0].url
+                    : "../assets/imgs/placeholder.png"
+                }
                 alt={`${product.name} ${product.type}`}
               />
             </Link>

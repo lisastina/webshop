@@ -91,12 +91,14 @@ const ProductDetails = (props) => {
         <div className={`pages-container ${style.productDetails}`}>
           <div className={style.content}>
             <div className={style.imgWrapper}>
-              {data.images && (
-                <img
-                  src={data.images[0].url}
-                  alt={`${data.name} ${data.type}`}
-                />
-              )}
+              <img
+                src={
+                  data.images?.length
+                    ? data.images[0].url
+                    : "../assets/imgs/placeholder.png"
+                }
+                alt={`${data.name} ${data.type}`}
+              />
             </div>
             <div className={style.desc}>
               <h1>
