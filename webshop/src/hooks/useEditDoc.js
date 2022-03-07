@@ -23,6 +23,7 @@ const useEditDoc = (col, document) => {
     setIsAdding(true);
     setError(null);
     setIsError(null);
+    setImageNumbers([]);
 
     newImages.map(async (image, i) => {
       if (!image instanceof File) {
@@ -37,8 +38,7 @@ const useEditDoc = (col, document) => {
         return;
       }
 
-      /* Name the new image with a number at the end, that is higher than the current images numbers */
-      setImageNumbers([]);
+      /* Take the number from each image's name and put in an array */
       if (document.images.length > 0) {
         document.images.map((currentImage) => {
           const imageNumber = Number(
@@ -60,8 +60,9 @@ const useEditDoc = (col, document) => {
       try {
         const ext = image.name.substring(image.name.lastIndexOf(".") + 1);
 
+        /* number to add at end of name. Larger than the largest of the current image's numbers */
         const imageNumber = (
-          "0" + Number(imageNumbers.sort()[imageNumbers.length - 1] + 1)
+          "0" + Number(imageNumbers.sort()[imageNumbers.length - 1] + (i + 1))
         ).slice(-2);
 
         const imagePath = `products/${document.name}-${document.type}/${
@@ -90,19 +91,7 @@ const useEditDoc = (col, document) => {
 
         const imageUrl = await getDownloadURL(storageRef);
 
-        /* Add image field to the created document */
-        /* let productImages = [
-          ...document.images,
-          {
-            ext: ext,
-            name: `${document.name}-${document.type}-${
-              document.images.length > 0 ? imageNumber : ("0" + i + 1).slice(-2)
-            }.${ext}`,
-            path: imagePath,
-            type: image.type,
-            url: imageUrl,
-          },
-        ]; */
+        /* Add images to the document */
         await updateDoc(doc(db, "products", document._id), {
           images: arrayUnion({
             ext: ext,
@@ -116,19 +105,14 @@ const useEditDoc = (col, document) => {
             url: imageUrl,
           }),
         });
-        /*    mutation.mutate({
-          images: productImages,
-        }); */
 
         // setProgress(null);
-        // setIsSuccess(true);
         setIsAdding(false);
         setImageNumbers([]);
       } catch (err) {
         setError(err.message);
         setIsError(true);
         setIsAdding(false);
-        // setIsSuccess(false);
       }
     });
   };
