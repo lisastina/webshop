@@ -56,7 +56,11 @@ const AddProductForm = () => {
   return (
     <form className={style.addProductForm} onSubmit={handleSubmit}>
       <h2>Add new product</h2>
-      {addProduct.isSuccess && "Product added!"}
+      {addProduct.isSuccess && (
+        <div className={style.addedAlert}>
+          <p>The product was successfully added!</p>
+        </div>
+      )}
       <div className={style.formContent}>
         <div className={style.inputs}>
           <label htmlFor="product-name">Product name</label>

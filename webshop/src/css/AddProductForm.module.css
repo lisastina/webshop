@@ -13,6 +13,14 @@
   margin-top: 0;
 }
 
+.addProductForm .addedAlert {
+  background-color: #b3c5ce;
+  text-align: center;
+}
+.addProductForm .addedAlert p {
+  color: white;
+}
+
 .addProductForm input,
 .addProductForm textarea {
   padding: 0.5rem;
