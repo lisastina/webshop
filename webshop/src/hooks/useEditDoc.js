@@ -1,6 +1,6 @@
 import { db, storage } from "../firebase";
 import { useFirestoreDocumentMutation } from "@react-query-firebase/firestore";
-import { collection, doc, updateDoc } from "firebase/firestore";
+import { collection, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useState, useEffect } from "react";
 
@@ -20,7 +20,9 @@ const useEditDoc = (col, document) => {
   };
 
   const uploadImages = (newImages) => {
-    setImageNumbers([]);
+    setIsAdding(true);
+    setError(null);
+    setIsError(null);
 
     newImages.map(async (image, i) => {
       if (!image instanceof File) {
@@ -36,6 +38,7 @@ const useEditDoc = (col, document) => {
       }
 
       /* Name the new image with a number at the end, that is higher than the current images numbers */
+      setImageNumbers([]);
       if (document.images.length > 0) {
         document.images.map((currentImage) => {
           const imageNumber = Number(
@@ -64,7 +67,9 @@ const useEditDoc = (col, document) => {
         const imagePath = `products/${document.name}-${document.type}/${
           document.name
         }-${document.type}-${
-          document.images.length > 0 ? imageNumber : ("0" + i + 1).slice(-2)
+          document.images.length > 0
+            ? imageNumber
+            : ("0" + Number(i + 1)).slice(-2)
         }.${ext}`;
 
         const storageRef = ref(storage, imagePath);
@@ -86,7 +91,7 @@ const useEditDoc = (col, document) => {
         const imageUrl = await getDownloadURL(storageRef);
 
         /* Add image field to the created document */
-        let productImages = [
+        /* let productImages = [
           ...document.images,
           {
             ext: ext,
@@ -97,14 +102,28 @@ const useEditDoc = (col, document) => {
             type: image.type,
             url: imageUrl,
           },
-        ];
-        mutation.mutate({
-          images: productImages,
+        ]; */
+        await updateDoc(doc(db, "products", document._id), {
+          images: arrayUnion({
+            ext: ext,
+            name: `${document.name}-${document.type}-${
+              document.images.length > 0
+                ? imageNumber
+                : ("0" + Number(i + 1)).slice(-2)
+            }.${ext}`,
+            path: imagePath,
+            type: image.type,
+            url: imageUrl,
+          }),
         });
+        /*    mutation.mutate({
+          images: productImages,
+        }); */
 
         // setProgress(null);
         // setIsSuccess(true);
         setIsAdding(false);
+        setImageNumbers([]);
       } catch (err) {
         setError(err.message);
         setIsError(true);
@@ -118,6 +137,7 @@ const useEditDoc = (col, document) => {
     editDoc,
     uploadImages,
     error,
+    isAdding,
   };
 };
 

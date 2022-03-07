@@ -20,7 +20,10 @@ const EditProductCard = ({ product }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    editProduct.uploadImages(acceptedFiles);
+
+    if (acceptedFiles.length > 0) {
+      editProduct.uploadImages(acceptedFiles);
+    }
 
     editProduct.editDoc({
       name: productNameRef.current.value,
@@ -146,20 +149,16 @@ const EditProductCard = ({ product }) => {
               <button
                 className={`btn btn-sm ${style.deleteBtn}`}
                 onClick={() => setDeleteConfirm(true)}
-                disabled={
-                  /* acceptedFiles.length <= 0 ||  */ deleteProduct.isDeleting
-                }
+                disabled={deleteProduct.isDeleting}
               >
                 Delete product
               </button>
               <button
                 className="btn btn-sm"
                 type="submit"
-                disabled={
-                  /* acceptedFiles.length <= 0 ||  */ deleteProduct.isDeleting
-                }
+                disabled={editProduct.isAdding || deleteProduct.isDeleting}
               >
-                Save changes
+                {editProduct.isAdding ? "Saving..." : "Save changes"}
               </button>
             </div>
           </form>
