@@ -49,7 +49,7 @@ const AddProductForm = () => {
     fileRejections,
   } = useDropzone({
     maxFiles: 3,
-    accept: "image/gif, image/jpeg, image/png, image/webp",
+    accept: "image/gif, image/jpeg, image/png",
     handleSubmit,
   });
 

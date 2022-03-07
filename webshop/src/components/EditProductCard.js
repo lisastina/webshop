@@ -16,10 +16,11 @@ const EditProductCard = ({ product }) => {
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const deleteImage = useDeleteImage("products", product._id);
   const deleteProduct = useDeleteDoc("products", product);
-  const editProduct = useEditDoc("products", product._id);
+  const editProduct = useEditDoc("products", product);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    editProduct.uploadImages(acceptedFiles);
 
     editProduct.editDoc({
       name: productNameRef.current.value,
@@ -49,7 +50,7 @@ const EditProductCard = ({ product }) => {
     fileRejections,
   } = useDropzone({
     maxFiles: 3,
-    accept: "image/gif, image/jpeg, image/png, image/webp",
+    accept: "image/gif, image/jpeg, image/png",
     handleSubmit,
   });
 
@@ -113,20 +114,21 @@ const EditProductCard = ({ product }) => {
               </div>
               <div className={style.editImages}>
                 <div className={style.images}>
-                  {product.images.map((image, i) => {
-                    return (
-                      <div className={style.imageWrapper} key={i}>
-                        <div
-                          className={style.deleteImg}
-                          onClick={() => handleDeleteImg(i)}
-                        >
-                          <span></span>
-                          <span></span>
+                  {product.images &&
+                    product.images.map((image, i) => {
+                      return (
+                        <div className={style.imageWrapper} key={i}>
+                          <div
+                            className={style.deleteImg}
+                            onClick={() => handleDeleteImg(i)}
+                          >
+                            <span></span>
+                            <span></span>
+                          </div>
+                          <img src={image.url} alt={image.name} />
                         </div>
-                        <img src={image.url} alt={image.name} />
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
                 </div>
                 <ImageDropzone
                   params={{
