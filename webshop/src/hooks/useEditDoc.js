@@ -2,11 +2,10 @@ import { db, storage } from "../firebase";
 import { useFirestoreDocumentMutation } from "@react-query-firebase/firestore";
 import { collection, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const useEditDoc = (col, document) => {
   const [error, setError] = useState(false);
-  const [isError, setIsError] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
   const [imageNumbers, setImageNumbers] = useState([]);
   const colRef = collection(db, col);
@@ -22,13 +21,11 @@ const useEditDoc = (col, document) => {
   const uploadImages = (newImages) => {
     setIsAdding(true);
     setError(null);
-    setIsError(null);
     setImageNumbers([]);
 
     newImages.map(async (image, i) => {
       if (!image instanceof File) {
         setError("Please upload a file");
-        setIsError(true);
         setIsAdding(false);
         return;
       }
@@ -77,16 +74,6 @@ const useEditDoc = (col, document) => {
 
         const addProductTask = uploadBytesResumable(storageRef, image);
 
-        /*  addProductTask.on("state_changed", (addProductTaskSnapshot) => {
-          setProgress(
-            Math.round(
-              (addProductTaskSnapshot.bytesTransferred /
-                addProductTaskSnapshot.totalBytes) *
-                100
-            )
-          );
-        }); */
-
         await addProductTask.then();
 
         const imageUrl = await getDownloadURL(storageRef);
@@ -106,12 +93,10 @@ const useEditDoc = (col, document) => {
           }),
         });
 
-        // setProgress(null);
         setIsAdding(false);
         setImageNumbers([]);
       } catch (err) {
         setError(err.message);
-        setIsError(true);
         setIsAdding(false);
       }
     });
