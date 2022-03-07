@@ -138,14 +138,13 @@ const EditProductCard = ({ product }) => {
               <button
                 className={`btn btn-sm ${style.deleteBtn}`}
                 onClick={() => setDeleteConfirm(true)}
-                disabled={deleteProduct.isDeleting}
               >
                 Delete product
               </button>
               <button
                 className="btn btn-sm"
                 type="submit"
-                disabled={editProduct.isAdding || deleteProduct.isDeleting}
+                disabled={editProduct.isAdding}
               >
                 {editProduct.isAdding ? "Saving..." : "Save changes"}
               </button>

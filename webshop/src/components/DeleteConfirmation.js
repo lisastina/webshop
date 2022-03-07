@@ -8,8 +8,8 @@ const DeleteConfirmation = ({
 }) => {
   const handleDelete = () => {
     setDeleteConfirm(false);
-    deleteProduct.deleteDocument();
     setDropdown(false);
+    deleteProduct.deleteDocument();
   };
   return (
     <div className={style.deleteConfirm}>

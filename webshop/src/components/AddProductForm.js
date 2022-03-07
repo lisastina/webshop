@@ -23,8 +23,6 @@ const AddProductForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // setMyImages([...myImages, ...acceptedFiles]);
-
     if (!acceptedFiles.length) {
       return;
     }
