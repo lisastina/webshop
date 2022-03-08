@@ -52,6 +52,7 @@ const AddProductForm = () => {
       productTypeRef.current.value = "";
     }
     setMyImages([]);
+    setPreview([]);
   }, [addProduct.isSuccess]);
 
   const { getRootProps, getInputProps, acceptedFiles, fileRejections } =
