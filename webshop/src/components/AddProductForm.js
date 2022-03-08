@@ -10,12 +10,21 @@ const AddProductForm = () => {
   const priceRef = useRef();
   const productTypeRef = useRef();
   const [myImages, setMyImages] = useState([]);
+  const [preview, setPreview] = useState([]);
 
   const addProduct = useAddProduct();
 
   const onDrop = useCallback(
     (acceptedFiles) => {
-      setMyImages([...myImages, ...acceptedFiles]);
+      setMyImages([...acceptedFiles]);
+
+      setPreview(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })
+        )
+      );
     },
     [myImages]
   );
@@ -81,12 +90,25 @@ const AddProductForm = () => {
           <input type="text" id="product-type" required ref={productTypeRef} />
         </div>
 
-        <ImageDropzone
-          acceptedFiles={myImages}
-          getRootProps={getRootProps}
-          getInputProps={getInputProps}
-          fileRejections={fileRejections}
-        />
+        <div className={style.imagesAndDrop}>
+          <div className={style.images}>
+            {preview &&
+              preview.map((image, i) => {
+                return (
+                  <div className={style.imageWrapper} key={i}>
+                    <img src={image.preview} alt={image.name} />
+                  </div>
+                );
+              })}
+          </div>
+
+          <ImageDropzone
+            acceptedFiles={myImages}
+            getRootProps={getRootProps}
+            getInputProps={getInputProps}
+            fileRejections={fileRejections}
+          />
+        </div>
       </div>
       <button
         className="btn"

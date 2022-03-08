@@ -12,6 +12,7 @@
   box-sizing: border-box;
   cursor: pointer;
   padding: 1.2rem;
+  width: 100%;
 }
 .imageDropZone p {
   color: rgb(141, 157, 165);

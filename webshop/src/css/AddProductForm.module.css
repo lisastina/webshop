@@ -61,6 +61,33 @@
   align-self: end;
 }
 
+.addProductForm .imagesAndDrop {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.addProductForm .images {
+  display: flex;
+  width: 50%;
+  gap: 0.5rem;
+  justify-content: space-between;
+  width: 100%;
+}
+.addProductForm .imageWrapper {
+  max-width: 100px;
+  min-width: 70px;
+  position: relative;
+  width: 100%;
+}
+.addProductForm img {
+  width: 100%;
+  aspect-ratio: 4 / 5.7;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
 @media screen and (max-width: 800px) {
   .addProductForm .formContent {
     flex-direction: column;
