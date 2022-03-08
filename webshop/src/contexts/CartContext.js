@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
+import { v4 as uuidv4 } from "uuid";
 
 export const CartContext = createContext();
 
@@ -70,7 +71,8 @@ const CartContextProvider = (props) => {
   };
 
   const handlePlaceOrder = () => {
-    let orderNumber = Math.round(Math.random() * 10000000);
+    const orderNumber = uuidv4();
+
     setOrder({
       shipping,
       cartItems,
