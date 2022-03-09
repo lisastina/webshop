@@ -1,0 +1,88 @@
+.editContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.editContent h2 {
+  margin-top: 0;
+}
+.editContent .options {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  min-width: 130px;
+  align-items: flex-start;
+}
+.editContent .options .link {
+  font-size: 1.1rem;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+}
+
+.editContent .options .link:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #463a3b;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.editContent .options .link:hover:before,
+.editContent .link.active::before {
+  visibility: visible;
+  width: 100%;
+}
+.editContent .content {
+  margin-top: 1.5rem;
+}
+.editContent .inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.editContent label {
+  margin-top: 1rem;
+}
+
+.editContent input,
+.editContent textarea {
+  padding: 0.5rem;
+  margin: 0.5rem 0 0;
+  border-radius: 0.25rem;
+  border: solid #b3c5ce 1px;
+  font: inherit;
+  resize: none;
+  box-sizing: border-box;
+}
+.editContent input:focus,
+.editContent textarea:focus {
+  outline: 1.5px solid rgb(141, 157, 165);
+  -moz-outline-radius: 0.3em;
+}
+.editContent .address {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.editContent .address input {
+  width: 30%;
+}
+
+@media screen and (max-width: 800px) {
+  .editContent .address {
+    flex-direction: column;
+  }
+  .editContent .address input {
+    width: 100%;
+  }
+}
