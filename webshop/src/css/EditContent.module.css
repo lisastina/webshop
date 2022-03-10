@@ -88,8 +88,32 @@
   width: 100%;
 }
 
+.editContent .selectList {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.editContent .selectList .select {
+  width: 100%;
+}
+.editContent .selectList select {
+  padding-right: 2rem;
+}
+
+.editContent .imageWrapper {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.editContent .imageWrapper img {
+  width: 100%;
+}
+
 @media screen and (max-width: 800px) {
   .editContent .address {
+    flex-direction: column;
+  }
+  .editContent .selectList {
     flex-direction: column;
   }
 }

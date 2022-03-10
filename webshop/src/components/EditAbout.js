@@ -51,7 +51,7 @@ const EditAbout = ({ about }) => {
             />
           </div>
           <button className={`btn ${style.saveBtn}`} type="submit">
-            Save
+            Save changes
           </button>
         </form>
       )}

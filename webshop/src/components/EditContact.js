@@ -70,7 +70,7 @@ const EditContact = ({ contact }) => {
             </div>
           </div>
           <button className={`btn ${style.saveBtn}`} type="submit">
-            Save
+            Save changes
           </button>
         </>
       )}

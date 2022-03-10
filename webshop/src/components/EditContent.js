@@ -3,13 +3,15 @@ import { useState } from "react";
 import EditAbout from "./EditAbout";
 import EditContact from "./EditContact";
 import useGetCol from "../hooks/useGetCol";
+import EditFrontpage from "./EditFrontpage";
 
 const EditContent = () => {
   const aboutData = useGetCol("about");
   const contactData = useGetCol("contact-info");
-  const [frontPage, setFrontPage] = useState(false);
+  const frontpageData = useGetCol("frontpage");
+  const [frontPage, setFrontPage] = useState(true);
   const [about, setAbout] = useState(false);
-  const [contact, setContact] = useState(true);
+  const [contact, setContact] = useState(false);
 
   return (
     <div className={style.editContent}>
@@ -48,7 +50,9 @@ const EditContent = () => {
         </button>
       </div>
       <div className={style.content}>
-        {frontPage && <></>}
+        {frontPage && frontpageData?.data && (
+          <EditFrontpage data={frontpageData.data[0]} />
+        )}
         {about && aboutData?.data && <EditAbout about={aboutData.data[0]} />}
         {contact && contactData?.data && (
           <EditContact contact={contactData.data[0]} />
