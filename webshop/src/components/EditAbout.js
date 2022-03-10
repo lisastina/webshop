@@ -1,41 +1,59 @@
 import style from "../css/EditContent.module.css";
-import useGetCol from "../hooks/useGetCol";
 import { useRef } from "react";
+import useEditDoc from "../hooks/useEditDoc";
 
-const EditAbout = () => {
-  const { data } = useGetCol("about");
+const EditAbout = ({ about }) => {
   const textRef = useRef();
   const instaRef = useRef();
   const gitRef = useRef();
+  const editAbout = useEditDoc("about", about._id);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    editAbout.editDoc({
+      text: textRef.current.value,
+      github: gitRef.current.value,
+      instagram: instaRef.current.value,
+    });
+  };
 
   return (
     <>
-      {data && (
-        <div className={style.inputs}>
-          <label htmlFor="text">About me</label>
-          <textarea
-            id="text"
-            rows="10"
-            required
-            ref={textRef}
-            maxLength="800"
-            defaultValue={data[0].text}
-          />
-          <label htmlFor="github">Github link</label>
-          <input
-            id="github"
-            type="text"
-            defaultValue={data[0].github}
-            ref={gitRef}
-          />
-          <label htmlFor="instagram">Instagram link</label>
-          <input
-            id="instagram"
-            type="text"
-            defaultValue={data[0].instagram}
-            ref={instaRef}
-          />
-        </div>
+      {about && (
+        <form onSubmit={handleSubmit}>
+          <div className={style.inputs}>
+            <label htmlFor="text">About me</label>
+            <textarea
+              id="text"
+              rows="10"
+              required
+              ref={textRef}
+              maxLength="800"
+              defaultValue={about.text}
+              required
+            />
+            <label htmlFor="github">Github link</label>
+            <input
+              id="github"
+              type="text"
+              defaultValue={about.github}
+              ref={gitRef}
+              required
+            />
+            <label htmlFor="instagram">Instagram link</label>
+            <input
+              id="instagram"
+              type="text"
+              defaultValue={about.instagram}
+              ref={instaRef}
+              required
+            />
+          </div>
+          <button className={`btn ${style.saveBtn}`} type="submit">
+            Save
+          </button>
+        </form>
       )}
     </>
   );

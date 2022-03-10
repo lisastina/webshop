@@ -16,13 +16,13 @@ const EditProductCard = ({ product }) => {
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const deleteImage = useDeleteImage("products", product._id);
   const deleteProduct = useDeleteDoc("products", product);
-  const editProduct = useEditDoc("products", product);
+  const editProduct = useEditDoc("products", product._id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (acceptedFiles.length > 0) {
-      editProduct.uploadImages(acceptedFiles);
+      editProduct.uploadImages(acceptedFiles, product);
     }
 
     editProduct.editDoc({

@@ -2,8 +2,11 @@ import style from "../css/EditContent.module.css";
 import { useState } from "react";
 import EditAbout from "./EditAbout";
 import EditContact from "./EditContact";
+import useGetCol from "../hooks/useGetCol";
 
 const EditContent = () => {
+  const aboutData = useGetCol("about");
+  const contactData = useGetCol("contact-info");
   const [frontPage, setFrontPage] = useState(false);
   const [about, setAbout] = useState(false);
   const [contact, setContact] = useState(true);
@@ -46,8 +49,10 @@ const EditContent = () => {
       </div>
       <div className={style.content}>
         {frontPage && <></>}
-        {about && <EditAbout />}
-        {contact && <EditContact />}
+        {about && aboutData?.data && <EditAbout about={aboutData.data[0]} />}
+        {contact && contactData?.data && (
+          <EditContact contact={contactData.data[0]} />
+        )}
       </div>
     </div>
   );

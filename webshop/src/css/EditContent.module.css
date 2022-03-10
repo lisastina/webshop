@@ -44,6 +44,11 @@
 .editContent .content {
   margin-top: 1.5rem;
 }
+
+.editContent form {
+  display: flex;
+  flex-direction: column;
+}
 .editContent .inputs {
   display: flex;
   flex-direction: column;
@@ -68,21 +73,23 @@
   outline: 1.5px solid rgb(141, 157, 165);
   -moz-outline-radius: 0.3em;
 }
+
+.editContent .saveBtn {
+  align-self: end;
+  margin-top: 1rem;
+}
+
 .editContent .address {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
-  flex-wrap: wrap;
 }
 .editContent .address input {
-  width: 30%;
+  width: 100%;
 }
 
 @media screen and (max-width: 800px) {
   .editContent .address {
     flex-direction: column;
-  }
-  .editContent .address input {
-    width: 100%;
   }
 }

@@ -4,12 +4,12 @@ import { collection, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useState } from "react";
 
-const useEditDoc = (col, document) => {
+const useEditDoc = (col, documentId) => {
   const [error, setError] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
   const [imageNumbers, setImageNumbers] = useState([]);
   const colRef = collection(db, col);
-  const docRef = doc(colRef, document._id);
+  const docRef = doc(colRef, documentId);
   const mutation = useFirestoreDocumentMutation(docRef, {
     merge: true,
   });
@@ -18,7 +18,7 @@ const useEditDoc = (col, document) => {
     return mutation.mutate(newValues);
   };
 
-  const uploadImages = (newImages) => {
+  const uploadImages = (newImages, document) => {
     setIsAdding(true);
     setError(null);
     setImageNumbers([]);
