@@ -23,6 +23,9 @@
   text-align: center;
   width: 40%;
 }
+.productDetails .desc p {
+  white-space: pre-line;
+}
 .productDetails .selects {
   margin: 2rem auto;
 }

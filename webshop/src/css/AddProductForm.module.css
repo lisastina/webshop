@@ -30,6 +30,9 @@
   font: inherit;
   resize: none;
 }
+.addProductForm textarea {
+  white-space: pre-line;
+}
 
 .addProductForm input:focus,
 .addProductForm textarea:focus {

@@ -68,6 +68,10 @@
   resize: none;
   box-sizing: border-box;
 }
+.editContent textarea {
+  white-space: pre-line;
+}
+
 .editContent input:focus,
 .editContent textarea:focus {
   outline: 1.5px solid rgb(141, 157, 165);

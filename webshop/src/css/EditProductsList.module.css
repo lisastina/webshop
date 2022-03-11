@@ -68,6 +68,9 @@
   font: inherit;
   resize: none;
 }
+.editProduct textarea {
+  white-space: pre-line;
+}
 .editProduct input:focus,
 .editProduct textarea:focus {
   outline: 1.5px solid rgb(141, 157, 165);
