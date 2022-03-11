@@ -3,6 +3,7 @@ import { useFirestoreDocumentMutation } from "@react-query-firebase/firestore";
 import { collection, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useState } from "react";
+import { changeLetters } from "../helpers/changeLetters";
 
 const useEditDoc = (col, documentId) => {
   const [error, setError] = useState(false);
@@ -64,9 +65,13 @@ const useEditDoc = (col, documentId) => {
           "0" + Number(imageNumbers.sort()[imageNumbers.length - 1] + (i + 1))
         ).slice(-2);
 
-        const imagePath = `products/${document.name}-${document.type}/${
-          document.name
-        }-${document.type}-${
+        const imageName = changeLetters(
+          document.name.split(" ").join("-") +
+            "-" +
+            document.type.split(" ").join("-")
+        );
+
+        const imagePath = `products/${imageName}/${imageName}-${
           document.images.length > 0
             ? imageNumber
             : ("0" + Number(i + 1)).slice(-2)
@@ -84,7 +89,7 @@ const useEditDoc = (col, documentId) => {
         await updateDoc(doc(db, "products", document._id), {
           images: arrayUnion({
             ext: ext,
-            name: `${document.name}-${document.type}-${
+            name: `${imageName}-${
               document.images.length > 0
                 ? imageNumber
                 : ("0" + Number(i + 1)).slice(-2)
