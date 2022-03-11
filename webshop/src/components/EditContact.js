@@ -27,6 +27,11 @@ const EditContact = ({ contact }) => {
     <form onSubmit={handleSubmit}>
       {contact && (
         <>
+          {editContact.isSuccess && (
+            <div className={style.saveAlert}>
+              <p>Your changes has been saved!</p>
+            </div>
+          )}
           <div className={style.inputs}>
             <label htmlFor="email">Email</label>
             <input
@@ -35,6 +40,7 @@ const EditContact = ({ contact }) => {
               defaultValue={contact.mail}
               ref={emailRef}
               required
+              onClick={() => editContact.setIsSuccess(false)}
             />
             <label htmlFor="address">Phone number</label>
             <input
@@ -43,6 +49,7 @@ const EditContact = ({ contact }) => {
               defaultValue={contact.phone}
               ref={phoneRef}
               required
+              onClick={() => editContact.setIsSuccess(false)}
             />
             <label htmlFor="instagram">Address</label>
             <div className={style.address}>
@@ -52,6 +59,7 @@ const EditContact = ({ contact }) => {
                 defaultValue={contact.street}
                 ref={streetRef}
                 required
+                onClick={() => editContact.setIsSuccess(false)}
               />
               <input
                 id="address"
@@ -59,6 +67,7 @@ const EditContact = ({ contact }) => {
                 defaultValue={contact.zipCode}
                 ref={zipCodeRef}
                 required
+                onClick={() => editContact.setIsSuccess(false)}
               />
               <input
                 id="address"
@@ -66,6 +75,7 @@ const EditContact = ({ contact }) => {
                 defaultValue={contact.city}
                 ref={cityRef}
                 required
+                onClick={() => editContact.setIsSuccess(false)}
               />
             </div>
           </div>

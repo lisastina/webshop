@@ -22,6 +22,11 @@ const EditAbout = ({ about }) => {
     <>
       {about && (
         <form onSubmit={handleSubmit}>
+          {editAbout.isSuccess && (
+            <div className={style.saveAlert}>
+              <p>Your changes has been saved!</p>
+            </div>
+          )}
           <div className={style.inputs}>
             <label htmlFor="text">About me</label>
             <textarea
@@ -32,6 +37,7 @@ const EditAbout = ({ about }) => {
               maxLength="800"
               defaultValue={about.text}
               required
+              onClick={() => editAbout.setIsSuccess(false)}
             />
             <label htmlFor="github">Github link</label>
             <input
@@ -40,6 +46,7 @@ const EditAbout = ({ about }) => {
               defaultValue={about.github}
               ref={gitRef}
               required
+              onClick={() => editAbout.setIsSuccess(false)}
             />
             <label htmlFor="instagram">Instagram link</label>
             <input
@@ -48,6 +55,7 @@ const EditAbout = ({ about }) => {
               defaultValue={about.instagram}
               ref={instaRef}
               required
+              onClick={() => editAbout.setIsSuccess(false)}
             />
           </div>
           <button className={`btn ${style.saveBtn}`} type="submit">

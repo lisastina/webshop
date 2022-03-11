@@ -79,6 +79,15 @@
   margin-top: 1rem;
 }
 
+/* Save alert */
+.editContent .saveAlert {
+  background-color: #b3c5ce;
+  text-align: center;
+}
+.editContent .saveAlert p {
+  color: #fff;
+}
+/* contact */
 .editContent .address {
   display: flex;
   flex-direction: row;
@@ -88,6 +97,7 @@
   width: 100%;
 }
 
+/* frontpage */
 .editContent .selectList {
   display: flex;
   flex-direction: row;

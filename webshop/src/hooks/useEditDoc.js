@@ -7,6 +7,7 @@ import { useState } from "react";
 const useEditDoc = (col, documentId) => {
   const [error, setError] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [imageNumbers, setImageNumbers] = useState([]);
   const colRef = collection(db, col);
   const docRef = doc(colRef, documentId);
@@ -15,7 +16,8 @@ const useEditDoc = (col, documentId) => {
   });
 
   const editDoc = (newValues) => {
-    return mutation.mutate(newValues);
+    mutation.mutate(newValues);
+    setIsSuccess(true);
   };
 
   const uploadImages = (newImages, document) => {
@@ -107,6 +109,8 @@ const useEditDoc = (col, documentId) => {
     uploadImages,
     error,
     isAdding,
+    isSuccess,
+    setIsSuccess,
   };
 };
 

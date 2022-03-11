@@ -26,6 +26,11 @@ const EditFrontpage = ({ data }) => {
     <>
       {data && (
         <form onSubmit={handleSubmit}>
+          {editFrontpage.isSuccess && (
+            <div className={style.saveAlert}>
+              <p>Your changes has been saved!</p>
+            </div>
+          )}
           <label htmlFor="heroImage">Hero image</label>
           <div className={style.imageWrapper}>
             <img src={data.heroImage.url} alt={data.heroImage.name} />
@@ -38,6 +43,7 @@ const EditFrontpage = ({ data }) => {
               defaultValue={data.title}
               ref={titleRef}
               required
+              onClick={() => editFrontpage.setIsSuccess(false)}
             />
             <label htmlFor="text">Text</label>
             <textarea
@@ -48,13 +54,18 @@ const EditFrontpage = ({ data }) => {
               maxLength="400"
               defaultValue={data.text}
               required
+              onClick={() => editFrontpage.setIsSuccess(false)}
             />
             <label htmlFor="products">Promoted products</label>
             <div className={style.selectList}>
               {data?.products.map((productId, i) => {
                 console.log(productId);
                 return (
-                  <div className={`customSelect ${style.select}`} key={i}>
+                  <div
+                    className={`customSelect ${style.select}`}
+                    key={i}
+                    onClick={() => editFrontpage.setIsSuccess(false)}
+                  >
                     <select
                       name="product-1"
                       id="product-1"

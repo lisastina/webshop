@@ -61,14 +61,26 @@ const EditProductCard = ({ product }) => {
         />
       )}
       <div className={style.editProduct}>
-        <div onClick={() => setDropdown(!dropdown)} className={style.header}>
+        <div
+          onClick={() => {
+            setDropdown(!dropdown);
+            editProduct.setIsSuccess(false);
+          }}
+          className={style.header}
+        >
           <h3>
             {product.name} {product.type}
           </h3>
           <div className={`${style.arrow} ${dropdown && style.up}`}></div>
         </div>
+
         {dropdown && (
           <form onSubmit={handleSubmit} className={style.dropdownForm}>
+            {editProduct.isSuccess && (
+              <div className={style.saveAlert}>
+                <p>Your changes has been saved!</p>
+              </div>
+            )}
             <div className={style.formContent}>
               <div className={style.inputs}>
                 <label htmlFor="product-name">Name</label>
@@ -79,6 +91,7 @@ const EditProductCard = ({ product }) => {
                   required
                   ref={productNameRef}
                   defaultValue={product.name}
+                  onClick={() => editProduct.setIsSuccess(false)}
                 />
                 <label htmlFor="desc">Description</label>
                 <textarea
@@ -88,6 +101,7 @@ const EditProductCard = ({ product }) => {
                   ref={descRef}
                   maxLength="150"
                   defaultValue={product.desc}
+                  onClick={() => editProduct.setIsSuccess(false)}
                 />
 
                 <label htmlFor="price">Price</label>
@@ -97,6 +111,7 @@ const EditProductCard = ({ product }) => {
                   required
                   ref={priceRef}
                   defaultValue={product.price}
+                  onClick={() => editProduct.setIsSuccess(false)}
                 />
 
                 <label htmlFor="product-type">Product type</label>
@@ -106,6 +121,7 @@ const EditProductCard = ({ product }) => {
                   required
                   ref={productTypeRef}
                   defaultValue={product.type}
+                  onClick={() => editProduct.setIsSuccess(false)}
                 />
               </div>
               <div className={style.editImages}>
@@ -116,7 +132,10 @@ const EditProductCard = ({ product }) => {
                         <div className={style.imageWrapper} key={i}>
                           <div
                             className={style.deleteImg}
-                            onClick={() => handleDeleteImg(i)}
+                            onClick={() => {
+                              handleDeleteImg(i);
+                              editProduct.setIsSuccess(false);
+                            }}
                           >
                             <span></span>
                             <span></span>

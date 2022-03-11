@@ -44,6 +44,15 @@
   gap: 2rem;
 }
 
+.editProduct .saveAlert {
+  background-color: #b3c5ce;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.editProduct .saveAlert p {
+  color: #fff;
+}
+
 /* inputs */
 .editProduct .inputs {
   display: flex;
