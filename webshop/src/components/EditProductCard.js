@@ -109,10 +109,10 @@ const EditProductCard = ({ product }) => {
                 <label htmlFor="desc">Description</label>
                 <textarea
                   id="desc"
-                  rows="3"
+                  rows="5"
                   required
                   ref={descRef}
-                  maxLength="150"
+                  maxLength="250"
                   defaultValue={product.desc}
                   onClick={() => editProduct.setIsSuccess(false)}
                 />
