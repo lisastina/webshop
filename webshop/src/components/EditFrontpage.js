@@ -57,7 +57,12 @@ const EditFrontpage = ({ data }) => {
                 getRootProps={getRootProps}
                 getInputProps={getInputProps}
                 fileRejections={fileRejections}
-              ></ImageDropzone>
+              >
+                <p>Do not select more than 1 image</p>
+                <p>
+                  Drop your image here or click to browse. Dimensions 600 x 250
+                </p>
+              </ImageDropzone>
             </div>
           </div>
           <div className={style.inputs}>

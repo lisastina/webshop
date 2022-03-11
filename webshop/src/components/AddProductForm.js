@@ -108,7 +108,13 @@ const AddProductForm = () => {
             getRootProps={getRootProps}
             getInputProps={getInputProps}
             fileRejections={fileRejections}
-          />
+          >
+            <p>Do not select more than 3 files</p>
+            <p>
+              Drop your images here or click to browse. <br />
+              Up to 3 images accepted.
+            </p>
+          </ImageDropzone>
         </div>
       </div>
       <button
