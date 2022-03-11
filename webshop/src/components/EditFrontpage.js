@@ -39,6 +39,11 @@ const EditFrontpage = ({ data }) => {
     editFrontpage.editDoc({
       text: textRef.current.value,
       title: titleRef.current.value,
+      products: [
+        productRef1.current.value,
+        productRef2.current.value,
+        productRef3.current.value,
+      ],
     });
   };
 
@@ -103,7 +108,7 @@ const EditFrontpage = ({ data }) => {
             />
             <label htmlFor="products">Promoted products</label>
             <div className={style.selectList}>
-              {data?.products.map((productId, i) => {
+              {/* {data?.products.map((productId, i) => {
                 console.log(productId);
                 return (
                   <div
@@ -138,21 +143,76 @@ const EditFrontpage = ({ data }) => {
                     </select>
                   </div>
                 );
-              })}
-              {/* <div className={`customSelect ${style.select}`}>
-                <select name="product-2" id="product-2">
-                  <option value="tBUAlfaswXhJ1KDBehP4">
-                    Wildflowers poster
-                  </option>
+              })} */}
+              <div className={`customSelect ${style.select}`}>
+                <select name="product-1" id="product-1" ref={productRef1}>
+                  {products?.data &&
+                    products.data.map((product) => {
+                      if (product._id === data.products[0]) {
+                        return (
+                          <option
+                            selected
+                            value={product._id}
+                            key={product._id}
+                          >
+                            {product.name} {product.type}
+                          </option>
+                        );
+                      }
+                      return (
+                        <option value={product._id} key={product._id}>
+                          {product.name} {product.type}
+                        </option>
+                      );
+                    })}
                 </select>
               </div>
               <div className={`customSelect ${style.select}`}>
-                <select name="product-3" id="product-3">
-                  <option value="tBUAlfaswXhJ1KDBehP4">
-                    Wildflowers poster
-                  </option>
+                <select name="product-2" id="product-2" ref={productRef2}>
+                  {products?.data &&
+                    products.data.map((product) => {
+                      if (product._id === data.products[1]) {
+                        return (
+                          <option
+                            selected
+                            value={product._id}
+                            key={product._id}
+                          >
+                            {product.name} {product.type}
+                          </option>
+                        );
+                      }
+                      return (
+                        <option value={product._id} key={product._id}>
+                          {product.name} {product.type}
+                        </option>
+                      );
+                    })}
                 </select>
-              </div> */}
+              </div>
+              <div className={`customSelect ${style.select}`}>
+                <select name="product-3" id="product-3" ref={productRef3}>
+                  {products?.data &&
+                    products.data.map((product) => {
+                      if (product._id === data.products[2]) {
+                        return (
+                          <option
+                            selected
+                            value={product._id}
+                            key={product._id}
+                          >
+                            {product.name} {product.type}
+                          </option>
+                        );
+                      }
+                      return (
+                        <option value={product._id} key={product._id}>
+                          {product.name} {product.type}
+                        </option>
+                      );
+                    })}
+                </select>
+              </div>
             </div>
           </div>
           <button
