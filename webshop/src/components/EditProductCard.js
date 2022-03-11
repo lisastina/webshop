@@ -174,6 +174,7 @@ const EditProductCard = ({ product }) => {
             </div>
             <div className={style.buttons}>
               <button
+                type="button"
                 className={`btn btn-sm ${style.deleteBtn}`}
                 onClick={() => setDeleteConfirm(true)}
               >
