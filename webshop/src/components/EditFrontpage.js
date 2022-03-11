@@ -15,7 +15,7 @@ const EditFrontpage = ({ data }) => {
   const textRef = useRef();
   const titleRef = useRef();
   const editFrontpage = useEditDoc("frontpage", data._id);
-  const uploadHero = useChangeHero(data._id);
+  const uploadHero = useChangeHero(data);
   const [myImages, setMyImages] = useState([]);
 
   const onDrop = useCallback(

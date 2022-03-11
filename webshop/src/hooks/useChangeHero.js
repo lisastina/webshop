@@ -1,9 +1,14 @@
 import { db, storage } from "../firebase";
 import { collection, doc, updateDoc } from "firebase/firestore";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import {
+  ref,
+  getDownloadURL,
+  uploadBytesResumable,
+  deleteObject,
+} from "firebase/storage";
 import { useState } from "react";
 
-const useEditDoc = (documentId) => {
+const useEditDoc = (document) => {
   const [error, setError] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -19,6 +24,8 @@ const useEditDoc = (documentId) => {
       return;
     }
 
+    deleteObject(ref(storage, document.heroImage.path));
+
     try {
       const ext = image[0].name.substring(image[0].name.lastIndexOf(".") + 1);
 
@@ -33,7 +40,7 @@ const useEditDoc = (documentId) => {
       const imageUrl = await getDownloadURL(storageRef);
 
       /* Add image to the document */
-      await updateDoc(doc(db, "frontpage", documentId), {
+      await updateDoc(doc(db, "frontpage", document._id), {
         heroImage: {
           ext: ext,
           name: image[0].name,
