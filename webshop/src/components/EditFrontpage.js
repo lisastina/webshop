@@ -61,20 +61,22 @@ const EditFrontpage = ({ data }) => {
           )}
           <label htmlFor="heroImage">Hero image</label>
           <div className={style.heroImage}>
-            <div className={style.imageWrapper}>
-              <img src={data.heroImage.url} alt={data.heroImage.name} />
-            </div>
             <div className={style.imageDropzone}>
               <ImageDropzone
+                className={style.drop}
                 acceptedFiles={myImages}
                 getRootProps={getRootProps}
                 getInputProps={getInputProps}
                 fileRejections={fileRejections}
               >
                 <p>Do not select more than 1 image</p>
-                <p>
-                  Drop your image here or click to browse. Dimensions 600 x 250
-                </p>
+                <div className={style.imageWrapper}>
+                  <p>
+                    Drop a new image here or click to browse. Dimensions 600 x
+                    250
+                  </p>
+                  <img src={data.heroImage.url} alt={data.heroImage.name} />
+                </div>
               </ImageDropzone>
             </div>
           </div>

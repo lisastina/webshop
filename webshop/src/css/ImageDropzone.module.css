@@ -2,7 +2,6 @@
   border: dashed #b3c5ce 2px;
   border-radius: 0.25rem;
   text-align: center;
-  aspect-ratio: 1 / 1;
   min-height: 200px;
   display: flex;
   flex-direction: column;
@@ -11,11 +10,13 @@
   align-self: flex-end;
   box-sizing: border-box;
   cursor: pointer;
-  padding: 1.2rem;
+  min-width: 200px;
   width: 100%;
+  overflow: hidden;
 }
 .imageDropZone p {
   color: rgb(141, 157, 165);
+  margin: 1.2rem;
 }
 .imageDropZone .acceptedFiles {
   list-style-type: none;
