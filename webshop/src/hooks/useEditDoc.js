@@ -3,22 +3,25 @@ import { useFirestoreDocumentMutation } from "@react-query-firebase/firestore";
 import { collection, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useState } from "react";
+import { changeLetters } from "../helpers/changeLetters";
 
-const useEditDoc = (col, document) => {
+const useEditDoc = (col, documentId) => {
   const [error, setError] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [imageNumbers, setImageNumbers] = useState([]);
   const colRef = collection(db, col);
-  const docRef = doc(colRef, document._id);
+  const docRef = doc(colRef, documentId);
   const mutation = useFirestoreDocumentMutation(docRef, {
     merge: true,
   });
 
   const editDoc = (newValues) => {
-    return mutation.mutate(newValues);
+    mutation.mutate(newValues);
+    setIsSuccess(true);
   };
 
-  const uploadImages = (newImages) => {
+  const uploadImages = (newImages, document) => {
     setIsAdding(true);
     setError(null);
     setImageNumbers([]);
@@ -62,9 +65,13 @@ const useEditDoc = (col, document) => {
           "0" + Number(imageNumbers.sort()[imageNumbers.length - 1] + (i + 1))
         ).slice(-2);
 
-        const imagePath = `products/${document.name}-${document.type}/${
-          document.name
-        }-${document.type}-${
+        const imageName = changeLetters(
+          document.name.split(" ").join("-") +
+            "-" +
+            document.type.split(" ").join("-")
+        );
+
+        const imagePath = `products/${imageName}/${imageName}-${
           document.images.length > 0
             ? imageNumber
             : ("0" + Number(i + 1)).slice(-2)
@@ -82,7 +89,7 @@ const useEditDoc = (col, document) => {
         await updateDoc(doc(db, "products", document._id), {
           images: arrayUnion({
             ext: ext,
-            name: `${document.name}-${document.type}-${
+            name: `${imageName}-${
               document.images.length > 0
                 ? imageNumber
                 : ("0" + Number(i + 1)).slice(-2)
@@ -107,6 +114,8 @@ const useEditDoc = (col, document) => {
     uploadImages,
     error,
     isAdding,
+    isSuccess,
+    setIsSuccess,
   };
 };
 

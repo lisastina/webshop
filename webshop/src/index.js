@@ -6,7 +6,6 @@ import App from "./App";
 import { QueryClient, QueryClientProvider } from "react-query";
 import ScrollToTop from "./components/ScrollToTop";
 import CartContext from "./contexts/CartContext";
-import { ReactQueryDevtools } from "react-query/devtools";
 import AuthContextProvider from "./contexts/AuthContext";
 
 const queryClient = new QueryClient({
@@ -30,7 +29,6 @@ ReactDOM.render(
           </AuthContextProvider>
         </CartContext>
       </BrowserRouter>
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")

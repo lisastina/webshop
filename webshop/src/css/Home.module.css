@@ -10,6 +10,9 @@
   letter-spacing: 1px;
   font-size: 1.6rem;
 }
+.home .desc p {
+  white-space: pre-line;
+}
 .home .seeAll {
   text-align: center;
   margin: 100px;

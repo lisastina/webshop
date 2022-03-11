@@ -4,6 +4,7 @@ import Login from "../components/Login";
 import { useState } from "react";
 import AddProductForm from "../components/AddProductForm";
 import EditProductsList from "../components/EditProductsList";
+import EditContent from "../components/EditContent";
 
 const AdminPage = () => {
   const { logout, currentUser } = useAuthContext();
@@ -58,7 +59,7 @@ const AdminPage = () => {
             </button>
           </div>
           {editProducts && <EditProductsList />}
-          {editContent && <div>edit content</div>}
+          {editContent && <EditContent />}
           {addProduct && <AddProductForm />}
         </div>
       ) : (

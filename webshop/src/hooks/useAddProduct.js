@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { db, storage } from "../firebase";
 import {
   doc,
@@ -103,6 +103,7 @@ const useAddProduct = () => {
     isError,
     isAdding,
     isSuccess,
+    setIsSuccess,
     addProduct,
     progress,
   };

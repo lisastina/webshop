@@ -44,6 +44,15 @@
   gap: 2rem;
 }
 
+.editProduct .saveAlert {
+  background-color: #b3c5ce;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.editProduct .saveAlert p {
+  color: #fff;
+}
+
 /* inputs */
 .editProduct .inputs {
   display: flex;
@@ -58,6 +67,9 @@
   border: solid #b3c5ce 1px;
   font: inherit;
   resize: none;
+}
+.editProduct textarea {
+  white-space: pre-line;
 }
 .editProduct input:focus,
 .editProduct textarea:focus {

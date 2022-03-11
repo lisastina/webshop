@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import style from "../css/EditProductsList.module.css";
 import useEditDoc from "../hooks/useEditDoc";
 import DeleteConfirmation from "./DeleteConfirmation";
@@ -16,13 +16,21 @@ const EditProductCard = ({ product }) => {
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const deleteImage = useDeleteImage("products", product._id);
   const deleteProduct = useDeleteDoc("products", product);
-  const editProduct = useEditDoc("products", product);
+  const editProduct = useEditDoc("products", product._id);
+  const [myImages, setMyImages] = useState([]);
+
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      setMyImages([...acceptedFiles]);
+    },
+    [myImages]
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (acceptedFiles.length > 0) {
-      editProduct.uploadImages(acceptedFiles);
+      editProduct.uploadImages(acceptedFiles, product);
     }
 
     editProduct.editDoc({
@@ -43,10 +51,15 @@ const EditProductCard = ({ product }) => {
     }
   };
 
+  useEffect(() => {
+    if (editProduct.isSuccess) setMyImages([]);
+  }, [editProduct.isSuccess]);
+
   const { getRootProps, getInputProps, acceptedFiles, fileRejections } =
     useDropzone({
       maxFiles: 3,
       accept: "image/gif, image/jpeg, image/png",
+      onDrop,
       handleSubmit,
     });
 
@@ -61,14 +74,26 @@ const EditProductCard = ({ product }) => {
         />
       )}
       <div className={style.editProduct}>
-        <div onClick={() => setDropdown(!dropdown)} className={style.header}>
+        <div
+          onClick={() => {
+            setDropdown(!dropdown);
+            editProduct.setIsSuccess(false);
+          }}
+          className={style.header}
+        >
           <h3>
             {product.name} {product.type}
           </h3>
           <div className={`${style.arrow} ${dropdown && style.up}`}></div>
         </div>
+
         {dropdown && (
           <form onSubmit={handleSubmit} className={style.dropdownForm}>
+            {editProduct.isSuccess && !editProduct.isAdding && (
+              <div className={style.saveAlert}>
+                <p>Your changes has been saved!</p>
+              </div>
+            )}
             <div className={style.formContent}>
               <div className={style.inputs}>
                 <label htmlFor="product-name">Name</label>
@@ -79,15 +104,17 @@ const EditProductCard = ({ product }) => {
                   required
                   ref={productNameRef}
                   defaultValue={product.name}
+                  onClick={() => editProduct.setIsSuccess(false)}
                 />
                 <label htmlFor="desc">Description</label>
                 <textarea
                   id="desc"
-                  rows="3"
+                  rows="5"
                   required
                   ref={descRef}
-                  maxLength="150"
+                  maxLength="250"
                   defaultValue={product.desc}
+                  onClick={() => editProduct.setIsSuccess(false)}
                 />
 
                 <label htmlFor="price">Price</label>
@@ -97,6 +124,7 @@ const EditProductCard = ({ product }) => {
                   required
                   ref={priceRef}
                   defaultValue={product.price}
+                  onClick={() => editProduct.setIsSuccess(false)}
                 />
 
                 <label htmlFor="product-type">Product type</label>
@@ -106,6 +134,7 @@ const EditProductCard = ({ product }) => {
                   required
                   ref={productTypeRef}
                   defaultValue={product.type}
+                  onClick={() => editProduct.setIsSuccess(false)}
                 />
               </div>
               <div className={style.editImages}>
@@ -116,7 +145,10 @@ const EditProductCard = ({ product }) => {
                         <div className={style.imageWrapper} key={i}>
                           <div
                             className={style.deleteImg}
-                            onClick={() => handleDeleteImg(i)}
+                            onClick={() => {
+                              handleDeleteImg(i);
+                              editProduct.setIsSuccess(false);
+                            }}
                           >
                             <span></span>
                             <span></span>
@@ -127,15 +159,22 @@ const EditProductCard = ({ product }) => {
                     })}
                 </div>
                 <ImageDropzone
-                  acceptedFiles={acceptedFiles}
+                  acceptedFiles={myImages}
                   getRootProps={getRootProps}
                   getInputProps={getInputProps}
                   fileRejections={fileRejections}
-                />
+                >
+                  <p>Do not select more than 3 files</p>
+                  <p>
+                    Drop your images here or click to browse. <br />
+                    Up to 3 images accepted.
+                  </p>
+                </ImageDropzone>
               </div>
             </div>
             <div className={style.buttons}>
               <button
+                type="button"
                 className={`btn btn-sm ${style.deleteBtn}`}
                 onClick={() => setDeleteConfirm(true)}
               >
