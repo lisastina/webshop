@@ -11,7 +11,7 @@ const useEditDoc = (documentId) => {
   const uploadImage = async (image) => {
     setIsAdding(true);
     setError(null);
-    console.log(image);
+    setIsSuccess(false);
 
     if (!image instanceof File) {
       setError("Please upload a file");
@@ -44,6 +44,7 @@ const useEditDoc = (documentId) => {
       });
 
       setIsAdding(false);
+      setIsSuccess(true);
     } catch (err) {
       setError(err.message);
       setIsAdding(false);

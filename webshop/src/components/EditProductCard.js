@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import style from "../css/EditProductsList.module.css";
 import useEditDoc from "../hooks/useEditDoc";
 import DeleteConfirmation from "./DeleteConfirmation";
@@ -17,6 +17,14 @@ const EditProductCard = ({ product }) => {
   const deleteImage = useDeleteImage("products", product._id);
   const deleteProduct = useDeleteDoc("products", product);
   const editProduct = useEditDoc("products", product._id);
+  const [myImages, setMyImages] = useState([]);
+
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      setMyImages([...acceptedFiles]);
+    },
+    [myImages]
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,10 +51,15 @@ const EditProductCard = ({ product }) => {
     }
   };
 
+  useEffect(() => {
+    if (editProduct.isSuccess) setMyImages([]);
+  }, [editProduct.isSuccess]);
+
   const { getRootProps, getInputProps, acceptedFiles, fileRejections } =
     useDropzone({
       maxFiles: 3,
       accept: "image/gif, image/jpeg, image/png",
+      onDrop,
       handleSubmit,
     });
 
@@ -76,7 +89,7 @@ const EditProductCard = ({ product }) => {
 
         {dropdown && (
           <form onSubmit={handleSubmit} className={style.dropdownForm}>
-            {editProduct.isSuccess && (
+            {editProduct.isSuccess && !editProduct.isAdding && (
               <div className={style.saveAlert}>
                 <p>Your changes has been saved!</p>
               </div>
@@ -146,7 +159,7 @@ const EditProductCard = ({ product }) => {
                     })}
                 </div>
                 <ImageDropzone
-                  acceptedFiles={acceptedFiles}
+                  acceptedFiles={myImages}
                   getRootProps={getRootProps}
                   getInputProps={getInputProps}
                   fileRejections={fileRejections}

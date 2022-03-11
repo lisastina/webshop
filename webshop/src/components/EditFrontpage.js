@@ -1,5 +1,5 @@
 import style from "../css/EditContent.module.css";
-import { useRef } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import useEditDoc from "../hooks/useEditDoc";
 import useGetCol from "../hooks/useGetCol";
 import ImageDropzone from "./ImageDropzone";
@@ -16,6 +16,18 @@ const EditFrontpage = ({ data }) => {
   const titleRef = useRef();
   const editFrontpage = useEditDoc("frontpage", data._id);
   const uploadHero = useChangeHero(data._id);
+  const [myImages, setMyImages] = useState([]);
+
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      setMyImages([...acceptedFiles]);
+    },
+    [myImages]
+  );
+
+  useEffect(() => {
+    if (uploadHero.isSuccess) setMyImages([]);
+  }, [uploadHero.isSuccess]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,6 +46,7 @@ const EditFrontpage = ({ data }) => {
     useDropzone({
       maxFiles: 1,
       accept: "image/gif, image/jpeg, image/png",
+      onDrop,
       handleSubmit,
     });
 
@@ -41,7 +54,7 @@ const EditFrontpage = ({ data }) => {
     <>
       {data && (
         <form onSubmit={handleSubmit}>
-          {editFrontpage.isSuccess && (
+          {editFrontpage.isSuccess && !uploadHero.isAdding && (
             <div className={style.saveAlert}>
               <p>Your changes has been saved!</p>
             </div>
@@ -53,7 +66,7 @@ const EditFrontpage = ({ data }) => {
             </div>
             <div className={style.imageDropzone}>
               <ImageDropzone
-                acceptedFiles={acceptedFiles}
+                acceptedFiles={myImages}
                 getRootProps={getRootProps}
                 getInputProps={getInputProps}
                 fileRejections={fileRejections}
