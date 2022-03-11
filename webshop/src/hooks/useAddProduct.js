@@ -103,6 +103,7 @@ const useAddProduct = () => {
     isError,
     isAdding,
     isSuccess,
+    setIsSuccess,
     addProduct,
     progress,
   };

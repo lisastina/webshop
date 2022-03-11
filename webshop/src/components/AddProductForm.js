@@ -11,6 +11,7 @@ const AddProductForm = () => {
   const productTypeRef = useRef();
   const [myImages, setMyImages] = useState([]);
   const [preview, setPreview] = useState([]);
+  const [alert, setAlert] = useState(false);
 
   const addProduct = useAddProduct();
 
@@ -50,9 +51,10 @@ const AddProductForm = () => {
       descRef.current.value = "";
       priceRef.current.value = "";
       productTypeRef.current.value = "";
+      setAlert(true);
+      setMyImages([]);
+      setPreview([]);
     }
-    setMyImages([]);
-    setPreview([]);
   }, [addProduct.isSuccess]);
 
   const { getRootProps, getInputProps, acceptedFiles, fileRejections } =
@@ -66,7 +68,7 @@ const AddProductForm = () => {
   return (
     <form className={style.addProductForm} onSubmit={handleSubmit}>
       <h2>Add new product</h2>
-      {addProduct.isSuccess && (
+      {alert && (
         <div className={style.addedAlert}>
           <p>The product was successfully added!</p>
         </div>
@@ -80,15 +82,35 @@ const AddProductForm = () => {
             id="product-name"
             required
             ref={productNameRef}
+            onClick={() => setAlert(false)}
           />
           <label htmlFor="desc">Description</label>
-          <textarea id="desc" rows="3" required ref={descRef} maxLength="150" />
+          <textarea
+            id="desc"
+            rows="3"
+            required
+            ref={descRef}
+            maxLength="150"
+            onClick={() => setAlert(false)}
+          />
 
           <label htmlFor="price">Price</label>
-          <input type="number" id="price" required ref={priceRef} />
+          <input
+            type="number"
+            id="price"
+            required
+            ref={priceRef}
+            onClick={() => setAlert(false)}
+          />
 
           <label htmlFor="product-type">Product type</label>
-          <input type="text" id="product-type" required ref={productTypeRef} />
+          <input
+            type="text"
+            id="product-type"
+            required
+            ref={productTypeRef}
+            onClick={() => setAlert(false)}
+          />
         </div>
 
         <div className={style.imagesAndDrop}>
