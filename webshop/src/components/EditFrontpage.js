@@ -2,6 +2,9 @@ import style from "../css/EditContent.module.css";
 import { useRef } from "react";
 import useEditDoc from "../hooks/useEditDoc";
 import useGetCol from "../hooks/useGetCol";
+import ImageDropzone from "./ImageDropzone";
+import { useDropzone } from "react-dropzone";
+import useChangeHero from "../hooks/useChangeHero";
 
 const EditFrontpage = ({ data }) => {
   const products = useGetCol("products");
@@ -12,15 +15,27 @@ const EditFrontpage = ({ data }) => {
   const textRef = useRef();
   const titleRef = useRef();
   const editFrontpage = useEditDoc("frontpage", data._id);
+  const uploadHero = useChangeHero(data._id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (acceptedFiles.length > 0) {
+      uploadHero.uploadImage(acceptedFiles);
+    }
 
     editFrontpage.editDoc({
       text: textRef.current.value,
       title: titleRef.current.value,
     });
   };
+
+  const { getRootProps, getInputProps, acceptedFiles, fileRejections } =
+    useDropzone({
+      maxFiles: 1,
+      accept: "image/gif, image/jpeg, image/png",
+      handleSubmit,
+    });
 
   return (
     <>
@@ -32,8 +47,18 @@ const EditFrontpage = ({ data }) => {
             </div>
           )}
           <label htmlFor="heroImage">Hero image</label>
-          <div className={style.imageWrapper}>
-            <img src={data.heroImage.url} alt={data.heroImage.name} />
+          <div className={style.heroImage}>
+            <div className={style.imageWrapper}>
+              <img src={data.heroImage.url} alt={data.heroImage.name} />
+            </div>
+            <div className={style.imageDropzone}>
+              <ImageDropzone
+                acceptedFiles={acceptedFiles}
+                getRootProps={getRootProps}
+                getInputProps={getInputProps}
+                fileRejections={fileRejections}
+              ></ImageDropzone>
+            </div>
           </div>
           <div className={style.inputs}>
             <label htmlFor="github">Title</label>
@@ -110,8 +135,12 @@ const EditFrontpage = ({ data }) => {
               </div> */}
             </div>
           </div>
-          <button className={`btn ${style.saveBtn}`} type="submit">
-            Save changes
+          <button
+            className={`btn ${style.saveBtn}`}
+            type="submit"
+            disabled={uploadHero.isAdding}
+          >
+            {uploadHero.isAdding ? "Saving..." : "Save changes"}
           </button>
         </form>
       )}
