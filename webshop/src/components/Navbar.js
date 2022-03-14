@@ -3,11 +3,16 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { useAuthContext } from "../contexts/AuthContext";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const Navbar = () => {
   const { currentUser } = useAuthContext();
   const location = useLocation();
   const { cartItems: cart, cartLength, setCheckout } = useContext(CartContext);
+  const [activeLink, setActiveLink] = useLocalStorage(
+    "activeLinkAdmin",
+    "editProducts"
+  );
 
   const [hamburger, setHamburger] = useState(false);
 
@@ -41,7 +46,10 @@ const Navbar = () => {
                 <NavLink
                   to={link.to}
                   activeclassname={style.active}
-                  onClick={() => setHamburger(false)}
+                  onClick={() => {
+                    setHamburger(false);
+                    setActiveLink("editProducts");
+                  }}
                 >
                   {link.title}
                 </NavLink>
@@ -61,6 +69,7 @@ const Navbar = () => {
             <h1
               onClick={() => {
                 setHamburger(false);
+                setActiveLink("editProducts");
               }}
             >
               LisaStina
@@ -75,6 +84,7 @@ const Navbar = () => {
             onClick={() => {
               setCheckout(false);
               setHamburger(false);
+              setActiveLink("editProducts");
             }}
           >
             <div className={style.cartNumWrapper}>

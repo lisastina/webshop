@@ -4,6 +4,7 @@ import EditAbout from "./EditAbout";
 import EditContact from "./EditContact";
 import useGetCol from "../hooks/useGetCol";
 import EditFrontpage from "./EditFrontpage";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const EditContent = () => {
   const aboutData = useGetCol("about");
@@ -12,6 +13,10 @@ const EditContent = () => {
   const [frontPage, setFrontPage] = useState(true);
   const [about, setAbout] = useState(false);
   const [contact, setContact] = useState(false);
+  const [activeLink, setActiveLink] = useLocalStorage(
+    "activeLinkEditContent",
+    "frontpage"
+  );
 
   return (
     <div className={style.editContent}>
@@ -19,42 +24,50 @@ const EditContent = () => {
 
       <div className={style.options}>
         <button
-          className={frontPage ? `${style.active} ${style.link}` : style.link}
+          className={
+            activeLink === "frontpage"
+              ? `${style.active} ${style.link}`
+              : style.link
+          }
           onClick={() => {
-            setFrontPage(true);
-            setAbout(false);
-            setContact(false);
+            setActiveLink("frontpage");
           }}
         >
           Frontpage
         </button>
         <button
-          className={about ? `${style.active} ${style.link}` : style.link}
+          className={
+            activeLink === "about"
+              ? `${style.active} ${style.link}`
+              : style.link
+          }
           onClick={() => {
-            setFrontPage(false);
-            setAbout(true);
-            setContact(false);
+            setActiveLink("about");
           }}
         >
           About
         </button>
         <button
-          className={contact ? `${style.active} ${style.link}` : style.link}
+          className={
+            activeLink === "contact"
+              ? `${style.active} ${style.link}`
+              : style.link
+          }
           onClick={() => {
-            setFrontPage(false);
-            setAbout(false);
-            setContact(true);
+            setActiveLink("contact");
           }}
         >
           Contact
         </button>
       </div>
       <div className={style.content}>
-        {frontPage && frontpageData?.data && (
+        {activeLink === "frontpage" && frontpageData?.data && (
           <EditFrontpage data={frontpageData.data[0]} />
         )}
-        {about && aboutData?.data && <EditAbout about={aboutData.data[0]} />}
-        {contact && contactData?.data && (
+        {activeLink === "about" && aboutData?.data && (
+          <EditAbout about={aboutData.data[0]} />
+        )}
+        {activeLink === "contact" && contactData?.data && (
           <EditContact contact={contactData.data[0]} />
         )}
       </div>

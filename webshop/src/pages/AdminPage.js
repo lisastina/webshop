@@ -5,13 +5,19 @@ import { useState } from "react";
 import AddProductForm from "../components/AddProductForm";
 import EditProductsList from "../components/EditProductsList";
 import EditContent from "../components/EditContent";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const AdminPage = () => {
   const { logout, currentUser } = useAuthContext();
-  const [editProducts, setEditProducts] = useState(true);
-  const [editContent, setEditContent] = useState(false);
-  const [addProduct, setAddProduct] = useState(false);
   const [isloggingIn, setIsLoggingIn] = useState(false);
+  const [activeLink, setActiveLink] = useLocalStorage(
+    "activeLinkAdmin",
+    "editProducts"
+  );
+  const [activeLinkEditContent, setActiveLinkEditContent] = useLocalStorage(
+    "activeLinkEditContent",
+    "frontpage"
+  );
 
   return (
     <>
@@ -20,36 +26,39 @@ const AdminPage = () => {
           <div className={style.options}>
             <button
               onClick={() => {
-                setEditProducts(true);
-                setEditContent(false);
-                setAddProduct(false);
+                setActiveLink("editProducts");
+                setActiveLinkEditContent("frontpage");
               }}
               className={
-                editProducts ? `${style.active} ${style.link}` : style.link
+                activeLink === "editProducts"
+                  ? `${style.active} ${style.link}`
+                  : style.link
               }
             >
               Edit products
             </button>
             <button
               onClick={() => {
-                setEditProducts(false);
-                setEditContent(true);
-                setAddProduct(false);
+                setActiveLink("editContent");
+                setActiveLinkEditContent("frontpage");
               }}
               className={
-                editContent ? `${style.active} ${style.link}` : style.link
+                activeLink === "editContent"
+                  ? `${style.active} ${style.link}`
+                  : style.link
               }
             >
               Edit content
             </button>
             <button
               onClick={() => {
-                setEditProducts(false);
-                setEditContent(false);
-                setAddProduct(true);
+                setActiveLink("addProduct");
+                setActiveLinkEditContent("frontpage");
               }}
               className={
-                addProduct ? `${style.active} ${style.link}` : style.link
+                activeLink === "addProduct"
+                  ? `${style.active} ${style.link}`
+                  : style.link
               }
             >
               Add product
@@ -58,9 +67,9 @@ const AdminPage = () => {
               Logout
             </button>
           </div>
-          {editProducts && <EditProductsList />}
-          {editContent && <EditContent />}
-          {addProduct && <AddProductForm />}
+          {activeLink === "editProducts" && <EditProductsList />}
+          {activeLink === "editContent" && <EditContent />}
+          {activeLink === "addProduct" && <AddProductForm />}
         </div>
       ) : (
         <Login setIsLoggingIn={setIsLoggingIn} />
