@@ -1,0 +1,32 @@
+.productImages {
+  width: 50%;
+  display: flex;
+  gap: 1rem;
+}
+.productImages .thumbnails {
+  width: 15%;
+}
+
+.productImages .thumbnail {
+  max-width: 100%;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+.productImages .thumbnail img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 5.7;
+}
+.productImages .thumbnail.selected img {
+  box-shadow: 0 0 0 3px #b3c5ce;
+}
+
+.productImages .imgWrapper {
+  width: 100%;
+}
+
+.productImages .imgWrapper img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 5.7;
+}
