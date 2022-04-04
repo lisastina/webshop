@@ -30,3 +30,18 @@
   object-fit: cover;
   aspect-ratio: 4 / 5.7;
 }
+
+@media screen and (max-width: 800px) {
+  .productImages {
+    flex-direction: column-reverse;
+  }
+  .productImages .thumbnails {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+  }
+  .productImages .thumbnail {
+    max-width: 40px;
+    width: 100%;
+  }
+}
