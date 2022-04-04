@@ -8,7 +8,7 @@ const AllProducts = () => {
   return (
     <div className={`${style.allProducts} pages-container`}>
       <div className={style.heading}>
-        <h1>All products</h1>
+        <h1>Products</h1>
       </div>
       <div className={style.products}>
         {products.data &&
