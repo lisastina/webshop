@@ -1,8 +1,27 @@
 import style from "../css/ProductImages.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ProductImages = ({ data }) => {
   const [currentImage, setCurrentImage] = useState(data.images[0]);
+  const [zoom, setZoom] = useState(false);
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+
+  const handleClick = (e) => {
+    setZoom(!zoom);
+    setX(e.nativeEvent.offsetX);
+    setY(e.nativeEvent.offsetY);
+
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
+  const handleMousemove = (e) => {
+    if (zoom) {
+      setX(e.nativeEvent.offsetX);
+      setY(e.nativeEvent.offsetY);
+    }
+  };
 
   return (
     <div className={style.productImages}>
@@ -21,8 +40,15 @@ const ProductImages = ({ data }) => {
           );
         })}
       </div>
-      <div className={style.imgWrapper}>
+      <div
+        className={`${style.imgWrapper} ${zoom && style.zoom}`}
+        onClick={handleClick}
+        onMouseMove={handleMousemove}
+      >
         <img
+          style={{
+            transformOrigin: `${x}px ${y}px `,
+          }}
           src={
             data.images?.length
               ? currentImage.url
