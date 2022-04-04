@@ -30,6 +30,8 @@
   font: inherit;
   resize: none;
 }
+/*   padding: 0.5rem;
+  margin: 0.5rem 0 0;
 .addProductForm textarea {
   white-space: pre-line;
 }
@@ -38,7 +40,7 @@
 .addProductForm textarea:focus {
   outline: 1.5px solid rgb(141, 157, 165);
   -moz-outline-radius: 0.3em;
-}
+} */
 .addProductForm input[type="number"]::-webkit-outer-spin-button,
 .addProductForm input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;

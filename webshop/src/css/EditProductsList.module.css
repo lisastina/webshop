@@ -63,18 +63,6 @@
 .editProduct textarea {
   padding: 0.5rem;
   margin: 0.5rem 0 0;
-  border-radius: 0.25rem;
-  border: solid #b3c5ce 1px;
-  font: inherit;
-  resize: none;
-}
-.editProduct textarea {
-  white-space: pre-line;
-}
-.editProduct input:focus,
-.editProduct textarea:focus {
-  outline: 1.5px solid rgb(141, 157, 165);
-  -moz-outline-radius: 0.3em;
 }
 
 .editProduct input[type="number"]::-webkit-outer-spin-button,
