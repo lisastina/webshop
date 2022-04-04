@@ -22,13 +22,24 @@
 }
 
 .productImages .imgWrapper {
+  cursor: zoom-in;
   width: 100%;
+  overflow: hidden;
 }
 
 .productImages .imgWrapper img {
   width: 100%;
   object-fit: cover;
   aspect-ratio: 4 / 5.7;
+}
+
+.productImages .imgWrapper.zoom {
+  cursor: zoom-out;
+}
+
+.productImages .imgWrapper.zoom img {
+  transform: scale(2);
+  transform-origin: 0px 0px;
 }
 
 @media screen and (max-width: 800px) {
