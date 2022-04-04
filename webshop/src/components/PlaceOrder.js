@@ -245,7 +245,7 @@ const PlaceOrder = () => {
           </div>
           <div className={style.buttons}>
             <button
-              className={`btn ${style.checkingOut}`}
+              className={`btn btn-secondary ${style.checkingOut}`}
               onClick={() => setCheckout(!checkout)}
             >
               Go back

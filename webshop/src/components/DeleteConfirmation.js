@@ -24,7 +24,7 @@ const DeleteConfirmation = ({
         <p>Are you sure you want to delete this product?</p>
         <div className={style.buttons}>
           <button
-            className={`btn btn-sm ${style.cancelBtn}`}
+            className="btn btn-sm btn-secondary"
             onClick={() => {
               setDeleteConfirm(false);
             }}

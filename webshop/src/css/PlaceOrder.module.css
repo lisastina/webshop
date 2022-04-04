@@ -117,8 +117,6 @@ input[type="email"] {
 }
 .buy.checkingOut button.checkingOut {
   margin: 0.7rem 0;
-  background-color: #d5dcdf79;
-  color: #463a3b;
   margin-right: 1rem;
 }
 @media screen and (max-width: 900px) {

@@ -142,14 +142,6 @@
   display: flex;
   gap: 1rem;
 }
-.editProductsList .buttons .deleteBtn {
-  background-color: #d5dcdf79;
-  color: #463a3b;
-}
-.editProductsList .buttons .deleteBtn:disabled,
-.editProductsList .buttons .deleteBtn:disabled[disabled] {
-  background-color: #9da8ac79;
-}
 
 @media screen and (max-width: 800px) {
   .editProduct .formContent {

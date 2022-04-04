@@ -20,6 +20,7 @@ li {
   font-weight: 400;
   font-family: "Libre Caslon Text", serif;
 }
+
 .site-container {
   min-height: calc(100vh - 200px - 115px);
 }
@@ -59,6 +60,20 @@ a {
 .btn[disabled] {
   background-color: rgb(141, 157, 165);
   cursor: initial;
+}
+
+.btn-secondary {
+  background-color: #d5dcdf79;
+  color: #463a3b;
+}
+
+.btn-secondary:hover {
+  background-color: #9da8ac79;
+}
+
+.btn-secondary:disabled,
+.btn-secondary:disabled[disabled] {
+  background-color: #9da8ac79;
 }
 
 p {
