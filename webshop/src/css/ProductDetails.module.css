@@ -11,14 +11,7 @@
 .productDetails .desc p::first-letter {
   text-transform: capitalize;
 }
-.productDetails .imgWrapper {
-  width: 50%;
-}
-.productDetails .imgWrapper img {
-  width: 100%;
-  object-fit: cover;
-  aspect-ratio: 4 / 5.7;
-}
+
 .productDetails .desc {
   text-align: center;
   width: 40%;

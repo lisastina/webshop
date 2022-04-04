@@ -3,8 +3,9 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import useGetDoc from "../hooks/useGetDoc";
+import ProductImages from "../components/ProductImages";
 
-const ProductDetails = (props) => {
+const ProductDetails = () => {
   const { id } = useParams();
   const { addToCart, cartItems, setCartItems, cartLength, setCartLength } =
     useContext(CartContext);
@@ -90,7 +91,8 @@ const ProductDetails = (props) => {
       {data && (
         <div className={`pages-container ${style.productDetails}`}>
           <div className={style.content}>
-            <div className={style.imgWrapper}>
+            <ProductImages data={data} />
+            {/* <div className={style.imgWrapper}>
               <img
                 src={
                   data.images?.length
@@ -99,7 +101,7 @@ const ProductDetails = (props) => {
                 }
                 alt={`${data.name} ${data.type}`}
               />
-            </div>
+            </div> */}
             <div className={style.desc}>
               <h1>
                 {data.name} {data.type}
