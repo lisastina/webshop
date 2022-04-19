@@ -1,10 +1,10 @@
-import style from "../css/EditContent.module.css";
+import style from "../../css/EditContent.module.css";
 import { useState } from "react";
 import EditAbout from "./EditAbout";
 import EditContact from "./EditContact";
-import useGetCol from "../hooks/useGetCol";
+import useGetCol from "../../hooks/useGetCol";
 import EditFrontpage from "./EditFrontpage";
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const EditContent = () => {
   const aboutData = useGetCol("about");

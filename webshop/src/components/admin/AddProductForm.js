@@ -1,6 +1,6 @@
-import ImageDropzone from "../components/ImageDropzone";
-import style from "../css/AddProductForm.module.css";
-import useAddProduct from "../hooks/useAddProduct";
+import ImageDropzone from "../ImageDropzone";
+import style from "../../css/AddProductForm.module.css";
+import useAddProduct from "../../hooks/useAddProduct";
 import { useDropzone } from "react-dropzone";
 import { useRef, useState, useEffect, useCallback } from "react";
 

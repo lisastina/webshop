@@ -1,4 +1,4 @@
-import style from "../css/DeleteConfirmaion.module.css";
+import style from "../../css/DeleteConfirmaion.module.css";
 
 const DeleteConfirmation = ({
   product,

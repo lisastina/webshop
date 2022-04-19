@@ -1,5 +1,5 @@
-import style from "../css/EditProductsList.module.css";
-import useGetCol from "../hooks/useGetCol";
+import style from "../../css/EditProductsList.module.css";
+import useGetCol from "../../hooks/useGetCol";
 import EditProductCard from "./EditProductCard";
 
 const EditProductsList = () => {

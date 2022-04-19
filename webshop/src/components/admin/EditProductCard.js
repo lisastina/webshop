@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import style from "../css/EditProductsList.module.css";
-import useEditDoc from "../hooks/useEditDoc";
+import style from "../../css/EditProductsList.module.css";
+import useEditDoc from "../../hooks/useEditDoc";
 import DeleteConfirmation from "./DeleteConfirmation";
-import useDeleteDoc from "../hooks/useDeleteDoc";
-import useDeleteImage from "../hooks/useDeleteImage";
-import ImageDropzone from "./ImageDropzone";
+import useDeleteDoc from "../../hooks/useDeleteDoc";
+import useDeleteImage from "../../hooks/useDeleteImage";
+import ImageDropzone from "../ImageDropzone";
 import { useDropzone } from "react-dropzone";
 
 const EditProductCard = ({ product }) => {

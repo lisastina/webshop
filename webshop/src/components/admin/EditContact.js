@@ -1,6 +1,6 @@
-import style from "../css/EditContent.module.css";
+import style from "../../css/EditContent.module.css";
 import { useRef } from "react";
-import useEditDoc from "../hooks/useEditDoc";
+import useEditDoc from "../../hooks/useEditDoc";
 
 const EditContact = ({ contact }) => {
   const editContact = useEditDoc("contact-info", contact._id);

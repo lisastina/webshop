@@ -1,10 +1,10 @@
-import style from "../css/EditContent.module.css";
+import style from "../../css/EditContent.module.css";
 import { useRef, useState, useCallback, useEffect } from "react";
-import useEditDoc from "../hooks/useEditDoc";
-import useGetCol from "../hooks/useGetCol";
-import ImageDropzone from "./ImageDropzone";
+import useEditDoc from "../../hooks/useEditDoc";
+import useGetCol from "../../hooks/useGetCol";
+import ImageDropzone from "../ImageDropzone";
 import { useDropzone } from "react-dropzone";
-import useChangeHero from "../hooks/useChangeHero";
+import useChangeHero from "../../hooks/useChangeHero";
 
 const EditFrontpage = ({ data }) => {
   const products = useGetCol("products");

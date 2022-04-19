@@ -1,6 +1,6 @@
-import style from "../css/Login.module.css";
+import style from "../../css/Login.module.css";
 import { useRef, useState, useEffect } from "react";
-import { useAuthContext } from "../contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 const Login = ({ setIsLoggingIn }) => {
   const emailRef = useRef();

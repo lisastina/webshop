@@ -1,10 +1,10 @@
 import style from "../css/AdminPage.module.css";
 import { useAuthContext } from "../contexts/AuthContext";
-import Login from "../components/Login";
+import Login from "../components/admin/Login";
 import { useState } from "react";
-import AddProductForm from "../components/AddProductForm";
-import EditProductsList from "../components/EditProductsList";
-import EditContent from "../components/EditContent";
+import AddProductForm from "../components/admin/AddProductForm";
+import EditProductsList from "../components/admin/EditProductsList";
+import EditContent from "../components/admin/EditContent";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const AdminPage = () => {
