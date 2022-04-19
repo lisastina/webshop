@@ -38,7 +38,7 @@ const Navbar = () => {
           {[
             { to: "/", title: "Home" },
             { to: "/about", title: "About" },
-            { to: "/products", title: "Products" },
+            { to: "/shop", title: "Shop" },
             { to: "/admin", title: "Admin", protected: true },
           ].map((link, i) => {
             const linkEl = (

@@ -7,7 +7,7 @@ const NoItems = () => {
       <img src="/assets/icons/empty-cart-icon.png" alt="Empty shopping bag" />
       <h1>Your shopping bag is empty...</h1>
       <p>Take a look at some of my products!</p>
-      <Link to="/products">
+      <Link to="/shop">
         <button className="btn">Start shopping</button>
       </Link>
     </div>

@@ -20,7 +20,7 @@ const ProductCard = ({ productId, index }) => {
           className={`${style.productCard} ${isOdd(index) && style.reverse}`}
         >
           <div className={style.imgWrapper}>
-            <Link to={`/products/${productId}`}>
+            <Link to={`/shop/${productId}`}>
               <img
                 src={
                   product.images?.length
@@ -36,7 +36,7 @@ const ProductCard = ({ productId, index }) => {
               {product.name} {product.type}
             </h2>
             <p>{product.desc}</p>
-            <Link to={`/products/${productId}`}>
+            <Link to={`/shop/${productId}`}>
               <button className="btn">Purchase item</button>
             </Link>
           </div>

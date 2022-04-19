@@ -21,7 +21,7 @@ const Home = () => {
             </div>
             <ProductList products={data[0].products} />
             <div className={style.seeAll}>
-              <Link to="/products">View all products</Link>
+              <Link to="/shop">View all products</Link>
             </div>
           </div>
         </div>
