@@ -45,7 +45,7 @@ const Navbar = () => {
               <div className={style.link} key={i}>
                 <NavLink
                   to={link.to}
-                  activeclassname={style.active}
+                  className={location.pathname === link.to && style.active}
                   onClick={() => {
                     setHamburger(false);
                     setActiveLink("editProducts");

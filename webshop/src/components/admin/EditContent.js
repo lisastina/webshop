@@ -10,9 +10,6 @@ const EditContent = () => {
   const aboutData = useGetCol("about");
   const contactData = useGetCol("contact-info");
   const frontpageData = useGetCol("frontpage");
-  const [frontPage, setFrontPage] = useState(true);
-  const [about, setAbout] = useState(false);
-  const [contact, setContact] = useState(false);
   const [activeLink, setActiveLink] = useLocalStorage(
     "activeLinkEditContent",
     "frontpage"
