@@ -1,5 +1,4 @@
 import style from "../../css/EditContent.module.css";
-import { useState } from "react";
 import EditAbout from "./EditAbout";
 import EditContact from "./EditContact";
 import useGetCol from "../../hooks/useGetCol";
