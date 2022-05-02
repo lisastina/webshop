@@ -12,10 +12,15 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+label,
+button,
+li {
   color: #463a3b;
   font-weight: 400;
+  font-family: "Libre Caslon Text", serif;
 }
+
 .site-container {
   min-height: calc(100vh - 200px - 115px);
 }
@@ -32,7 +37,7 @@ a {
   cursor: pointer;
 }
 
-button {
+.btn {
   background: #b3c5ce;
   font-family: "Libre Caslon Display", serif;
   color: #fff;
@@ -48,13 +53,27 @@ button {
   padding: 0.4rem 0.9rem;
   font-size: 1rem;
 }
-button:hover {
+.btn:hover {
   background-color: rgb(141, 157, 165);
 }
-button:disabled,
-button[disabled] {
+.btn:disabled,
+.btn[disabled] {
   background-color: rgb(141, 157, 165);
   cursor: initial;
+}
+
+.btn-secondary {
+  background-color: #d5dcdf79;
+  color: #463a3b;
+}
+
+.btn-secondary:hover {
+  background-color: #9da8ac79;
+}
+
+.btn-secondary:disabled,
+.btn-secondary:disabled[disabled] {
+  background-color: #9da8ac79;
 }
 
 p {
@@ -126,11 +145,39 @@ select:focus + .focus {
   border-radius: inherit;
 }
 
+input,
+textarea {
+  border-radius: 0.25rem;
+  background-color: #fff;
+  color: #463a3b;
+  border: solid #b3c5ce 1px;
+  font: inherit;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+}
+textarea {
+  white-space: pre-line;
+}
+
+input:focus,
+textarea:focus {
+  outline: 1.5px solid rgb(141, 157, 165);
+  -moz-outline-radius: 0.3em;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 @media screen and (max-width: 600px) {
   .pages-container {
     padding: 0 30px;
   }
-  button {
+  .btn {
     font-size: 1.1rem;
   }
   .btn-sm {

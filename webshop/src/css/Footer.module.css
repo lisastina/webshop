@@ -39,6 +39,7 @@
   padding: 0.5rem;
   border: none;
   margin-right: 0.3rem;
+  border-radius: 0px;
 }
 @media screen and (max-width: 600px) {
   .footerContainer {

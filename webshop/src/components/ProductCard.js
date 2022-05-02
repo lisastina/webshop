@@ -20,20 +20,24 @@ const ProductCard = ({ productId, index }) => {
           className={`${style.productCard} ${isOdd(index) && style.reverse}`}
         >
           <div className={style.imgWrapper}>
-            <Link to={`/details/${productId}`}>
+            <Link to={`/shop/${productId}`}>
               <img
-                src={product.images[0].url}
-                alt={`${product.name} ${product.productType}`}
+                src={
+                  product.images?.length
+                    ? product.images[0].url
+                    : "../assets/imgs/placeholder.png"
+                }
+                alt={`${product.name} ${product.type}`}
               />
             </Link>
           </div>
           <div className={style.desc}>
             <h2>
-              {product.name} {product.productType}
+              {product.name} {product.type}
             </h2>
             <p>{product.desc}</p>
-            <Link to={`/details/${productId}`}>
-              <button>Purchase item</button>
+            <Link to={`/shop/${productId}`}>
+              <button className="btn">Purchase item</button>
             </Link>
           </div>
         </div>

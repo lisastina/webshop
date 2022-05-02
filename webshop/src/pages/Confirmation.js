@@ -18,7 +18,7 @@ const Confirmation = () => {
               {order.cartItems &&
                 order.cartItems.map((item, i) => (
                   <p key={i}>
-                    {item.quantity} x {item.name} {item.productType}{" "}
+                    {item.quantity} x {item.name} {item.type}{" "}
                     {item.size && item.size}
                   </p>
                 ))}
@@ -29,7 +29,8 @@ const Confirmation = () => {
                 {order.shipping.firstName} {order.shipping.lastName}
                 <br /> {order.shipping.street} <br />
                 {order.shipping.zip} {order.shipping.city} <br />
-                {order.shipping.country}
+                {order.shipping.country.charAt(0).toUpperCase() +
+                  order.shipping.country.slice(1)}
               </p>
               <p>
                 {order.shipping.email} <br />

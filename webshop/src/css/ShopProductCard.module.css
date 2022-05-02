@@ -1,6 +1,4 @@
 .shopProductCard {
-  margin: 1rem;
-  max-width: 29%;
   min-width: 200px;
   cursor: pointer;
 }

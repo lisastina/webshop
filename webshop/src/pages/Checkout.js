@@ -38,7 +38,9 @@ const Checkout = () => {
               <div>
                 <h2>Subtotal {cartTotal} kr</h2>
               </div>
-              <button onClick={handleCheckout}>Checkout</button>
+              <button className="btn" onClick={handleCheckout}>
+                Checkout
+              </button>
             </div>
           )}
         </div>

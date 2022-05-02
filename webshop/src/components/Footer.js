@@ -23,7 +23,7 @@ const Footer = () => {
             <p>Sign up to receive news and updates.</p>
             <form>
               <input type="text" placeholder="Email Address" />
-              <button type="submit" className="btn-sm">
+              <button type="submit" className="btn btn-sm">
                 Sign up
               </button>
             </form>

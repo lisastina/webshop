@@ -1,0 +1,147 @@
+.editContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.editContent h2 {
+  margin-top: 0;
+}
+.editContent .options {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  min-width: 130px;
+  align-items: flex-start;
+}
+.editContent .options .link {
+  font-size: 1.1rem;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+}
+
+.editContent .options .link:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #463a3b;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.editContent .options .link:hover:before,
+.editContent .link.active::before {
+  visibility: visible;
+  width: 100%;
+}
+.editContent .content {
+  margin-top: 1.5rem;
+}
+
+.editContent form {
+  display: flex;
+  flex-direction: column;
+}
+.editContent .inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.editContent label {
+  margin-top: 1rem;
+}
+
+.editContent input,
+.editContent textarea {
+  padding: 0.5rem;
+  margin: 0.5rem 0 0;
+  /* box-sizing: border-box; */
+}
+
+.editContent .saveBtn {
+  align-self: end;
+  margin-top: 1rem;
+}
+
+/* Save alert */
+.editContent .saveAlert {
+  background-color: #b3c5ce;
+  text-align: center;
+}
+.editContent .saveAlert p {
+  color: #fff;
+}
+/* contact */
+.editContent .address {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.editContent .address input {
+  width: 100%;
+}
+
+/* frontpage */
+.editContent .selectList {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.editContent .selectList .select {
+  width: 100%;
+}
+.editContent .selectList select {
+  padding-right: 2rem;
+}
+.editContent .heroImage {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.editContent .heroImage .imageDropzone {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.editContent .imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.editContent .imageWrapper p {
+  position: absolute;
+  margin: 0;
+  z-index: 1;
+  color: #463a3b;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.editContent .imageWrapper img {
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  object-fit: cover;
+}
+
+@media screen and (max-width: 800px) {
+  .editContent .address {
+    flex-direction: column;
+  }
+  .editContent .selectList {
+    flex-direction: column;
+  }
+  .editContent .heroImage {
+    flex-direction: column;
+  }
+  .editContent .heroImage .imageDropzone {
+    width: 100%;
+  }
+}

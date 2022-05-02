@@ -1,0 +1,86 @@
+.addProductForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.formContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.addProductForm h2 {
+  margin-top: 0;
+}
+
+.addProductForm .addedAlert {
+  background-color: #b3c5ce;
+  text-align: center;
+}
+.addProductForm .addedAlert p {
+  color: white;
+}
+
+.addProductForm input,
+.addProductForm textarea {
+  padding: 0.5rem;
+  margin: 0.5rem 0 0;
+}
+
+.addProductForm input[type="number"]::-webkit-outer-spin-button,
+.addProductForm input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.addProductForm input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.addProductForm label {
+  margin-top: 1rem;
+}
+
+.addProductForm .inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.addProductForm button {
+  margin-top: 1rem;
+  align-self: end;
+}
+
+.addProductForm .imagesAndDrop {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.addProductForm .images {
+  display: flex;
+  width: 50%;
+  gap: 0.5rem;
+  justify-content: space-between;
+  width: 100%;
+}
+.addProductForm .imageWrapper {
+  max-width: 100px;
+  min-width: 70px;
+  position: relative;
+  width: 100%;
+}
+.addProductForm img {
+  width: 100%;
+  aspect-ratio: 4 / 5.7;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 800px) {
+  .addProductForm .formContent {
+    flex-direction: column;
+  }
+}

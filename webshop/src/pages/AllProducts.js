@@ -13,9 +13,7 @@ const AllProducts = () => {
 
   return (
     <div className={`${style.allProducts} pages-container`}>
-      <div className={style.heading}>
-        <h1>All products</h1>
-      </div>
+      <div className={style.heading}></div>
       <div className={style.products}>
         {data && data.pageParams}
         <button

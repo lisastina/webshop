@@ -3,8 +3,9 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import useGetDoc from "../hooks/useGetDoc";
+import ProductImages from "../components/ProductImages";
 
-const ProductDetails = (props) => {
+const ProductDetails = () => {
   const { id } = useParams();
   const { addToCart, cartItems, setCartItems, cartLength, setCartLength } =
     useContext(CartContext);
@@ -24,7 +25,7 @@ const ProductDetails = (props) => {
 
   const changePrice = () => {
     let productPrice = product.price;
-    if (product.productType === "poster" || product.productType === "photo") {
+    if (product.type === "poster" || product.type === "photo") {
       if (size === "30x40") {
         productPrice = 279;
       }
@@ -59,7 +60,7 @@ const ProductDetails = (props) => {
   const handleAddToCart = () => {
     setButtonClick(true);
     /* Move this to context file */
-    if (product.productType === "poster" || product.productType === "photo") {
+    if (product.type === "poster" || product.type === "photo") {
       product.size = size;
     }
     const match = cartItems.find(
@@ -90,44 +91,45 @@ const ProductDetails = (props) => {
       {data && (
         <div className={`pages-container ${style.productDetails}`}>
           <div className={style.content}>
-            <div className={style.imgWrapper}>
-              {data.images && (
-                <img
-                  src={data.images[0].url}
-                  alt={`${data.name} ${data.productType}`}
-                />
-              )}
-            </div>
+            <ProductImages data={data} />
+            {/* <div className={style.imgWrapper}>
+              <img
+                src={
+                  data.images?.length
+                    ? data.images[0].url
+                    : "../assets/imgs/placeholder.png"
+                }
+                alt={`${data.name} ${data.type}`}
+              />
+            </div> */}
             <div className={style.desc}>
               <h1>
-                {data.name} {data.productType}
+                {data.name} {data.type}
               </h1>
               {data.by && <h2>{data.by}</h2>}
               <h2>{data.price} kr</h2>
               <p>{data.desc}</p>
               <div className={style.selects}>
-                {!data.by &&
-                  (data.productType === "poster" ||
-                    data.productType === "photo") && (
-                    <div className={style.sizes}>
-                      <label htmlFor="size">Size:</label>
-                      <div className={`customSelect ${style.select}`}>
-                        <select
-                          name="size"
-                          id="size"
-                          onChange={(e) => {
-                            setSize(e.target.value);
-                          }}
-                          value={size}
-                        >
-                          <option value="30x40">30x40 cm</option>
-                          <option value="50x70">50x70 cm</option>
-                          <option value="70x100">70x100 cm</option>
-                        </select>
-                        <span className="focus"></span>
-                      </div>
+                {!data.by && (data.type === "poster" || data.type === "photo") && (
+                  <div className={style.sizes}>
+                    <label htmlFor="size">Size:</label>
+                    <div className={`customSelect ${style.select}`}>
+                      <select
+                        name="size"
+                        id="size"
+                        onChange={(e) => {
+                          setSize(e.target.value);
+                        }}
+                        value={size}
+                      >
+                        <option value="30x40">30x40 cm</option>
+                        <option value="50x70">50x70 cm</option>
+                        <option value="70x100">70x100 cm</option>
+                      </select>
+                      <span className="focus"></span>
                     </div>
-                  )}
+                  </div>
+                )}
                 {!data.by && (
                   <div className={style.quantity}>
                     <label htmlFor="quantity">Quantity:</label>
@@ -144,10 +146,14 @@ const ProductDetails = (props) => {
               </div>
               {data.by ? (
                 <a href={data.link}>
-                  <button>Buy from STOREFACTORY</button>
+                  <button className="btn">Buy from STOREFACTORY</button>
                 </a>
               ) : (
-                <button onClick={handleAddToCart} disabled={buttonClick}>
+                <button
+                  className="btn"
+                  onClick={handleAddToCart}
+                  disabled={buttonClick}
+                >
                   {buttonClick ? "Added to cart!" : "Add to cart"}
                 </button>
               )}

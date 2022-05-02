@@ -5,16 +5,20 @@ const ShopProductCard = ({ product }) => {
   return (
     <div className={style.shopProductCard}>
       <div className={style.imgWrapper}>
-        <Link to={`/details/${product._id}`}>
+        <Link to={`/shop/${product._id}`}>
           <img
-            src={product.images[0].url}
-            alt={`${product.name} ${product.productType}`}
+            src={
+              product.images?.length
+                ? product.images[0].url
+                : "../assets/imgs/placeholder.png"
+            }
+            alt={`${product.name} ${product.type}`}
           />
         </Link>
       </div>
       <div className={style.desc}>
         <h2>
-          {product.name} {product.productType}
+          {product.name} {product.type}
         </h2>
         <h2 className={style.price}>{product.price} kr</h2>
       </div>

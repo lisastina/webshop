@@ -1,7 +1,11 @@
 .placeOrder {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2.5rem;
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
+  gap: 2.5rem;
+}
+
+.placeOrder .shippingInfo {
+  width: 100%;
 }
 
 .placeOrder .shippingInputContainer {
@@ -10,22 +14,16 @@
   gap: 0.5rem;
 }
 
+.placeOrder .shippingInfo input {
+  width: 100%;
+}
+
 .placeOrder input[type="text"],
 input[type="email"] {
   padding: 0.5rem;
   margin: 0.5rem 0 0;
-  border-radius: 0.25rem;
-  border: solid #b3c5ce 1px;
-  font: inherit;
-}
-.placeOrder input[type="text"]:not(#cardNumber) {
-  width: 45%;
 }
 
-.placeOrder input:focus {
-  outline: 1.5px solid rgb(141, 157, 165);
-  -moz-outline-radius: 0.3em;
-}
 .placeOrder .shippingInfo input[type="email"] {
   width: 100%;
   margin: 0.5rem auto;
@@ -119,11 +117,19 @@ input[type="email"] {
 }
 .buy.checkingOut button.checkingOut {
   margin: 0.7rem 0;
-  background-color: #d5dcdf79;
-  color: #463a3b;
   margin-right: 1rem;
 }
+@media screen and (max-width: 900px) {
+  .placeOrder {
+    flex-direction: column;
+  }
+}
+
 @media screen and (max-width: 700px) {
+  .placeOrder .shippingInputContainer {
+    flex-direction: column;
+  }
+
   .buy.checkingOut {
     text-align: left;
   }

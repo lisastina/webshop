@@ -245,12 +245,14 @@ const PlaceOrder = () => {
           </div>
           <div className={style.buttons}>
             <button
-              className={style.checkingOut}
+              className={`btn btn-secondary ${style.checkingOut}`}
               onClick={() => setCheckout(!checkout)}
             >
               Go back
             </button>
-            <button onClick={handleClick}>Place order</button>
+            <button onClick={handleClick} className="btn">
+              Place order
+            </button>
           </div>
         </div>
       </div>

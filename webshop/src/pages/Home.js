@@ -10,18 +10,18 @@ const Home = () => {
     <>
       {data && (
         <div className={style.home}>
-          <img src={data[0].imageUrl} alt="hero" />
+          <img src={data[0].heroImage.url} alt="hero image" />
           <div className="pages-container">
             <div className={style.desc}>
               <h2>{data[0].title}</h2>
               <p>{data[0].text}</p>
               <Link to="/about">
-                <button className="btn-sm">Learn more</button>
+                <button className=" btn btn-sm">Learn more</button>
               </Link>
             </div>
             <ProductList products={data[0].products} />
             <div className={style.seeAll}>
-              <Link to="/products">View all products</Link>
+              <Link to="/shop">View all products</Link>
             </div>
           </div>
         </div>
