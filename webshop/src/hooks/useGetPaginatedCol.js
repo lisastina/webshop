@@ -1,26 +1,31 @@
 import { useFirestoreInfiniteQueryData } from "@react-query-firebase/firestore";
-import { collection, query, limit, startAfter } from "firebase/firestore";
+import {
+  collection,
+  query,
+  limit,
+  startAfter,
+  orderBy,
+} from "firebase/firestore";
 import { db } from "../firebase";
 
 const useGetCol = (col) => {
   const colRef = collection(db, col);
 
-  const productsQuery = query(colRef, limit(4));
+  const productsQuery = query(colRef, orderBy("created", "desc"), limit(12));
 
   const colQuery = useFirestoreInfiniteQueryData(
     [col],
     productsQuery,
     (snapshot) => {
-      /* const lastVisible = snapshot.docs[snapshot.docs.length - 1];
+      const lastVisible = snapshot[snapshot.length - 1];
 
-      return query(colRef, startAfter(lastVisible), limit(2)); */
-      /*    const lastDocument = snapshot.docs[snapshot.docs.length - 1];
+      return query(productsQuery, startAfter(lastVisible));
 
-      // Get the next 20 documents starting after the last document fetched.
-      return query(productsQuery, startAfter(lastDocument)); */
-    }
+      // return query(productsQuery, startAfter(lastVisible));
+    },
+    { idField: "_id" }
   );
-
+  console.log(colQuery);
   return colQuery;
 };
 
