@@ -8,7 +8,6 @@ import AllProducts from "./pages/AllProducts";
 import Checkout from "./pages/Checkout";
 import Confirmation from "./pages/Confirmation";
 import PageNotFound from "./pages/PageNotFound";
-import RequireAuth from "./components/RequireAuth";
 import AdminPage from "./pages/AdminPage";
 
 function App() {

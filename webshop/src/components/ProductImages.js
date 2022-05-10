@@ -1,5 +1,5 @@
 import style from "../css/ProductImages.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const ProductImages = ({ data }) => {
   const [currentImage, setCurrentImage] = useState(data.images[0]);

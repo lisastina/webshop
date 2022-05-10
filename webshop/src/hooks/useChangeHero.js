@@ -1,5 +1,5 @@
 import { db, storage } from "../firebase";
-import { collection, doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import {
   ref,
   getDownloadURL,

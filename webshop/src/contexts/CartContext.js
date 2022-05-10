@@ -30,6 +30,7 @@ const CartContextProvider = (props) => {
     if (cartItems.length === 0) {
       setCartLength(0);
     }
+    // eslint-disable-next-line
   }, [cartLength, cartItems.length]);
 
   const addToCart = (newItem) => {

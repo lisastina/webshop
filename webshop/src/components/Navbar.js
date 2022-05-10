@@ -9,6 +9,7 @@ const Navbar = () => {
   const { currentUser } = useAuthContext();
   const location = useLocation();
   const { cartItems: cart, cartLength, setCheckout } = useContext(CartContext);
+  // eslint-disable-next-line
   const [activeLink, setActiveLink] = useLocalStorage(
     "activeLinkAdmin",
     "editProducts"
@@ -57,7 +58,7 @@ const Navbar = () => {
             );
 
             if (link.protected && !currentUser) {
-              return;
+              return null;
             }
             return linkEl;
           })}

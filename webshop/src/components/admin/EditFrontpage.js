@@ -8,7 +8,6 @@ import useChangeHero from "../../hooks/useChangeHero";
 
 const EditFrontpage = ({ data }) => {
   const products = useGetCol("products");
-  const heroRef = useRef();
   const productRef1 = useRef();
   const productRef2 = useRef();
   const productRef3 = useRef();
@@ -22,6 +21,7 @@ const EditFrontpage = ({ data }) => {
     (acceptedFiles) => {
       setMyImages([...acceptedFiles]);
     },
+    // eslint-disable-next-line
     [myImages]
   );
 
@@ -103,47 +103,10 @@ const EditFrontpage = ({ data }) => {
               ref={textRef}
               maxLength="400"
               defaultValue={data.text}
-              required
               onClick={() => editFrontpage.setIsSuccess(false)}
             />
             <label htmlFor="products">Promoted products</label>
             <div className={style.selectList}>
-              {/* {data?.products.map((productId, i) => {
-                console.log(productId);
-                return (
-                  <div
-                    className={`customSelect ${style.select}`}
-                    key={i}
-                    onClick={() => editFrontpage.setIsSuccess(false)}
-                  >
-                    <select
-                      name="product-1"
-                      id="product-1"
-                      // defaultValue={productId}
-                    >
-                      {products?.data &&
-                        products.data.map((product) => {
-                          if (product._id === productId) {
-                            return (
-                              <option
-                                selected
-                                value={product._id}
-                                key={product._id}
-                              >
-                                {product.name} {product.type}
-                              </option>
-                            );
-                          }
-                          return (
-                            <option value={product._id} key={product._id}>
-                              {product.name} {product.type}
-                            </option>
-                          );
-                        })}
-                    </select>
-                  </div>
-                );
-              })} */}
               <div className={`customSelect ${style.select}`}>
                 <select name="product-1" id="product-1" ref={productRef1}>
                   {products?.data &&

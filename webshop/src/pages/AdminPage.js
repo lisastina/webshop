@@ -14,6 +14,7 @@ const AdminPage = () => {
     "activeLinkAdmin",
     "editProducts"
   );
+  // eslint-disable-next-line
   const [activeLinkEditContent, setActiveLinkEditContent] = useLocalStorage(
     "activeLinkEditContent",
     "frontpage"

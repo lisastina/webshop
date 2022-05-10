@@ -36,7 +36,6 @@ const EditAbout = ({ about }) => {
               ref={textRef}
               maxLength="800"
               defaultValue={about.text}
-              required
               onClick={() => editAbout.setIsSuccess(false)}
             />
             <label htmlFor="github">Github link</label>

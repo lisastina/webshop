@@ -10,7 +10,7 @@ const Home = () => {
     <>
       {data && (
         <div className={style.home}>
-          <img src={data[0].heroImage.url} alt="hero image" />
+          <img src={data[0].heroImage.url} alt="hero" />
           <div className="pages-container">
             <div className={style.desc}>
               <h2>{data[0].title}</h2>

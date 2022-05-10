@@ -40,7 +40,7 @@ const useEditDoc = (col, documentId) => {
 
       /* Take the number from each image's name and put in an array */
       if (document.images.length > 0) {
-        document.images.map((currentImage) => {
+        document.images.forEach((currentImage) => {
           const imageNumber = Number(
             currentImage.name
               .substring(currentImage.name.lastIndexOf("-") + 1)

@@ -15,7 +15,7 @@ const useDeleteDoc = (col, document) => {
 
     try {
       if (document.images) {
-        await document.images.map((image) => {
+        await document.images.forEach((image) => {
           deleteObject(ref(storage, image.path));
         });
       }

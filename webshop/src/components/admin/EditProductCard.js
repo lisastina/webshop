@@ -23,6 +23,7 @@ const EditProductCard = ({ product }) => {
     (acceptedFiles) => {
       setMyImages([...acceptedFiles]);
     },
+    // eslint-disable-next-line
     [myImages]
   );
 
