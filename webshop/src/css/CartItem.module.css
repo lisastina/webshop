@@ -60,10 +60,6 @@
   height: 32px;
   padding: 0 0 0 1rem;
 }
-/* .cartItem .quantity input:focus {
-  outline: 1.5px solid rgb(141, 157, 165);
-  -moz-outline-radius: 0.3em;
-} */
 
 /* Checking out */
 .checkingOut .imgWrapper,
