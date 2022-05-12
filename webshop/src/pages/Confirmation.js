@@ -1,14 +1,13 @@
 import { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import style from "../css/Confirmation.module.css";
 
 const Confirmation = () => {
-  const history = useHistory();
   const { order } = useContext(CartContext);
 
   return (
-    <div className={style.confirmation}>
+    <div className={`${style.confirmation} pages-container`}>
       {order ? (
         <div className={style.order}>
           <h1>Thank you for your order!</h1>
@@ -19,7 +18,7 @@ const Confirmation = () => {
               {order.cartItems &&
                 order.cartItems.map((item, i) => (
                   <p key={i}>
-                    {item.quantity} x {item.name} {item.productType}{" "}
+                    {item.quantity} x {item.name} {item.type}{" "}
                     {item.size && item.size}
                   </p>
                 ))}
@@ -30,7 +29,8 @@ const Confirmation = () => {
                 {order.shipping.firstName} {order.shipping.lastName}
                 <br /> {order.shipping.street} <br />
                 {order.shipping.zip} {order.shipping.city} <br />
-                {order.shipping.country}
+                {order.shipping.country.charAt(0).toUpperCase() +
+                  order.shipping.country.slice(1)}
               </p>
               <p>
                 {order.shipping.email} <br />
@@ -42,7 +42,7 @@ const Confirmation = () => {
           </div>
         </div>
       ) : (
-        history.push("/")
+        <Navigate to="/" />
       )}
     </div>
   );

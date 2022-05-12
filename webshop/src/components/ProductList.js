@@ -1,18 +1,10 @@
 import ProductCard from "./ProductCard";
-import { useContext } from "react";
-import { ProductContext } from "../contexts/ProductContext";
-
-const ProductList = () => {
-  const { products } = useContext(ProductContext);
-
+const ProductList = ({ products }) => {
   return (
     <div>
-      {products &&
-        products
-          .slice(0, 2)
-          .map((product, index) => (
-            <ProductCard product={product} key={index} index={index} />
-          ))}
+      {products?.map((product, index) => {
+        return <ProductCard productId={product} index={index} key={index} />;
+      })}
     </div>
   );
 };

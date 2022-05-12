@@ -1,37 +1,48 @@
 import style from "../css/ProductCard.module.css";
-import { useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { ProductContext } from "../contexts/ProductContext";
+import { Link } from "react-router-dom";
+import useGetDoc from "../hooks/useGetDoc";
 
-const ProductCard = (props) => {
-  const history = useHistory();
-  const { viewProduct } = useContext(ProductContext);
+const ProductCard = ({ productId, index }) => {
+  const { data: product } = useGetDoc(
+    "products",
+    "frontpageProduct01",
+    productId
+  );
 
   const isOdd = (num) => {
     return num % 2;
   };
 
   return (
-    <div
-      className={`${style.productCard} ${isOdd(props.index) && style.reverse}`}
-    >
-      <div className={style.imgWrapper}>
-        <img
-          onClick={() => viewProduct(props.product, history)}
-          src={props.product.img}
-          alt={`${props.product.name} ${props.product.productType}`}
-        />
-      </div>
-      <div className={style.desc}>
-        <h2>
-          {props.product.name} {props.product.productType}
-        </h2>
-        <p>{props.product.desc}</p>
-        <button onClick={() => viewProduct(props.product, history)}>
-          Purchase item
-        </button>
-      </div>
-    </div>
+    <>
+      {product && (
+        <div
+          className={`${style.productCard} ${isOdd(index) && style.reverse}`}
+        >
+          <div className={style.imgWrapper}>
+            <Link to={`/shop/${productId}`}>
+              <img
+                src={
+                  product.images?.length
+                    ? product.images[0].url
+                    : "../assets/imgs/placeholder.png"
+                }
+                alt={`${product.name} ${product.type}`}
+              />
+            </Link>
+          </div>
+          <div className={style.desc}>
+            <h2>
+              {product.name} {product.type}
+            </h2>
+            <p>{product.desc}</p>
+            <Link to={`/shop/${productId}`}>
+              <button className="btn">Purchase item</button>
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

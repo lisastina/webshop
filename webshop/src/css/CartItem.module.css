@@ -58,18 +58,7 @@
 .cartItem .quantity input {
   width: 50px;
   height: 32px;
-  border-radius: 0.25rem;
-  background-color: #fff;
-  border: solid #b3c5ce 1px;
-  color: #463a3b;
-  font-size: inherit;
-  font-family: "Libre Caslon Text", serif;
   padding: 0 0 0 1rem;
-  outline: none;
-}
-.cartItem .quantity input:focus {
-  outline: 1.5px solid rgb(141, 157, 165);
-  -moz-outline-radius: 0.3em;
 }
 
 /* Checking out */

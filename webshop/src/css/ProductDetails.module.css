@@ -11,15 +11,13 @@
 .productDetails .desc p::first-letter {
   text-transform: capitalize;
 }
-.productDetails .imgWrapper {
-  width: 50%;
-}
-.productDetails .imgWrapper img {
-  width: 100%;
-}
+
 .productDetails .desc {
   text-align: center;
   width: 40%;
+}
+.productDetails .desc p {
+  white-space: pre-line;
 }
 .productDetails .selects {
   margin: 2rem auto;
@@ -43,24 +41,14 @@
   width: 100%;
   min-width: 97px;
   height: 32px;
-  border-radius: 0.25rem;
-  background-color: #fff;
-  border: solid #b3c5ce 1px;
-  color: #463a3b;
-  font-size: inherit;
-  font-family: "Libre Caslon Text", serif;
   padding: 0 0 0 1rem;
-  outline: none;
 }
-.productDetails .quantity input:focus {
-  outline: 1.5px solid rgb(141, 157, 165);
-  -moz-outline-radius: 0.3em;
-}
+
 .select {
   width: 100%;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
   .productDetails {
     margin: 100px auto;
   }

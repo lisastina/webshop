@@ -87,7 +87,6 @@
 }
 
 /* Hamburger */
-
 .hamburger {
   display: none;
   margin: 0.5rem;
@@ -119,6 +118,18 @@
   visibility: hidden;
 }
 
+@media only screen and (max-width: 1050px) {
+  .navbar h1 {
+    font-size: 1.8rem;
+  }
+  .navbar .link {
+    margin: 0.5rem;
+  }
+  .navbar .link a {
+    font-size: 1rem;
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .navbarContainer {
     padding: 1.5rem 0rem;
@@ -136,9 +147,7 @@
     background-color: white;
     border-bottom: #b3c5ce 2px solid;
   }
-  .navbar h1 {
-    font-size: 1.5rem;
-  }
+
   .linkContainer a:hover::before,
   .linkContainer .active::before {
     visibility: visible;
