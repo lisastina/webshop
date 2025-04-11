@@ -23,6 +23,7 @@
 }
 .shopProductCard .desc .price {
   min-width: 58px;
+  white-space: nowrap;
 }
 .shopProductCard .desc h2::first-letter {
   text-transform: capitalize;
